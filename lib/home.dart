@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
     return GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, childAspectRatio: 0.8),
-        itemCount: 6,
+        itemCount: 4, //THIS THING WAS 6
         itemBuilder: (context, i) {
           return InkWell(
             child: Container(
