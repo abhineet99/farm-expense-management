@@ -1,7 +1,7 @@
 import 'package:farm_expense_management/screens/home/home_page.dart';
 import 'package:flutter/material.dart';
 //import 'package:farm_expense_management/category.dart';
-import 'package:farm_expense_management/expenses_pal_app.dart';
+//import 'package:farm_expense_management/expenses_pal_app.dart';
 
 class Home extends StatefulWidget {
   Home({Key key, this.title}) : super(key: key);
