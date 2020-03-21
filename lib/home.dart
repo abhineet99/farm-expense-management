@@ -1,5 +1,7 @@
+import 'package:farm_expense_management/screens/home/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:farm_expense_management/category.dart';
+//import 'package:farm_expense_management/category.dart';
+import 'package:farm_expense_management/expenses_pal_app.dart';
 
 class Home extends StatefulWidget {
   Home({Key key, this.title}) : super(key: key);
@@ -66,12 +68,16 @@ class _HomeState extends State<Home> {
               ),
             ),
             onTap: () => {
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => Category(
+                  //               title: categories[i]['title'],
+                  //             )))
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => Category(
-                                title: categories[i]['title'],
-                              )))
+                          builder: (context) => HomePage()))
                 },
           );
         });
@@ -93,26 +99,26 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Future<bool> _onWillPop() {
-    return showDialog(
-          context: context,
-          builder: (context) => new AlertDialog(
-                title: new Text('Are you sure?'),
-                content: new Text('Do you want to exit an App'),
-                actions: <Widget>[
-                  new FlatButton(
-                    onPressed: () => Navigator.of(context).pop(false),
-                    child: new Text('No'),
-                  ),
-                  new FlatButton(
-                    onPressed: () => Navigator.of(context).pop(true),
-                    child: new Text('Yes'),
-                  ),
-                ],
-              ),
-        ) ??
-        false;
-  }
+  // Future<bool> _onWillPop() {
+  //   return showDialog(
+  //         context: context,
+  //         builder: (context) => new AlertDialog(
+  //               title: new Text('Are you sure?'),
+  //               content: new Text('Do you want to exit an App'),
+  //               actions: <Widget>[
+  //                 new FlatButton(
+  //                   onPressed: () => Navigator.of(context).pop(false),
+  //                   child: new Text('No'),
+  //                 ),
+  //                 new FlatButton(
+  //                   onPressed: () => Navigator.of(context).pop(true),
+  //                   child: new Text('Yes'),
+  //                 ),
+  //               ],
+  //             ),
+  //       ) ??
+  //       false;
+  // }
 
   Widget buildDrawer() {
     return Drawer(
