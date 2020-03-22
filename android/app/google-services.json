@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1007868840",
+    "firebase_url": "https://farm-expense-management.firebaseio.com",
+    "project_id": "farm-expense-management",
+    "storage_bucket": "farm-expense-management.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007868840:android:babee1af5d494f6b4b1b9d",
+        "android_client_info": {
+          "package_name": "com.example.farm_expense_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007868840-5kd45igafl6235s3hrfq6ecqt55lp06v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb7aossdkGz-iQFutImqyjLzse3NB4Gaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007868840-5kd45igafl6235s3hrfq6ecqt55lp06v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

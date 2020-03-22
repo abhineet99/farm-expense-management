@@ -1,23 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:farm_expense_management/home.dart';
+import 'package:farm_expense_management/services/authentication.dart';
+import 'package:farm_expense_management/pages/root_page.dart';
+
+bool debug=false;
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+        title: 'Flutter login demo',
+        debugShowCheckedModeBanner: false,
+        theme: new ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: new RootPage(auth: new Auth()));
+  }
+}
+
+/*------------- ARCHIVED CODE------------- 
 //import 'package:farm_expense_management/screens/home/home_page.dart';
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    print('test111111111111');
+    if(debug)
+      print('test111111111111');
     return MaterialApp(
       title: 'Flutter login UI',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
       home: MyLoginPage(title: 'Flutter Login'),
@@ -48,7 +58,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    print('test22222222222222');
+    if(debug)
+      print('test22222222222222');
 
     final emailField = TextField(
       obscureText: false,
@@ -125,3 +136,5 @@ class _MyLoginPageState extends State<MyLoginPage> {
     );
   }
 }
+
+-------------------*/
