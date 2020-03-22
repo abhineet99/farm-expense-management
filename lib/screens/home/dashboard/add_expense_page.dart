@@ -9,6 +9,7 @@ import 'package:farm_expense_management/common/models/tag.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:farm_expense_management/common/ui/single_tag.dart';
+import 'package:farm_expense_management/common/ui/multiselect.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -31,6 +32,8 @@ class AddExpensePageState extends State<AddExpensePage> {
   final tagController = TextEditingController();
   final tagFocusNode = FocusNode();
   final List<Tag> tags = [];
+  
+  List <MultiSelectDialogItem<String>> multiTags =List();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -79,6 +82,36 @@ class AddExpensePageState extends State<AddExpensePage> {
 
     FocusScope.of(context).requestFocus(tagFocusNode);
   }
+
+  void populateMultiSelect(){
+    multiTags=List();
+    for (Tag tag in widget.field.tags){
+      multiTags.add(MultiSelectDialogItem(tag.name,tag.name));
+    }
+  }
+  
+
+  void _showMultiSelect(BuildContext context) async {
+    populateMultiSelect();
+    final items = multiTags;
+    final selectedValues = await showDialog<Set<String>>(
+      context: context,
+      builder: (BuildContext context) {
+        return MultiSelectDialog(
+          dialogueHeading: 'Tags',
+          items: items,
+          // initialSelectedValues: [1, 3].toSet() ,
+        );
+      },
+    );
+    if (selectedValues!=null){
+      for(String newValue in selectedValues){
+        addTag(newValue, context);
+    }
+    } 
+    
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -220,6 +253,10 @@ class AddExpensePageState extends State<AddExpensePage> {
                       ),
                     ),
                     ListTile(
+                      leading: RaisedButton(
+                        child: Text('Choose Tags'),
+                        onPressed:()=> _showMultiSelect(context) ,
+                        ),
                       title: tags.length > 0
                           ? _RemoveableExpenseTags(
                               tags: tags,
