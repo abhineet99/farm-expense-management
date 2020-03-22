@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:farm_expense_management/home.dart';
+import 'package:farm_expense_management/screens/home/dashboard/dashboard_page_fields.dart';
+
 //import 'package:farm_expense_management/screens/home/home_page.dart';
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -69,7 +71,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
               OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
     );
     Future navigateToTypePage(context) async{
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardPageFields()));
     }
     final loginButon = Material(
       elevation: 5.0,

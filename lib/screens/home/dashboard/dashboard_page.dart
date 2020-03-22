@@ -2,6 +2,7 @@ import 'package:farm_expense_management/blocs/expenses_bloc.dart';
 import 'package:farm_expense_management/common/assets.dart';
 import 'package:farm_expense_management/common/helpers.dart';
 import 'package:farm_expense_management/common/models/expenses.dart';
+import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/ui/expense_tags.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
@@ -16,18 +17,20 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
 
 class DashboardPage extends StatefulWidget {
+  final Field field;
+  DashboardPage({@required this.field});
   @override
   _DashboardPageState createState() => _DashboardPageState();
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  final addPage = AddExpensePage();
+  // final addPage = AddExpensePage();
   final filterPage = FilterPage();
 
   @override
   void initState() {
     super.initState();
-    expensesBloc.fetchAllExpenses();
+    expensesBloc.fetchAllExpenses(widget.field);
     filtersBloc.fetchInitialFilters();
   }
 
@@ -73,9 +76,10 @@ class _DashboardPageState extends State<DashboardPage> {
             );
 
           Widget titleWidget;
-          titleWidget = PalTitleView(
-            title: "YOUR EXPENSES",
-          );
+          var palTitleView = PalTitleView(
+                      title: widget.field.name.toUpperCase(),
+                    );
+                    titleWidget = palTitleView;
 
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -111,7 +115,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               CupertinoPageRoute(
                                 fullscreenDialog: true,
                                 builder: (BuildContext context) {
-                                  return addPage;
+                                  return AddExpensePage(field: widget.field);
                                 },
                               ),
                             );
@@ -202,7 +206,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget _buildList(
       FilteredList<Expense> expenses, ExpensesBloc bloc, bool filtersActive) {
     if (expenses.length <= 0) {
-      return _DashboardEmptyState(filtersActive: filtersActive);
+      return _DashboardEmptyState(filtersActive: filtersActive,field: widget.field,);
     }
 
     List<dynamic> items = [];
@@ -225,6 +229,7 @@ class _DashboardPageState extends State<DashboardPage> {
         MaterialPageRoute(
           builder: (BuildContext context) {
             return ExpenseDetailsPage(
+              field: widget.field,
               expense: expense,
               expenses: expenses,
             );
@@ -417,8 +422,8 @@ class _ExpenseCard extends StatelessWidget {
 
 class _DashboardEmptyState extends StatelessWidget {
   final bool filtersActive;
-
-  _DashboardEmptyState({@required this.filtersActive});
+  final Field field;
+  _DashboardEmptyState({@required this.filtersActive,@required this.field});
 
   @override
   Widget build(BuildContext context) {
@@ -465,7 +470,7 @@ class _DashboardEmptyState extends StatelessWidget {
               CupertinoPageRoute(
                 fullscreenDialog: true,
                 builder: (BuildContext context) {
-                  return AddExpensePage();
+                  return AddExpensePage(field:field);
                 },
               ),
             );

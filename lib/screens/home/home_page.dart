@@ -1,3 +1,4 @@
+import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/ui/shadow_icon.dart';
 import 'package:farm_expense_management/screens/home/dashboard/dashboard_page.dart';
 import 'package:farm_expense_management/screens/home/more/more_page.dart';
@@ -7,13 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class HomePage extends StatefulWidget {
+  final Field field;
+  HomePage({@required this.field});
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final dashboard = DashboardPage();
-  final stats = StatsPage();
   final more = MorePage();
 
   Widget _tabs;
@@ -21,10 +22,10 @@ class _HomePageState extends State<HomePage> {
   Widget _getBody(index) {
     switch (index) {
       case 0:
-        return dashboard;
+        return DashboardPage(field: widget.field);
         break;
       case 1:
-        return stats;
+        return StatsPage(field: widget.field);
         break;
       case 2:
         return more;

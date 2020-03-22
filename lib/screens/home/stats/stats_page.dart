@@ -1,6 +1,7 @@
 import 'package:farm_expense_management/blocs/expenses_bloc.dart';
 import 'package:farm_expense_management/common/helpers.dart';
 import 'package:farm_expense_management/common/models/expenses.dart';
+import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/ui/swipeable_tabbar.dart';
 import 'package:farm_expense_management/screens/home/dashboard/filter/filter.dart';
 import 'package:farm_expense_management/screens/home/stats/line_chart.dart';
@@ -11,6 +12,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'dart:math';
 
 class StatsPage extends StatelessWidget {
+  final Field field;
+
+  StatsPage({@required this.field});
+
   List<TimeSeriesExpense> _seriesFor(
       DateTime date, String currency, FilteredList<Expense> expenses) {
     List<TimeSeriesExpense> data = [];
@@ -148,7 +153,7 @@ class StatsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    expensesBloc.fetchAllExpenses();
+    expensesBloc.fetchAllExpenses(field);
     bool allTime = false;
 
     return SafeArea(
