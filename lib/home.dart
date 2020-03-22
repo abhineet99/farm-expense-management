@@ -1,6 +1,6 @@
 import 'package:farm_expense_management/screens/home/home_page.dart';
-import 'package:flutter/material.dart';
-import 'package:farm_expense_management/common/ui/pal_title_view.dart';
+import 'package:flutter/material.dart'; 
+import 'package:farm_expense_management/common/ui/pal_title_view.dart';//for appBar title widget
 
 //import 'package:farm_expense_management/category.dart';
 //import 'package:farm_expense_management/expenses_pal_app.dart';
@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
   Widget titleWidget = PalTitleView(
     title: "Categories",
   );
-  final primaryColor = const Color(0xFFFFFFFF);
+  final primaryColor = const Color(0xFFFFFFFF); //white color in appBar background
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:farm_expense_management/services/authentication.dart';
-
+import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 class LoginSignupPage extends StatefulWidget {
   LoginSignupPage({this.auth, this.loginCallback});
 
@@ -86,12 +86,17 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
       _isLoginForm = !_isLoginForm;
     });
   }
+  Widget titleWidget = PalTitleView(
+    title: "Login",
+  );
+  final primaryColor = const Color(0xFFFFFFFF); //white color in appBar background
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text('Flutter login demo'),
+          title: titleWidget,
+          backgroundColor: primaryColor,
         ),
         body: Stack(
           children: <Widget>[
@@ -239,7 +244,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
             elevation: 5.0,
             shape: new RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(30.0)),
-            color: Colors.blue,
+            color: Colors.green[900],
             child: new Text(_isLoginForm ? 'Login' : 'Create account',
                 style: new TextStyle(fontSize: 20.0, color: Colors.white)),
             onPressed: validateAndSubmit,
@@ -247,3 +252,14 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
         ));
   }
 }
+
+  // Widget showPrimaryButton() {
+  //   return new  PalButton(
+  //         title: "ADD",
+  //         width: MediaQuery.of(context).size.width * (2.0 / 3.0),
+  //         colors: [Colors.green[600], Colors.green[900]],
+  //         onPressed:  validateAndSubmit,
+  //             );
+  // }
+
+
