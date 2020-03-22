@@ -1,6 +1,9 @@
 import 'package:farm_expense_management/screens/home/home_page.dart';
+import 'package:farm_expense_management/about.dart';
 import 'package:flutter/material.dart'; 
-import 'package:farm_expense_management/common/ui/pal_title_view.dart';//for appBar title widget
+import 'package:farm_expense_management/common/ui/pal_title_view.dart';
+import 'package:farm_expense_management/stats_page1.dart';
+//for appBar title widget
 
 //import 'package:farm_expense_management/category.dart';
 //import 'package:farm_expense_management/expenses_pal_app.dart';
@@ -48,7 +51,54 @@ class _HomeState extends State<Home> {
         iconTheme: IconThemeData(color: Colors.green),
       ),
      // icon: new Icon(Icons.settings),
-      drawer: buildDrawer(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.only(top: 0.0),
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('Welcome!'),
+              accountEmail: Text(''),
+              // currentAccountPicture: CircleAvatar(
+              //   child: Image.asset('assets/hi2.jpg'),
+              //   // backgroundColor: Colors.lightGreen[600],
+              //   // child: Text('AB',
+              //   // style: TextStyle(color: Colors.white),)
+              // ),
+              decoration: BoxDecoration(
+                color: Colors.green[900],
+                //decoration: BoxDecoration(),
+                
+              )
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
+              }
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.toys),
+              title: Text('Stats'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>StatsPage1()));
+              }
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text('About App'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>About()));
+              }
+            ),
+            Divider()
+          ],),
+        ),
       body: buildBody(),
     );
     
@@ -91,7 +141,8 @@ class _HomeState extends State<Home> {
                           builder: (context) => HomePage()))
                 },
           );
-        });
+        }
+        );
   }
 
   Widget buildTitle(String title) {
@@ -110,139 +161,118 @@ class _HomeState extends State<Home> {
     );
   }
 
-  // Future<bool> _onWillPop() {
-  //   return showDialog(
-  //         context: context,
-  //         builder: (context) => new AlertDialog(
-  //               title: new Text('Are you sure?'),
-  //               content: new Text('Do you want to exit an App'),
-  //               actions: <Widget>[
-  //                 new FlatButton(
-  //                   onPressed: () => Navigator.of(context).pop(false),
-  //                   child: new Text('No'),
-  //                 ),
-  //                 new FlatButton(
-  //                   onPressed: () => Navigator.of(context).pop(true),
-  //                   child: new Text('Yes'),
-  //                 ),
-  //               ],
-  //             ),
-  //       ) ??
-  //       false;
+//   Widget buildDrawer() {
+//     return Drawer(
+//       child: Column(
+//         children: <Widget>[
+//           Expanded(
+//             flex: 2,
+//             child: UserAccountsDrawerHeader(
+// //              decoration: BoxDecoration(image: DecorationImage(image: AssetImage("img/mazzad.png"))),
+//               accountName: Text("Just A Farmer"),
+//               accountEmail: Text("justAnotherFarmer@gmail.com"),
+//               currentAccountPicture: CircleAvatar(
+//                 backgroundImage: AssetImage("img/logo.png"),
+//                 radius: 50,
+//               ),
+//             ),
+//           ),
+//           Expanded(
+//               flex: 5,
+//               child: ListView(
+//                 shrinkWrap: true,
+//                 children: <Widget>[
+//                   buildSeparators("Registeration"),
+//                   buildTile(
+//                     "Login",
+//                     "/login",
+//                     'img/login.png',
+//                   ),
+//                   buildTile(
+//                     "SignUp",
+//                     "/signUp",
+//                     'img/registeration_ico.png',
+//                   ),
+//                   Divider(),
+//                   buildSeparators("Help Center"),
+//                   buildTile(
+//                     "Feedback",
+//                     "/feedback",
+//                     'img/feedback.png',
+//                   ),
+//                   buildTile(
+//                     "How to order",
+//                     "/feedback",
+//                     'img/info.png',
+//                   ),
+//                   buildTile(
+//                     "Shipping",
+//                     "/feedback",
+//                     'img/shipping.png',
+//                   ),
+//                   buildTile(
+//                     "Questions and Assistance",
+//                     "/feedback",
+//                     'img/assistance.png',
+//                   ),
+//                   buildTile(
+//                     "About payment",
+//                     "/feedback",
+//                     'img/visa.png',
+//                   ),
+//                   Divider(),
+//                   buildSeparators("Public Policy"),
+//                   buildTile(
+//                     "Privacy Policy",
+//                     "/feedback",
+//                     'img/policy.png',
+//                   ),
+//                   buildTile(
+//                     "Terms and Conditions",
+//                     "/feedback",
+//                     'img/terms.png',
+//                   ),
+//                   buildTile(
+//                     "Return Policy",
+//                     "/feedback",
+//                     'img/refund.png',
+//                   ),
+//                 ],
+//               ))
+//         ],
+//       ),
+//     );
+//   }
+
+//   Widget buildSeparators(String name) {
+//     return Row(
+//       mainAxisAlignment: MainAxisAlignment.start,
+//       children: <Widget>[
+//         Padding(padding: EdgeInsets.only(left: 10)),
+//         Text(
+//           name,
+//           style: TextStyle(
+//               fontStyle: FontStyle.italic,
+//               fontWeight: FontWeight.bold,
+//               fontSize: 12),
+//         ),
+//       ],
+//     );
+//   }
+
+  // Widget buildTile(String name, String path, String imgPath) {
+  //   return ListTile(
+  //     leading: Image.asset(
+  //       imgPath,
+  //       scale: 1.2,
+  //     ),
+  //     title: Text(name),
+  //     onTap: () {
+  //       if ( path != '/login' && path != '/signUp' )
+  //         Navigator.pop(context);
+  //       else
+  //         Navigator.pushNamed(context, path);
+  //     },
+  //   );
   // }
-
-  Widget buildDrawer() {
-    return Drawer(
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            flex: 2,
-            child: UserAccountsDrawerHeader(
-//              decoration: BoxDecoration(image: DecorationImage(image: AssetImage("img/mazzad.png"))),
-              accountName: Text("Just A Farmer"),
-              accountEmail: Text("justAnotherFarmer@gmail.com"),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage("img/logo.png"),
-                radius: 50,
-              ),
-            ),
-          ),
-          Expanded(
-              flex: 5,
-              child: ListView(
-                shrinkWrap: true,
-                children: <Widget>[
-                  buildSeparators("Registeration"),
-                  buildTile(
-                    "Login",
-                    "/login",
-                    'img/login.png',
-                  ),
-                  buildTile(
-                    "SignUp",
-                    "/signUp",
-                    'img/registeration_ico.png',
-                  ),
-                  Divider(),
-                  buildSeparators("Help Center"),
-                  buildTile(
-                    "Feedback",
-                    "/feedback",
-                    'img/feedback.png',
-                  ),
-                  buildTile(
-                    "How to order",
-                    "/feedback",
-                    'img/info.png',
-                  ),
-                  buildTile(
-                    "Shipping",
-                    "/feedback",
-                    'img/shipping.png',
-                  ),
-                  buildTile(
-                    "Questions and Assistance",
-                    "/feedback",
-                    'img/assistance.png',
-                  ),
-                  buildTile(
-                    "About payment",
-                    "/feedback",
-                    'img/visa.png',
-                  ),
-                  Divider(),
-                  buildSeparators("Public Policy"),
-                  buildTile(
-                    "Privacy Policy",
-                    "/feedback",
-                    'img/policy.png',
-                  ),
-                  buildTile(
-                    "Terms and Conditions",
-                    "/feedback",
-                    'img/terms.png',
-                  ),
-                  buildTile(
-                    "Return Policy",
-                    "/feedback",
-                    'img/refund.png',
-                  ),
-                ],
-              ))
-        ],
-      ),
-    );
-  }
-
-  Widget buildSeparators(String name) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: <Widget>[
-        Padding(padding: EdgeInsets.only(left: 10)),
-        Text(
-          name,
-          style: TextStyle(
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.bold,
-              fontSize: 12),
-        ),
-      ],
-    );
-  }
-
-  Widget buildTile(String name, String path, String imgPath) {
-    return ListTile(
-      leading: Image.asset(
-        imgPath,
-        scale: 1.2,
-      ),
-      title: Text(name),
-      onTap: () {
-        if ( path != '/login' && path != '/signUp' )
-          Navigator.pop(context);
-        else
-          Navigator.pushNamed(context, path);
-      },
-    );
-  }
 }

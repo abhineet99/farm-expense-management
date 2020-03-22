@@ -24,10 +24,10 @@ class _HomePageState extends State<HomePage> {
         return dashboard;
         break;
       case 1:
-        return stats;
+        return more;
         break;
       case 2:
-        return more;
+        return stats;
         break;
       default:
         return null;
@@ -68,27 +68,27 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          BottomNavigationBarItem(
-            icon: ShadowIcon(
-              Icons.show_chart,
-              offsetX: 0.0,
-              offsetY: 0.0,
-              blur: 3.0,
-              shadowColor: Colors.black.withOpacity(0.25),
-            ),
-            title: Text(
-              'Stats',
-              style: TextStyle(
-                shadows: <Shadow>[
-                  Shadow(
-                    offset: Offset(2.0, 2.0),
-                    blurRadius: 2.0,
-                    color: Colors.black.withOpacity(0.3),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          // BottomNavigationBarItem(
+          //   icon: ShadowIcon(
+          //     Icons.show_chart,
+          //     offsetX: 0.0,
+          //     offsetY: 0.0,
+          //     blur: 3.0,
+          //     shadowColor: Colors.black.withOpacity(0.25),
+          //   ),
+          //   title: Text(
+          //     'Stats',
+          //     style: TextStyle(
+          //       shadows: <Shadow>[
+          //         Shadow(
+          //           offset: Offset(2.0, 2.0),
+          //           blurRadius: 2.0,
+          //           color: Colors.black.withOpacity(0.3),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           BottomNavigationBarItem(
             icon: ShadowIcon(
               Icons.more_horiz,

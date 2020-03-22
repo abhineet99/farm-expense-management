@@ -83,7 +83,10 @@ class _RootPageState extends State<RootPage> {
           return buildWaitingScreen();
         break;
       default:
-        return buildWaitingScreen();
+        new LoginSignupPage(
+          auth: widget.auth,
+          loginCallback: loginCallback,
+        );
     }
   }
 }
