@@ -45,9 +45,9 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: titleWidget,
         backgroundColor: primaryColor,
-      
+        iconTheme: IconThemeData(color: Colors.green),
       ),
-      
+     // icon: new Icon(Icons.settings),
       drawer: buildDrawer(),
       body: buildBody(),
     );
