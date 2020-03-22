@@ -1,11 +1,13 @@
-//import 'package:farm_expense_management/home.dart';
 import 'package:flutter/material.dart';
-//import 'package:farm_expense_management/screens/home/home_page.dart';
 import 'package:farm_expense_management/expenses_pal_app.dart';
-//import 'package:farm_expense_management/category.dart';
 void main() => runApp(ExpansesPalApp());
 
 
+//-------------ARCHIVED CODE BELOW-------------- //
+
+//import 'package:farm_expense_management/category.dart';
+//import 'package:farm_expense_management/screens/home/home_page.dart';
+//import 'package:farm_expense_management/home.dart';
 
 
 // class TypePage extends StatelessWidget {

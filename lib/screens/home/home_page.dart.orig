@@ -25,10 +25,14 @@ class _HomePageState extends State<HomePage> {
         return DashboardPage(field: widget.field);
         break;
       case 1:
+<<<<<<< HEAD
         return StatsPage(field: widget.field);
+=======
+        return more;
+>>>>>>> 2554d8fa66eb0b7dcd3231adeb8aab90dd59b6d3
         break;
       case 2:
-        return more;
+        return stats;
         break;
       default:
         return null;

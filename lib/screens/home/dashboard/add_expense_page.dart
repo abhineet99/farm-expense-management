@@ -254,7 +254,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                       child: PalButton(
                         title: "ADD",
                         width: MediaQuery.of(context).size.width * (2.0 / 3.0),
-                        colors: [Colors.green[600], Colors.green[900]],
+                        colors: [Colors.green[900], Colors.green[900]],
                         onPressed: () {
                           if (!_formKey.currentState.validate()) {
                             return;

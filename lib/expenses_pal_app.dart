@@ -28,7 +28,7 @@ class ExpansesPalApp extends StatelessWidget {
               print('case1');
               if (snapshot.data) {
                 print('case1a');
-                return loginPage;
+                return loginPage;  //login page from MyApp.dart
               } else {
                 print('case1b');
                 showOnboarding();
