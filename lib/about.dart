@@ -22,7 +22,33 @@ class _AboutState extends State<About> {
         title: titleWidget,
         backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: Colors.green),
-      )
+      ),
+      body: Column(
+
+        mainAxisAlignment: MainAxisAlignment.center,
+
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Align(
+            alignment: Alignment.center,
+            child: Text('---- Farm Expense Management v1.0.0 ----'),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Text("\nDeveloped by Abhineet, Bhawna and Mehakjot (cse '21)"),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Text('\nUnder the guidance of Dr. Puneet Goyal'),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Text('\nCourse Project - Development Engineering, IIT Ropar'),
+          ),
+
+        ]
+        
+      ),
       );
   }
 }
