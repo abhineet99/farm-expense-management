@@ -7,6 +7,7 @@ import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:farm_expense_management/screens/home/dashboard/add_field_page.dart';
 import 'package:farm_expense_management/screens/home/home_page.dart';
+import 'package:farm_expense_management/about.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
@@ -32,10 +33,75 @@ class _DashboardPageState extends State<DashboardPageFields> {
         [fieldsBloc.allFields]);
     return stream;
   }
-
+final primaryColor = const Color(0xFFFFFFFF);
   Widget _createBody(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      appBar: AppBar(
+        title: PalTitleView(
+           title: "Your Fields",
+          ),
+        backgroundColor: primaryColor,
+        iconTheme: IconThemeData(color: Colors.green),
+      ),
+      
+    drawer: Drawer(
+      child: ListView(
+          padding: EdgeInsets.only(top: 0.0),
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('Welcome!'),
+              accountEmail: Text(''),
+              // currentAccountPicture: CircleAvatar(
+              //   child: Image.asset('assets/hi2.jpg'),
+              //   // backgroundColor: Colors.lightGreen[600],
+              //   // child: Text('AB',
+              //   // style: TextStyle(color: Colors.white),)
+              // ),
+              decoration: BoxDecoration(
+                color: Colors.green[900],
+                //decoration: BoxDecoration(),
+                
+              )
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardPageFields()));
+              }
+            ),
+            // Divider(),
+            // ListTile(
+            //   leading: Icon(Icons.toys),
+            //   title: Text('Stats'),
+            //   onTap: () {
+            //     Navigator.pop(context);
+            //     Navigator.push(context, MaterialPageRoute(builder: (context)=>StatsPage1()));
+            //   }
+            // ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text('About App'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>About()));
+              }
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.lock),
+              title: Text('Sign Out'),
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardPageFields()));
+              }
+            ),
+            Divider()
+          ],),
+    ),
+    body: SafeArea(
       child: StreamBuilder<List<Object>>(
         stream: getData(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -57,10 +123,10 @@ class _DashboardPageState extends State<DashboardPageFields> {
               ),
             );
 
-          Widget titleWidget;
-          titleWidget = PalTitleView(
-            title: "YOUR Fields",
-          );
+          // Widget titleWidget;
+          // titleWidget = PalTitleView(
+          //   title: "Your Fields",
+          // );
 
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -74,7 +140,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Center(
-                          child: titleWidget,
+                          //child: titleWidget,
                         ),
                         IconButton(
                           icon: Icon(Icons.add),
@@ -100,8 +166,8 @@ class _DashboardPageState extends State<DashboardPageFields> {
             ],
           );
         },
-      ),
-    )
+      ), 
+    ),
     );
   }
 

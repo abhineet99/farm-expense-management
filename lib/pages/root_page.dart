@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:farm_expense_management/pages/login_signup_page.dart';
 import 'package:farm_expense_management/services/authentication.dart';
-import 'package:farm_expense_management/home.dart';
+import 'package:farm_expense_management/screens/home/dashboard/dashboard_page_fields.dart';
 
 enum AuthStatus {
   NOT_DETERMINED,
@@ -77,8 +77,7 @@ class _RootPageState extends State<RootPage> {
         break;
       case AuthStatus.LOGGED_IN:
         if (_userId.length > 0 && _userId != null) {
-          return new Home(
-          );
+          return DashboardPageFields();
         } else
           return buildWaitingScreen();
         break;
