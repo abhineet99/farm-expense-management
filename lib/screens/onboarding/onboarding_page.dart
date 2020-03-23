@@ -16,27 +16,28 @@ class OnboardingPage extends StatelessWidget {
       image: Assets.onboarding1,
       title: "Expenses",
       subtitle:
-          "Add your expenses to be able to always get back and check where you have spent your money",
+          "Add your expenses and check where you have spent your money",
       colors: [
-        Colors.lightBlue[50],
-        Colors.lightBlue[600],
-        Colors.lightBlue[900],
+
+        Colors.deepOrange[50],
+        Colors.deepOrange[600],
+        Colors.deepOrange[900],
       ],
     ),
     OnboardingSinglePage(
       image: Assets.onboarding2,
       title: "Tags",
-      subtitle: "You can also tag them to easily search through them and check where you spend your money the most",
+      subtitle: "Tag your expenses to easily search through them and check where you spend your money the most",
       colors: [
-        Colors.lightBlue[50],
-        Colors.lightBlue[600],
-        Colors.lightBlue[900],
+        Colors.lime[50],
+        Colors.lime[600],
+        Colors.lime[900],
       ],
     ),
     OnboardingSinglePage(
       image: Assets.onboarding3,
       title: "Stats",
-      subtitle: "Check stats of your expenses and compare your current month expenses to last month or lifetime average",
+      subtitle: "Check stats of your expenses and compare your current month expenses to last month or all-time average",
       colors: [
         Colors.lightBlue[50],
         Colors.lightBlue[600],
