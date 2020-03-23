@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
         return DashboardPage(field: widget.field);
         break;
       case 1:
-        return StatsPage(field: widget.field);
+        return StatsPage();
         break;
       case 2:
         return more;
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
               shadowColor: Colors.black.withOpacity(0.25),
             ),
             title: Text(
-              'More',
+              'Stats',
               style: TextStyle(
                 shadows: <Shadow>[
                   Shadow(
