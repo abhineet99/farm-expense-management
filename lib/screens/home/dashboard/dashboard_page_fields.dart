@@ -38,7 +38,7 @@ final primaryColor = const Color(0xFFFFFFFF);
     return Scaffold(
       appBar: AppBar(
         title: PalTitleView(
-           title: "Your Fields",
+           title: "Categories",
           ),
         backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: Colors.green),
