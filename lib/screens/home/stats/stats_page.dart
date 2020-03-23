@@ -13,9 +13,7 @@ import 'dart:math';
 
 class StatsPage extends StatelessWidget {
   final Field field;
-
   StatsPage({@required this.field});
-
   List<TimeSeriesExpense> _seriesFor(
       DateTime date, String currency, FilteredList<Expense> expenses) {
     List<TimeSeriesExpense> data = [];
@@ -26,7 +24,7 @@ class StatsPage extends StatelessWidget {
       var expesnesForDay = expenses
           .where((expense) =>
               DateHelper.isSameDay(expense.date, currentDate) &&
-              expense.currency == currency)
+              expense.currency == "INR")
           .toList();
 
       double amount = 0;
@@ -61,7 +59,7 @@ class StatsPage extends StatelessWidget {
     for (var i = 1; i <= 31; i++) {
       var expesnesForDay = expenses
           .where((expense) =>
-              expense.date.day == i && expense.currency == currency)
+              expense.date.day == i && expense.currency == "INR")
           .toList();
 
       double amount = 0.0;
@@ -90,7 +88,7 @@ class StatsPage extends StatelessWidget {
 
   List<charts.Series<TimeSeriesExpense, DateTime>> _createData(
       FilteredList<Expense> expenses, String currency, DateTime date) {
-    List<TimeSeriesExpense> data = _seriesFor(date, currency, expenses);
+    List<TimeSeriesExpense> data = _seriesFor(date, "INR", expenses);
 
     DateTime lastDay = date.month < 12
         ? DateTime.utc(date.year, date.month + 1, 0)
@@ -135,8 +133,8 @@ class StatsPage extends StatelessWidget {
       bool allTime,
       DateTime date) {
     List<TimeSeriesExpense> data = allTime
-        ? _seriesForAllTime(currency, expenses)
-        : _seriesFor(date, currency, expenses);
+        ? _seriesForAllTime("INR", expenses)
+        : _seriesFor(date, "INR", expenses);
 
     return [
       charts.Series<TimeSeriesExpense, DateTime>(
@@ -256,7 +254,7 @@ class StatsPage extends StatelessWidget {
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
                         return StatsDetails(
                           expenses: data,
-                          currency: snapshot.data,
+                          currency: "INR",
                         );
                       }),
                 ],
@@ -390,7 +388,7 @@ class StatsDetails extends StatelessWidget {
     var thisMonthExpenses = expenses.where((expense) =>
         expense.date.year == today.year &&
         expense.date.month == today.month &&
-        expense.currency == currency);
+        expense.currency == "INR");
 
     if (thisMonthExpenses.isEmpty) return 0.0;
 
@@ -406,7 +404,7 @@ class StatsDetails extends StatelessWidget {
     var lastMonthExpenses = expenses.where((expense) =>
         expense.date.year == lastMonth.year &&
         expense.date.month == lastMonth.month &&
-        expense.currency == currency);
+        expense.currency == "INR");
 
     if (lastMonthExpenses.isEmpty) return 0.0;
 
@@ -445,14 +443,14 @@ class StatsDetails extends StatelessWidget {
               Expanded(
                 child: StatsDetailText(
                   title: "This month",
-                  value: thisMonth().toStringAsFixed(2) + " " + currency,
+                  value: thisMonth().toStringAsFixed(2) + " " +"INR",
                   color: Colors.green,
                 ),
               ),
               Expanded(
                 child: StatsDetailText(
                   title: "Avg. per day",
-                  value: thisMonthPerDay().toStringAsFixed(2) + " " + currency,
+                  value: thisMonthPerDay().toStringAsFixed(2) + " " + "INR",
                   color: Colors.green,
                 ),
               )
@@ -464,7 +462,7 @@ class StatsDetails extends StatelessWidget {
               Expanded(
                 child: StatsDetailText(
                   title: "Previous month",
-                  value: previousMonth().toStringAsFixed(2) + " " + currency,
+                  value: previousMonth().toStringAsFixed(2) + " " + "INR",
                   color: Colors.blue,
                 ),
               ),
@@ -472,7 +470,7 @@ class StatsDetails extends StatelessWidget {
                 child: StatsDetailText(
                   title: "Avg. per day",
                   value:
-                      previousMonthPerDay().toStringAsFixed(2) + " " + currency,
+                      previousMonthPerDay().toStringAsFixed(2) + " " + "INR",
                   color: Colors.blue,
                 ),
               ),

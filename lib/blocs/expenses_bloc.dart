@@ -26,6 +26,21 @@ class ExpensesBloc {
 
     _expensesFetcher.sink.add(expenses);
   }
+  fetchAllExpenses1() async {
+    ExpenseTable table = ExpenseTable();
+    List<Map> maps = await manager.fetchAllEntriesOf(Expense);
+    FilteredList<Expense> expenses = FilteredList();
+
+    maps.forEach((map) {
+      Expense expense = table.entryFromMap(map);
+      //if (field.name==expense.fieldName)
+      expenses.add(expense);
+    });
+
+    expenses.sort((e1, e2) => e2.date.compareTo(e1.date));
+
+    _expensesFetcher.sink.add(expenses);
+  }
 
   Future<bool> addExpense(Expense expense,Field field) async {
     return manager.insert([expense]).then((value) {
