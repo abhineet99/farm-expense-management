@@ -55,9 +55,10 @@ class FieldsBloc {
     return addField(field);                   
   }
   
-  Future<int> removeTag(Field field,Tag newTag){
+  Future<bool> removeTag(Field field,Tag newTag){
     field.tags.removeWhere((tag) => tag==newTag);   //def any operation to == 
-    return manager.update(Field, 'field', field.name, 'tags', field.tags);
+    removeField(field);                   //easy update, else need to encode and decode tags as json objects           
+    return addField(field);    
   }
 
   dispose() {
