@@ -1,6 +1,7 @@
 import 'package:farm_expense_management/blocs/expenses_bloc.dart';
 import 'package:farm_expense_management/common/helpers.dart';
 import 'package:farm_expense_management/common/models/expenses.dart';
+import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/ui/expense_tags.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/screens/home/dashboard/filter/filter.dart';
@@ -8,10 +9,11 @@ import 'package:flutter/material.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 
 class ExpenseDetailsPage extends StatelessWidget {
+  final Field field;
   final FilteredList<Expense> expenses;
   final Expense expense;
 
-  ExpenseDetailsPage({@required this.expense, @required this.expenses});
+  ExpenseDetailsPage({@required this.field, @required this.expense, @required this.expenses});
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +118,7 @@ class ExpenseDetailsPage extends StatelessWidget {
                               MediaQuery.of(context).size.width * (2.0 / 3.0),
                           colors: [Colors.red[600], Colors.red[900]],
                           onPressed: () {
-                            expensesBloc.removeExpense(expense);
+                            expensesBloc.removeExpense(expense,field);
                             Navigator.of(context).pop();
                           },
                         ),

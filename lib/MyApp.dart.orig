@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:farm_expense_management/home.dart';
 import 'package:farm_expense_management/screens/home/dashboard/dashboard_page_fields.dart';
 
+=======
 import 'package:farm_expense_management/services/authentication.dart';
 import 'package:farm_expense_management/pages/root_page.dart';
 
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
 }
 
 /*------------- ARCHIVED CODE------------- 
+>>>>>>> 2554d8fa66eb0b7dcd3231adeb8aab90dd59b6d3
 //import 'package:farm_expense_management/screens/home/home_page.dart';
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

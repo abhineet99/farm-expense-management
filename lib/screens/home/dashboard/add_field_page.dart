@@ -1,39 +1,25 @@
-import 'dart:async';
-
-import 'package:farm_expense_management/blocs/expenses_bloc.dart';
 import 'package:farm_expense_management/blocs/field_bloc.dart';
-import 'package:farm_expense_management/common/helpers.dart';
-import 'package:farm_expense_management/common/models/expenses.dart';
 import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/models/tag.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:farm_expense_management/common/ui/single_tag.dart';
-import 'package:farm_expense_management/common/ui/multiselect.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
-class AddExpensePage extends StatefulWidget {
-  final Field field;
-
-  AddExpensePage({@required this.field});
+class AddFieldPage extends StatefulWidget {
   @override
-  AddExpensePageState createState() {
-    return AddExpensePageState();
+  AddFieldPageState createState() {
+    return AddFieldPageState();
   }
 }
 
-class AddExpensePageState extends State<AddExpensePage> {
-  final titleController = TextEditingController();
-  final descriptionController = TextEditingController();
-  final amountController = TextEditingController();
-  final currencyController = TextEditingController();
+class AddFieldPageState extends State<AddFieldPage> {
+  final nameController = TextEditingController();
   final tagController = TextEditingController();
   final tagFocusNode = FocusNode();
   final List<Tag> tags = [];
-  
-  List <MultiSelectDialogItem<String>> multiTags =List();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -42,31 +28,13 @@ class AddExpensePageState extends State<AddExpensePage> {
 
   @override
   void dispose() {
-    titleController.dispose();
-    descriptionController.dispose();
-    amountController.dispose();
-    currencyController.dispose();
+    nameController.dispose();
     tagController.dispose();
     tagFocusNode.dispose();
     super.dispose();
   }
 
   changeColor(Color color) => setState(() => currentColor = color);
-
-  Future _selectDate() async {
-    DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: currentDate,
-        firstDate: DateTime(currentDate.year - 1),
-        lastDate: DateTime(currentDate.year + 1));
-    if (picked != null)
-      setState(() {
-        DateTime now = DateTime.now();
-        DateTime date = DateTime.utc(
-            picked.year, picked.month, picked.day, now.hour, now.minute);
-        currentDate = date;
-      });
-  }
 
   void addTag(String newValue, BuildContext context) {
     if (newValue.trim().length < 1) return;
@@ -82,36 +50,6 @@ class AddExpensePageState extends State<AddExpensePage> {
 
     FocusScope.of(context).requestFocus(tagFocusNode);
   }
-
-  void populateMultiSelect(){
-    multiTags=List();
-    for (Tag tag in widget.field.tags){
-      multiTags.add(MultiSelectDialogItem(tag.name,tag.name));
-    }
-  }
-  
-
-  void _showMultiSelect(BuildContext context) async {
-    populateMultiSelect();
-    final items = multiTags;
-    final selectedValues = await showDialog<Set<String>>(
-      context: context,
-      builder: (BuildContext context) {
-        return MultiSelectDialog(
-          dialogueHeading: 'Tags',
-          items: items,
-          // initialSelectedValues: [1, 3].toSet() ,
-        );
-      },
-    );
-    if (selectedValues!=null){
-      for(String newValue in selectedValues){
-        addTag(newValue, context);
-    }
-    } 
-    
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -153,48 +91,15 @@ class AddExpensePageState extends State<AddExpensePage> {
                     ListTile(
                       leading: const Icon(Icons.title),
                       title: TextFormField(
-                        controller: titleController,
+                        controller: nameController,
                         decoration: InputDecoration(
-                          hintText: "Title",
+                          hintText: "Name",
                         ),
                         validator: (value) {
                           if (value.isEmpty) {
                             return "Please enter title";
                           }
                         },
-                      ),
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.attach_money),
-                      title: TextFormField(
-                        controller: amountController,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          hintText: "Amount",
-                        ),
-                        validator: (value) {
-                          if (value.isEmpty) {
-                            return "Please enter amount";
-                          }
-                        },
-                      ),
-                      trailing: Container(
-                        width: 50.0,
-                        child: TextField(
-                          controller: currencyController,
-                          decoration: InputDecoration(
-                            hintText: "INR", 
-                          ),
-                        ),
-                      ),
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.description),
-                      title: TextField(
-                        controller: descriptionController,
-                        decoration: InputDecoration(
-                          hintText: "Description",
-                        ),
                       ),
                     ),
                     ListTile(
@@ -253,10 +158,6 @@ class AddExpensePageState extends State<AddExpensePage> {
                       ),
                     ),
                     ListTile(
-                      leading: RaisedButton(
-                        child: Text('Choose Tags'),
-                        onPressed:()=> _showMultiSelect(context) ,
-                        ),
                       title: tags.length > 0
                           ? _RemoveableExpenseTags(
                               tags: tags,
@@ -274,41 +175,21 @@ class AddExpensePageState extends State<AddExpensePage> {
                               ),
                             ),
                     ),
-                    ListTile(
-                      leading: const Icon(Icons.today),
-                      title: const Text('Date'),
-                      subtitle: Text(
-                        DateHelper.formatDate(
-                          currentDate,
-                          fullDate: true,
-                          withTime: true,
-                        ),
-                      ),
-                      onTap: _selectDate,
-                    ),
                     Padding(
                       padding: EdgeInsets.all(16.0),
                       child: PalButton(
                         title: "ADD",
                         width: MediaQuery.of(context).size.width * (2.0 / 3.0),
-                        colors: [Colors.green[900], Colors.green[900]],
+                        colors: [Colors.green[600], Colors.green[900]],
                         onPressed: () {
                           if (!_formKey.currentState.validate()) {
                             return;
                           }
-                          Expense expense = Expense(
-                              title: titleController.text,
-                              description: descriptionController.text,
-                              date: currentDate,
-                              amount:
-                                  double.tryParse(amountController.text) ?? 0.0,
-                              currency: currencyController.text.isNotEmpty
-                                  ? currencyController.text
-                                  : "INR",
-                              fieldName: widget.field.name,
-                              tags: tags);
-                          fieldsBloc.addTags(widget.field,tags);
-                          expensesBloc.addExpense(expense,widget.field);
+                          Field field=Field(
+                            name: nameController.text,
+                            tags: tags
+                          );
+                          fieldsBloc.addField(field);
                           Navigator.of(context).pop();
                         },
                       ),

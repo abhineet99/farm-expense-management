@@ -3,6 +3,7 @@ import 'package:farm_expense_management/about.dart';
 import 'package:flutter/material.dart'; 
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:farm_expense_management/stats_page1.dart';
+import 'package:farm_expense_management/screens/home/dashboard/dashboard_page_fields.dart';
 //for appBar title widget
 
 //import 'package:farm_expense_management/category.dart';
@@ -138,7 +139,7 @@ class _HomeState extends State<Home> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => HomePage()))
+                          builder: (context) => DashboardPageFields()))
                 },
           );
         }

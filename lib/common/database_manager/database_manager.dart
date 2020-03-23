@@ -1,9 +1,11 @@
 import 'dart:async';
-
+import 'dart:developer';
 import 'package:farm_expense_management/common/database_manager/database_model.dart';
 import 'package:farm_expense_management/common/models/expenses.dart';
+import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+ 
 
 class DatabaseManager {
   static final defaultManager = DatabaseManager();
@@ -11,6 +13,7 @@ class DatabaseManager {
 
   Map<Type, DatabaseTable> _tables = {
     Expense: ExpenseTable(),
+    Field: FieldTable()
   };
 
   Future<Database> get database async {
@@ -28,7 +31,7 @@ class DatabaseManager {
 
     var database = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
-      print('Creating tables');
+      log('Creating tables');
 
       for (var key in _tables.keys) {
         final table = _tables[key];
@@ -56,6 +59,24 @@ class DatabaseManager {
     return batch.commit(noResult: true);
   }
 
+  Future<int> update(Type type,String primaryKey, var primaryValue, String secondaryKey ,  var secondaryValue) async {
+    var db = await database;
+    DatabaseTable table = _tables[type];
+    if (table == null) {
+      return 0;
+    }
+    var tableName=table.name;
+
+    return db.rawUpdate('''
+      UPDATE $tableName 
+      SET $secondaryKey=?
+      WHERE $primaryKey=?
+      ''',
+      [primaryValue,secondaryValue]
+      );
+
+  }
+
   Future<List<dynamic>> remove(List<DatabaseModel> models) async {
     var db = await database;
     var batch = db.batch();
@@ -74,6 +95,7 @@ class DatabaseManager {
   }
 
   Future<List<Map>> fetchAllEntriesOf(Type type) async {
+    print('inside Fetching Entries');
     DatabaseTable table = _tables[type];
 
     if (table == null) {
@@ -82,6 +104,19 @@ class DatabaseManager {
 
     var db = await database;
     var maps = await db.query(table.name, columns: table.columns);
+    return maps;
+  }
+
+  Future<List<Map>> fetchAllEntriesWithKey(Type type,String key, String value) async {
+    DatabaseTable table = _tables[type];
+
+    if (table == null) {
+      return [];
+    }
+
+    String whereString=key+'=?';
+    var db = await database;
+    var maps = await db.query(table.name, where: whereString, whereArgs: [value] );
     return maps;
   }
 

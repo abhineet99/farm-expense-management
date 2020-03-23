@@ -15,4 +15,8 @@ class Tag {
         'name': name,
         'color': color.toString().split('(0x')[1].split(')')[0],
       };
+
+  bool operator ==(other){
+    return (other is Tag && other.name==this.name);
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:farm_expense_management/common/database_manager/database_model.dart';
+import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/models/tag.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class Expense extends DatabaseModel {
   final DateTime date;
   final double amount;
   final String currency;
+  final String fieldName;
   final List<Tag> tags;
 
   Expense(
@@ -20,6 +22,7 @@ class Expense extends DatabaseModel {
       @required this.date,
       @required this.amount,
       @required this.currency,
+      @required this.fieldName,
       @required this.tags});
 
   @override
@@ -40,6 +43,7 @@ class Expense extends DatabaseModel {
       'date': date.toIso8601String(),
       'amount': amount.toString(),
       'currency': currency,
+      'fieldName': fieldName, 
       'tags': jsonEncode(tags) //tags.map((tag) => tag.toJson())
     };
 
@@ -61,9 +65,10 @@ class ExpenseTable extends DatabaseTable {
               'date',
               'amount',
               'currency',
+              'fieldName',
               'tags'
             ],
-            '_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, date TEXT, amount TEXT, currency TEXT, tags TEXT');
+            '_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, date TEXT, amount TEXT, currency TEXT, fieldName TEXT,tags TEXT');
 
   @override
   DatabaseModel entryFromMap(Map map) {
@@ -75,6 +80,7 @@ class ExpenseTable extends DatabaseTable {
       date: DateTime.parse(map['date']),
       amount: double.parse(map['amount']),
       currency: map['currency'],
+      fieldName: map['fieldName'],
       tags: tags,
     );
 
