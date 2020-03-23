@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:farm_expense_management/home.dart';
-import 'package:farm_expense_management/screens/home/dashboard/dashboard_page_fields.dart';
+//import 'package:farm_expense_management/home.dart';
+//import 'package:farm_expense_management/screens/home/dashboard/dashboard_page_fields.dart';
 
 import 'package:farm_expense_management/services/authentication.dart';
 import 'package:farm_expense_management/pages/root_page.dart';
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-        title: 'Flutter login demo',
+        title: 'Farm Expense Management',
         debugShowCheckedModeBanner: false,
         theme: new ThemeData(
           primarySwatch: Colors.blue,
