@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:farm_expense_management/blocs/expenses_bloc.dart';
 import 'package:farm_expense_management/blocs/field_bloc.dart';
 import 'package:farm_expense_management/common/helpers.dart';
@@ -34,10 +34,20 @@ class AddExpensePageState extends State<AddExpensePage> {
   final List<Tag> tags = [];
   
   List <MultiSelectDialogItem<String>> multiTags =List();
+  GlobalKey<AutoCompleteTextFieldState<String>> key = new GlobalKey();
+  List <String> tagNames=List();
+
+  @override
+  void initState() {
+    super.initState();
+    for (Tag tag in widget.field.tags){
+      tagNames.add(tag.name);
+    }
+  }
 
   final _formKey = GlobalKey<FormState>();
 
-  Color currentColor = Color(0xff443a49);
+  Color currentColor = Colors.green;
   DateTime currentDate = DateTime.now();
 
   @override
@@ -68,7 +78,7 @@ class AddExpensePageState extends State<AddExpensePage> {
       });
   }
 
-  void addTag(String newValue, BuildContext context) {
+  void addTag(String newValue ,BuildContext context) {
     if (newValue.trim().length < 1) return;
 
     tags.removeWhere((tag) => tag.name == newValue.trim());
@@ -83,6 +93,15 @@ class AddExpensePageState extends State<AddExpensePage> {
     FocusScope.of(context).requestFocus(tagFocusNode);
   }
 
+  void addMultipleTags(List<String> newTags, BuildContext context){
+    setState(() {
+      tags.clear();
+    });
+    for(String newValue in newTags){
+      addTag(newValue, context);
+    }
+  }
+
   void populateMultiSelect(){
     multiTags=List();
     for (Tag tag in widget.field.tags){
@@ -94,20 +113,22 @@ class AddExpensePageState extends State<AddExpensePage> {
   void _showMultiSelect(BuildContext context) async {
     populateMultiSelect();
     final items = multiTags;
+    List<String> selectedTagNames=List();
+    for(Tag tag in tags){
+      selectedTagNames.add(tag.name);
+    }
     final selectedValues = await showDialog<Set<String>>(
       context: context,
       builder: (BuildContext context) {
         return MultiSelectDialog(
           dialogueHeading: 'Tags',
           items: items,
-          // initialSelectedValues: [1, 3].toSet() ,
+          initialSelectedValues: selectedTagNames.toSet() ,
         );
       },
     );
     if (selectedValues!=null){
-      for(String newValue in selectedValues){
-        addTag(newValue, context);
-    }
+      addMultipleTags(selectedValues.toList(), context);
     } 
     
   }
@@ -199,24 +220,32 @@ class AddExpensePageState extends State<AddExpensePage> {
                     ),
                     ListTile(
                       leading: const Icon(Icons.label),
-                      title: TextField(
-                        controller: tagController,
-                        focusNode: tagFocusNode,
-                        onChanged: (newValue) {
-                          if (newValue.endsWith(',')) {
-                            addTag(newValue.replaceAll(",", ""), context);
-                          }
-                        },
-                        onSubmitted: (newValue) {
-                          addTag(newValue, context);
-                        },
-                        decoration: InputDecoration(
-                          hintText: "Tag",
-                        ),
+                      title: SimpleAutoCompleteTextField(
+                        key: key,
+                        decoration: new InputDecoration(hintText: "Tags"),
+                        controller: TextEditingController(text: ""),
+                        suggestions: tagNames,
+                        clearOnSubmit: true,
+                        textSubmitted: (newValue) => setState(() {
+                              if (newValue != "") {
+                                addTag(newValue, context);
+                              }
+                            }
+                          ),
                       ),
-                      trailing: Container(
-                        width: 40.0,
+                      trailing: IconButton(
+                        icon: Icon(Icons.check_box),
+                        color: currentColor,
+                        onPressed:()=> _showMultiSelect(context) ,
+                        ),
+                    ),
+                    ListTile(
+                      leading:Container(
+                        width: 30.0,
                         child: FlatButton(
+                          child:null,
+                          textColor: Colors.black,
+                          shape: CircleBorder(),
                           onPressed: () {
                             FocusScope.of(context)
                                 .requestFocus(new FocusNode());
@@ -248,15 +277,8 @@ class AddExpensePageState extends State<AddExpensePage> {
                             );
                           },
                           color: currentColor,
-                          child: null,
                         ),
                       ),
-                    ),
-                    ListTile(
-                      leading: RaisedButton(
-                        child: Text('Choose Tags'),
-                        onPressed:()=> _showMultiSelect(context) ,
-                        ),
                       title: tags.length > 0
                           ? _RemoveableExpenseTags(
                               tags: tags,
@@ -268,9 +290,10 @@ class AddExpensePageState extends State<AddExpensePage> {
                             )
                           : Center(
                               child: Text(
-                                'No tags yet. Add tag by typing in the field above. To confirm it just press Return or type a comma.',
+                                'No tags yet.',
                                 style: TextStyle(
-                                    color: Colors.black54, fontSize: 14.0),
+                                color: Colors.black54, fontSize: 14.0),
+
                               ),
                             ),
                     ),
