@@ -42,8 +42,23 @@ final primaryColor = const Color(0xFFFFFFFF);
           ),
         backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: Colors.green),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              Navigator.of(context).push(
+                CupertinoPageRoute(
+                  // fullscreenDialog: true,
+                  builder: (BuildContext context) {
+                    return addPage;
+                  },
+                ),
+              );
+            },
+          ),
+        ],
       ),
-      
+    
     drawer: Drawer(
       child: ListView(
           padding: EdgeInsets.only(top: 0.0),
@@ -132,34 +147,6 @@ final primaryColor = const Color(0xFFFFFFFF);
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Padding(
-                padding: EdgeInsets.all(4.0),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Center(
-                          //child: titleWidget,
-                        ),
-                        IconButton(
-                          icon: Icon(Icons.add),
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              CupertinoPageRoute(
-                                fullscreenDialog: true,
-                                builder: (BuildContext context) {
-                                  return addPage;
-                                },
-                              ),
-                            );
-                          },
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
               Expanded(
                 child: mainWidget,
               ),
@@ -369,7 +356,7 @@ class _DashboardEmptyState extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).push(
               CupertinoPageRoute(
-                fullscreenDialog: true,
+                // fullscreenDialog: true, 
                 builder: (BuildContext context) {
                   return AddFieldPage();
                 },
