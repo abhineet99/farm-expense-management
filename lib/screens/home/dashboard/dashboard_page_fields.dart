@@ -108,15 +108,15 @@ class _DashboardPageState extends State<DashboardPageFields> {
               }
             ),
             Divider(),
-            ListTile(
-              leading: Icon(Icons.lock),
-              title: Text('Sign Out'),
-              onTap: (){
-                Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardPageFields()));
-              }
-            ),
-            Divider()
+            // ListTile(
+            //   leading: Icon(Icons.lock),
+            //   title: Text('Sign Out'),
+            //   onTap: (){
+            //     Navigator.pop(context);
+            //     Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardPageFields()));
+            //   }
+            // ),
+            // Divider()
           ],),
     ),
     body: SafeArea(
