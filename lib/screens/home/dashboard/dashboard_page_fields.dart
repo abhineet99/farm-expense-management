@@ -12,7 +12,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
+//import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'package:farm_expense_management/locale/locale.dart';
 class DashboardPageFields extends StatefulWidget {
   @override
   _DashboardPageState createState() => _DashboardPageState();
@@ -33,12 +35,12 @@ class _DashboardPageState extends State<DashboardPageFields> {
         [fieldsBloc.allFields]);
     return stream;
   }
-final primaryColor = const Color(0xFFFFFFFF);
+  final primaryColor = const Color(0xFFFFFFFF);
   Widget _createBody(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: PalTitleView(
-           title: "Categories",
+           title: Text(AppLocalizations.of(context).category).data,
           ),
         backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: Colors.green),
@@ -64,7 +66,8 @@ final primaryColor = const Color(0xFFFFFFFF);
           padding: EdgeInsets.only(top: 0.0),
           children: <Widget>[
             UserAccountsDrawerHeader(
-              accountName: Text('Welcome!'),
+              accountName: Text(AppLocalizations.of(context).greeting),
+              //accountName: Text('Welcome!'),
               accountEmail: Text(''),
               // currentAccountPicture: CircleAvatar(
               //   child: Image.asset('assets/hi2.jpg'),
@@ -80,7 +83,7 @@ final primaryColor = const Color(0xFFFFFFFF);
             ),
             ListTile(
               leading: Icon(Icons.home),
-              title: Text('Home'),
+              title: Text(AppLocalizations.of(context).home),
               onTap: (){
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardPageFields()));
@@ -98,7 +101,7 @@ final primaryColor = const Color(0xFFFFFFFF);
             Divider(),
             ListTile(
               leading: Icon(Icons.info),
-              title: Text('About App'),
+              title: Text(AppLocalizations.of(context).about),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>About()));
@@ -350,7 +353,7 @@ class _DashboardEmptyState extends StatelessWidget {
           ),
         ),
         PalButton(
-          title: "ADD",
+          title: Text(AppLocalizations.of(context).add).data,
           width: MediaQuery.of(context).size.width * (2.0 / 3.0),
           colors: [Colors.green[600], Colors.green[900]],
           onPressed: () {

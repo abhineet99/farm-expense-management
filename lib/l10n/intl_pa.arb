@@ -1,0 +1,122 @@
+{
+  "title": "ਫਾਰਮ ਖਰਚ ਪ੍ਰਬੰਧਨ",
+  "@title": {
+    "description": "Title for the Weather Application",
+    "type": "text",
+    "placeholders": {}
+  },
+  "greeting": "ਸਵਾਗਤ ਹੈ",
+  "@greeting": {
+    "description": "Greeting in drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "ਮੁੱਖ ਪੰਨਾ",
+  "@home": {
+    "description": "Home in drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "about": "ਐਪਲੀਕੇਸ਼ਨ ਬਾਰੇ",
+  "@about": {
+    "description": "about in drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "category": "ਸ਼੍ਰੇਣੀ",
+  "@category": {
+    "description": "title in categories page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "add": "ਸ਼ਾਮਲ ਕਰੋ",
+  "@add": {
+    "description": "title and button in add expense/category page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "expenseTitle": "ਸਿਰਲੇਖ",
+  "@expenseTitle": {
+    "description": "expense_title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "amount": "ਰਕਮ",
+  "@amount": {
+    "description": "expense amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "description": "ਵੇਰਵਾ",
+  "@description": {
+    "description": "expense description",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dashboard": "ਸ਼੍ਰੇਣੀ ਪੰਨਾ",
+  "@dashboard": {
+    "description": "dashboard button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "stats": "ਅੰਕੜੇ",
+  "@stats": {
+    "description": "stats button and stats page title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noStatsMsg": "ਅੰਕੜੇ ਵੇਖਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਕੁਝ ਖਰਚੇ ਜੋੜਣੇ ਪੈਣਗੇ",
+  "@noStatsMsg": {
+    "description": "noStatsMsg",
+    "type": "text",
+    "placeholders": {}
+  },
+  "compare": "ਤੁਲਨਾ ਕਰੋ",
+  "@compare": {
+    "description": "compare in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "prevMonth": "ਪਿਛਲਾ ਮਹੀਨਾ",
+  "@prevMonth": {
+    "description": "prevMonth in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "allTimeAvg": "ਪੂਰੇ ਸਮੇਂ ਦੀ ਔਸਤ",
+  "@allTimeAvg": {
+    "description": "allTimeAvg in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "thisMonth": "ਇਸ ਮਹੀਨੇ",
+  "@thisMonth": {
+    "description": "this month in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avgPerDay": "ਪ੍ਰਤੀ ਦਿਨ ਔਸਤ",
+  "@avgPerDay": {
+    "description": "average per day in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "name_1": "ਨਾਮ",
+  "@name_1": {
+    "description": "translucent Name in add category",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tag_1": "ਟੈਗ",
+  "@tag_1": {
+    "description": "translucent tag in add category / expense",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noTagMsg": "ਹਾਲੇ ਕੋਈ ਟੈਗ ਨਹੀਂ ਹਨ. ਉਪਰੋਕਤ ਖੇਤਰ ਵਿੱਚ ਟਾਈਪ ਕਰਕੇ ਟੈਗ ਸ਼ਾਮਲ ਕਰੋ. ਇਸਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ ਸਿਰਫ ਰਿਟਰਨ ਦਬਾਓ ਜਾਂ ਇੱਕ ਕਾਮਾ ਟਾਈਪ ਕਰੋ.",
+  "@noTagMsg": {
+    "description": "no tag message in add category/expense page",
+    "type": "text",
+    "placeholders": {}
+  }
+}

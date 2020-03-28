@@ -10,6 +10,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'common/assets.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'package:farm_expense_management/locale/locale.dart';
+
 class ExpansesPalApp extends StatelessWidget {
   final loginPage = MyApp();
   final onboarding = OnboardingPage();
@@ -19,7 +23,20 @@ class ExpansesPalApp extends StatelessWidget {
     SystemChrome.setEnabledSystemUIOverlays([]);
 
     return MaterialApp(
+      localizationsDelegates: [
+        AppLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en',""),
+        Locale('hi',""),
+        Locale('pa',""),
+      ],
+      onGenerateTitle: (BuildContext context) =>
+      AppLocalizations.of(context).title,
       home: Material(
+        
         type: MaterialType.transparency,
         child: FutureBuilder<bool>(
           future: onboardingShown(),

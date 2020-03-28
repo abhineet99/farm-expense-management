@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'dart:math';
-
+import 'package:farm_expense_management/locale/locale.dart';
 class StatsPage extends StatelessWidget {
   final Field field;
   StatsPage({@required this.field});
@@ -266,7 +266,7 @@ class StatsPage extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Text(
-                      'You have to add some expenses before you can see statistics.',
+                      AppLocalizations.of(context).noStatsMsg,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
@@ -297,7 +297,7 @@ class StatsPage extends StatelessWidget {
                             width: 40.0,
                           ),
                           Flexible(
-                            child: PalTitleView(title: "STATS"),
+                            child: PalTitleView(title: Text(AppLocalizations.of(context).stats).data),
                           ),
                           IconButton(
                             icon: Icon(Icons.help_outline),
@@ -334,7 +334,7 @@ class StatsTypeSwitch extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                "COMPARE TO",
+                AppLocalizations.of(context).compare,
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   color: Colors.grey,
@@ -344,7 +344,7 @@ class StatsTypeSwitch extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "PREVIOUS MONTH",
+                    AppLocalizations.of(context).prevMonth,
                     style: TextStyle(
                       color: Colors.grey,
                     ),
@@ -360,7 +360,7 @@ class StatsTypeSwitch extends StatelessWidget {
                     inactiveTrackColor: Colors.grey.shade200,
                   ),
                   Text(
-                    "ALL TIME AVERAGE",
+                    AppLocalizations.of(context).allTimeAvg,
                     style: TextStyle(
                       color: Colors.grey,
                     ),
@@ -442,14 +442,14 @@ class StatsDetails extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: StatsDetailText(
-                  title: "This month",
+                  title: Text(AppLocalizations.of(context).thisMonth).data,
                   value: thisMonth().toStringAsFixed(2) + " " +"INR",
                   color: Colors.green,
                 ),
               ),
               Expanded(
                 child: StatsDetailText(
-                  title: "Avg. per day",
+                  title: Text(AppLocalizations.of(context).avgPerDay).data,
                   value: thisMonthPerDay().toStringAsFixed(2) + " " + "INR",
                   color: Colors.green,
                 ),
@@ -461,14 +461,14 @@ class StatsDetails extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: StatsDetailText(
-                  title: "Previous month",
+                  title: Text(AppLocalizations.of(context).prevMonth).data,
                   value: previousMonth().toStringAsFixed(2) + " " + "INR",
                   color: Colors.blue,
                 ),
               ),
               Expanded(
                 child: StatsDetailText(
-                  title: "Avg. per day",
+                  title: Text(AppLocalizations.of(context).avgPerDay).data,
                   value:
                       previousMonthPerDay().toStringAsFixed(2) + " " + "INR",
                   color: Colors.blue,

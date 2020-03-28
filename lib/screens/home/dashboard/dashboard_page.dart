@@ -17,7 +17,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
-
+import 'package:farm_expense_management/locale/locale.dart';
 class DashboardPage extends StatefulWidget {
   final Field field;
   DashboardPage({@required this.field});

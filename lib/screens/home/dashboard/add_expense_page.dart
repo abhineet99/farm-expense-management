@@ -13,6 +13,8 @@ import 'package:farm_expense_management/common/ui/multiselect.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:farm_expense_management/locale/locale.dart';
+
 
 class AddExpensePage extends StatefulWidget {
   final Field field;
@@ -133,9 +135,7 @@ class AddExpensePageState extends State<AddExpensePage> {
     
   }
 
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _createbody(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -156,7 +156,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                         },
                       ),
                       Flexible(
-                        child: PalTitleView(title: "ADD"),
+                        child: PalTitleView(title: Text(AppLocalizations.of(context).add).data),
                       ),
                       Container(
                         width: 40.0,
@@ -176,7 +176,8 @@ class AddExpensePageState extends State<AddExpensePage> {
                       title: TextFormField(
                         controller: titleController,
                         decoration: InputDecoration(
-                          hintText: "Title",
+
+                          hintText: Text(AppLocalizations.of(context).category).data,
                         ),
                         validator: (value) {
                           if (value.isEmpty) {
@@ -191,7 +192,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                         controller: amountController,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
-                          hintText: "Amount",
+                          hintText: Text(AppLocalizations.of(context).amount).data,
                         ),
                         validator: (value) {
                           if (value.isEmpty) {
@@ -214,7 +215,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                       title: TextField(
                         controller: descriptionController,
                         decoration: InputDecoration(
-                          hintText: "Description",
+                          hintText: Text(AppLocalizations.of(context).description).data,
                         ),
                       ),
                     ),
@@ -222,7 +223,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                       leading: const Icon(Icons.label),
                       title: SimpleAutoCompleteTextField(
                         key: key,
-                        decoration: new InputDecoration(hintText: "Tags"),
+                        decoration: new InputDecoration(hintText: " "),//Text(AppLocalizations.of(context).tag_1).data),
                         controller: TextEditingController(text: ""),
                         suggestions: tagNames,
                         clearOnSubmit: true,
@@ -312,7 +313,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                     Padding(
                       padding: EdgeInsets.all(16.0),
                       child: PalButton(
-                        title: "ADD",
+                        title: Text(AppLocalizations.of(context).add).data,
                         width: MediaQuery.of(context).size.width * (2.0 / 3.0),
                         colors: [Colors.green[900], Colors.green[900]],
                         onPressed: () {
@@ -344,6 +345,12 @@ class AddExpensePageState extends State<AddExpensePage> {
         ),
       ),
     );
+  }
+
+
+  @override
+  Widget build(BuildContext context){
+    return _createbody(context);
   }
 }
 
