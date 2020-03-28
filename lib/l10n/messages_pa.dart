@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "lastWeek" : MessageLookupByLibrary.simpleMessage("ਪਿਛਲੇ ਹਫ਼ਤੇ"),
     "lastYear" : MessageLookupByLibrary.simpleMessage("ਪਿਛਲੇ ਸਾਲ"),
     "name_1" : MessageLookupByLibrary.simpleMessage("ਨਾਮ"),
+    "noExpenses" : MessageLookupByLibrary.simpleMessage("ਇੱਥੇ ਵੇਖਣ ਲਈ ਕੁਝ ਨਹੀਂ. ਪੈਸਾ ਖਰਚ ਕਰਨ ਤੋਂ ਬਾਅਦ ਖਰਚ ਸ਼ਾਮਲ ਕਰੋ."),
+    "noExpensesFilter" : MessageLookupByLibrary.simpleMessage("ਦਿੱਤੇ ਮਾਪਦੰਡਾਂ ਨਾਲ ਕੋਈ ਖਰਚਾ ਨਹੀਂ ਹੈ"),
     "noStatsMsg" : MessageLookupByLibrary.simpleMessage("ਅੰਕੜੇ ਵੇਖਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਕੁਝ ਖਰਚੇ ਜੋੜਣੇ ਪੈਣਗੇ"),
     "noTagMsg" : MessageLookupByLibrary.simpleMessage("ਹਾਲੇ ਕੋਈ ਟੈਗ ਨਹੀਂ ਹਨ. ਉਪਰੋਕਤ ਖੇਤਰ ਵਿੱਚ ਟਾਈਪ ਕਰਕੇ ਟੈਗ ਸ਼ਾਮਲ ਕਰੋ. ਇਸਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ ਸਿਰਫ ਰਿਟਰਨ ਦਬਾਓ ਜਾਂ ਇੱਕ ਕਾਮਾ ਟਾਈਪ ਕਰੋ."),
     "noTagsYet" : MessageLookupByLibrary.simpleMessage("ਹਾਲੇ ਕੋਈ ਟੈਗ ਨਹੀਂ ਹਨ"),

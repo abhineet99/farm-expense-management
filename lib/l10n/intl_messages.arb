@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-03-28T16:18:09.996984",
+  "@@last_modified": "2020-03-28T17:28:14.327024",
   "title": "Farm expense management",
   "@title": {
     "description": "Title for the Weather Application",
@@ -177,6 +177,18 @@
   "lastYear": "Last Year",
   "@lastYear": {
     "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noExpensesFilter": "There are no expenses with given criteria",
+  "@noExpensesFilter": {
+    "description": "no expenses and filter applied",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noExpenses": "Nothing to see here yet. Add an expense after you spend some money.",
+  "@noExpenses": {
+    "description": "no expenses",
     "type": "text",
     "placeholders": {}
   }

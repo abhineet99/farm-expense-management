@@ -232,6 +232,20 @@ class AppLocalizations {
       desc: 'drop down menu in filter',
     );
   }
+  String get noExpensesFilter{
+    return Intl.message(
+      'There are no expenses with given criteria',
+      name: 'noExpensesFilter',
+      desc: 'no expenses and filter applied',
+    );
+  }
+  String get noExpenses{
+    return Intl.message(
+      'Nothing to see here yet. Add an expense after you spend some money.',
+      name: 'noExpenses',
+      desc: 'no expenses',
+    );
+  }
 
 }
 

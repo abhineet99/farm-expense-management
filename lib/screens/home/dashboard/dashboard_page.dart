@@ -446,8 +446,8 @@ class _DashboardEmptyState extends StatelessWidget {
             padding: EdgeInsets.all(16.0),
             child: Text(
               filtersActive
-                  ? "There is no expenses with given criteria"
-                  : "Nothing to see here yet. Add an expense after you spend some money.",
+                  ? Text(AppLocalizations.of(context).noExpensesFilter).data
+                  : Text(AppLocalizations.of(context).noExpenses).data,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.black,

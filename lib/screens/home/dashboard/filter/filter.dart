@@ -3,7 +3,9 @@ import 'dart:collection';
 import 'package:farm_expense_management/common/helpers.dart';
 import 'package:farm_expense_management/common/models/expenses.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:farm_expense_management/locale/locale.dart';
 
 abstract class ExpenseFilter {
   bool filter(Expense expense);
@@ -11,14 +13,27 @@ abstract class ExpenseFilter {
 
 enum DateFilterType { today, yesterday, week, month, year, custom }
 
-const Map<DateFilterType, String> DateFilterTypeName = {
-  DateFilterType.today: "Today",
-  DateFilterType.yesterday: "Yesterday",
-  DateFilterType.week: "Last week",
-  DateFilterType.month: "Last month",
-  DateFilterType.year: "Last year",
-  DateFilterType.custom: "Custom",
-};
+String DateFilterTypeName(BuildContext context,DateFilterType typeObj){
+  if(typeObj==DateFilterType.today)
+     return  Text(AppLocalizations.of(context).today).data;
+  else  if(typeObj==DateFilterType.yesterday)
+     return  Text(AppLocalizations.of(context).yesterday).data;
+  else  if(typeObj==DateFilterType.week)
+     return  Text(AppLocalizations.of(context).lastWeek).data;
+  else  if(typeObj==DateFilterType.month)
+     return  Text(AppLocalizations.of(context).lastMonth).data;
+  else  if(typeObj==DateFilterType.year)
+    return  Text(AppLocalizations.of(context).lastYear).data;
+  else
+    return "Custom";
+    // DateFilterType.today: "Today",
+    // DateFilterType.yesterday: "Yesterday",
+    // DateFilterType.week: "Last week",
+    // DateFilterType.month: "Last month",
+    // DateFilterType.year: "Last year",
+    // DateFilterType.custom: "Custom",
+
+}
 
 class DateFilter extends ExpenseFilter {
   final DateTime dateTime;

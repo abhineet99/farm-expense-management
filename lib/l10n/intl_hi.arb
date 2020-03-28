@@ -178,5 +178,17 @@
     "description": "drop down menu in filter",
     "type": "text",
     "placeholders": {}
+  },
+  "noExpensesFilter": "दिए गए मानदंडों के साथ कोई खर्च नहीं है",
+  "@noExpensesFilter": {
+    "description": "no expenses and filter applied",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noExpenses": "यहां देखने के लिए कुछ भी नहीं है। पैसे खर्च करने के बाद खर्च जोड़ें।",
+  "@noExpenses": {
+    "description": "no expenses",
+    "type": "text",
+    "placeholders": {}
   }
 }

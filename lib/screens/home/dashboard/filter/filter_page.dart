@@ -77,7 +77,7 @@ class FilterPage extends StatelessWidget {
                             ].map((DateFilterType value) {
                               return DropdownMenuItem<DateFilterType>(
                                 value: value,
-                                child: Text(DateFilterTypeName[value]),
+                                child: Text(DateFilterTypeName(context,value)),
                               );
                             }).toList(),
                             onChanged: changedDropDownItem,

@@ -178,5 +178,17 @@
     "description": "drop down menu in filter",
     "type": "text",
     "placeholders": {}
+  },
+  "noExpensesFilter": "There are no expenses with given criteria",
+  "@noExpensesFilter": {
+    "description": "no expenses and filter applied",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noExpenses": "Nothing to see here yet. Add an expense after you spend some money.",
+  "@noExpenses": {
+    "description": "no expenses",
+    "type": "text",
+    "placeholders": {}
   }
 }

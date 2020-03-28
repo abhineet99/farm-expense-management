@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "lastWeek" : MessageLookupByLibrary.simpleMessage("Last Week"),
     "lastYear" : MessageLookupByLibrary.simpleMessage("Last Year"),
     "name_1" : MessageLookupByLibrary.simpleMessage("Name"),
+    "noExpenses" : MessageLookupByLibrary.simpleMessage("Nothing to see here yet. Add an expense after you spend some money."),
+    "noExpensesFilter" : MessageLookupByLibrary.simpleMessage("There are no expenses with given criteria"),
     "noStatsMsg" : MessageLookupByLibrary.simpleMessage("You have to add some expenses before you can see statistics"),
     "noTagMsg" : MessageLookupByLibrary.simpleMessage("No tags yet. Add tags by typing in the field above. To confirm it just press Return or type a comma."),
     "noTagsYet" : MessageLookupByLibrary.simpleMessage("No tags yet"),

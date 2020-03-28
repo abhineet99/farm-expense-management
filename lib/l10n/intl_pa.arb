@@ -178,5 +178,17 @@
     "description": "drop down menu in filter",
     "type": "text",
     "placeholders": {}
+  },
+  "noExpensesFilter": "ਦਿੱਤੇ ਮਾਪਦੰਡਾਂ ਨਾਲ ਕੋਈ ਖਰਚਾ ਨਹੀਂ ਹੈ",
+  "@noExpensesFilter": {
+    "description": "no expenses and filter applied",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noExpenses": "ਇੱਥੇ ਵੇਖਣ ਲਈ ਕੁਝ ਨਹੀਂ. ਪੈਸਾ ਖਰਚ ਕਰਨ ਤੋਂ ਬਾਅਦ ਖਰਚ ਸ਼ਾਮਲ ਕਰੋ.",
+  "@noExpenses": {
+    "description": "no expenses",
+    "type": "text",
+    "placeholders": {}
   }
 }
