@@ -177,7 +177,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                         controller: titleController,
                         decoration: InputDecoration(
 
-                          hintText: Text(AppLocalizations.of(context).category).data,
+                          hintText: Text(AppLocalizations.of(context).expenseTitle).data,
                         ),
                         validator: (value) {
                           if (value.isEmpty) {
@@ -291,7 +291,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                             )
                           : Center(
                               child: Text(
-                                'No tags yet.',
+                                Text(AppLocalizations.of(context).noTagsYet).data,
                                 style: TextStyle(
                                 color: Colors.black54, fontSize: 14.0),
 
@@ -300,7 +300,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                     ),
                     ListTile(
                       leading: const Icon(Icons.today),
-                      title: const Text('Date'),
+                      title:  Text(AppLocalizations.of(context).date_1),
                       subtitle: Text(
                         DateHelper.formatDate(
                           currentDate,

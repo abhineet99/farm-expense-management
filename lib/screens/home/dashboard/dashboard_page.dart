@@ -464,7 +464,7 @@ class _DashboardEmptyState extends StatelessWidget {
           ),
         ),
         PalButton(
-          title: "ADD",
+          title: Text(AppLocalizations.of(context).add).data,
           width: MediaQuery.of(context).size.width * (2.0 / 3.0),
           colors: [Colors.green[900], Colors.green[900]],
           onPressed: () {

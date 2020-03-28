@@ -162,6 +162,76 @@ class AppLocalizations {
       desc: 'no tag message in add category/expense page',
     );
   }
+  String get noTagsYet{
+    return Intl.message(
+      'No tags yet',
+      name: 'noTagsYet',
+      desc: 'no tag yet message in add category/expense page',
+    );
+  }
+  String get date_1{
+    return Intl.message(
+      'Date',
+      name: 'date_1',
+      desc: 'Date in add category/expense page',
+    );
+  }
+  String get filter_1{
+    return Intl.message(
+      'Filter',
+      name: 'filter_1',
+      desc: 'Filter title in filter',
+    );
+  }
+  String get apply_1{
+    return Intl.message(
+      'Apply',
+      name: 'apply_1',
+      desc: 'apply button text in filter',
+    );
+  }
+  String get keyWord_1{
+    return Intl.message(
+      'Keyword',
+      name: 'keyWord_1',
+      desc: 'hint text in filter',
+    );
+  }
+  String get today{
+    return Intl.message(
+      'Today',
+      name: 'today',
+      desc: 'drop down menu in filter',
+    );
+  }
+  String get yesterday{
+    return Intl.message(
+      'Yesterday',
+      name: 'yesterday',
+      desc: 'drop down menu in filter',
+    );
+  }
+  String get lastWeek{
+    return Intl.message(
+      'Last Week',
+      name: 'lastWeek',
+      desc: 'drop down menu in filter',
+    );
+  }
+  String get lastMonth{
+    return Intl.message(
+      'Last Month',
+      name: 'lastMonth',
+      desc: 'drop down menu in filter',
+    );
+  }
+  String get lastYear{
+    return Intl.message(
+      'Last Year',
+      name: 'lastYear',
+      desc: 'drop down menu in filter',
+    );
+  }
 
 }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'; 
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
+import 'package:farm_expense_management/locale/locale.dart';
 
 class About extends StatefulWidget {
   About({Key key, this.title}) : super(key: key);
@@ -11,15 +12,15 @@ class About extends StatefulWidget {
 }
 
 class _AboutState extends State<About> {
-  Widget titleWidget = PalTitleView(
-    title: "About",
-  );
+
   final primaryColor = const Color(0xFFFFFFFF);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: titleWidget,
+        title: PalTitleView(
+                            title: Text(AppLocalizations.of(context).about).data,
+                           ),
         backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: Colors.green),
       ),

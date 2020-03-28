@@ -118,6 +118,65 @@
     "description": "no tag message in add category/expense page",
     "type": "text",
     "placeholders": {}
+  },
+  "noTagsYet": "अभी तक कोई टैग नहीं",
+  "@noTagsYet": {
+    "description": "no tag yet message in add category/expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "date_1": "तारीख",
+  "@date_1": {
+    "description": "Date in add category/expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "filter_1": "फ़िल्टर",
+  "@filter_1": {
+    "description": "Filter title in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "apply_1": "लागू करें",
+  "@apply_1": {
+    "description": "apply button text in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "keyWord_1": "संकेत शब्द",
+  "@keyWord_1": {
+    "description": "hint text in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "today": "आज",
+  "@today": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "yesterday": "बीता कल",
+  "@yesterday": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastWeek": "पिछले सप्ताह",
+  "@lastWeek": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastMonth": "पिछले महीने",
+  "@lastMonth": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastYear": "पिछले साल",
+  "@lastYear": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
   }
-
 }

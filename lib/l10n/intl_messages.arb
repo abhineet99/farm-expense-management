@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-03-28T11:55:17.075718",
+  "@@last_modified": "2020-03-28T16:18:09.996984",
   "title": "Farm expense management",
   "@title": {
     "description": "Title for the Weather Application",
@@ -119,6 +119,65 @@
     "description": "no tag message in add category/expense page",
     "type": "text",
     "placeholders": {}
+  },
+  "noTagsYet": "No tags yet",
+  "@noTagsYet": {
+    "description": "no tag yet message in add category/expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "date_1": "Date",
+  "@date_1": {
+    "description": "Date in add category/expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "filter_1": "Filter",
+  "@filter_1": {
+    "description": "Filter title in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "apply_1": "Apply",
+  "@apply_1": {
+    "description": "apply button text in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "keyWord_1": "Keyword",
+  "@keyWord_1": {
+    "description": "hint text in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "today": "Today",
+  "@today": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "yesterday": "Yesterday",
+  "@yesterday": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastWeek": "Last Week",
+  "@lastWeek": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastMonth": "Last Month",
+  "@lastMonth": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastYear": "Last Year",
+  "@lastYear": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
   }
-
 }
