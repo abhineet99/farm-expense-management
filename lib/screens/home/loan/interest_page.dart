@@ -10,13 +10,15 @@ class InterestPage extends StatefulWidget{
 
 class _InterestPageState extends State<InterestPage>{
   double interest =0;
-  double calculate(int principal, int rate, int months)
+  double amount = 0;
+  double calculateInterest(int principal, int rate, int months)
   {
     print('check32');
     double rate1 = (rate*1.0)/12;
-    double to_ret = rate1*principal*months;
+    double to_ret = (rate1*principal*months*1.0)/100;
     return to_ret;
   }
+  
   final primaryColor = const Color(0xFFFFFFFF);
   final _formKey = GlobalKey<FormState>();
   final TextEditingController princController =
@@ -34,8 +36,9 @@ class _InterestPageState extends State<InterestPage>{
   }
   void _onPressed()
   {
-    double _interest  = calculate(int.parse(princController.text), int.parse(roiController.text), int.parse(monthsController.text));
+    double _interest  = calculateInterest(int.parse(princController.text), int.parse(roiController.text), int.parse(monthsController.text));
     setState(() {
+      amount = int.parse(princController.text) + _interest;
       interest = _interest;
     });
   }
@@ -98,6 +101,18 @@ class _InterestPageState extends State<InterestPage>{
                         },
                         keyboardType: TextInputType.number,
                       ),
+                    ),
+                    ListTile(
+                      title: Text('Total Amount Payable',
+                      style: TextStyle(
+                        fontSize: 16.0
+                      ),
+                      ),
+                      subtitle: Text('INR: '+amount.toString(), 
+                      style: TextStyle(
+                        color: Colors.green[800],
+                        fontSize: 18.0
+                      ),),
                     ),
                     ListTile(
                       title: Text('Interest Amount',
