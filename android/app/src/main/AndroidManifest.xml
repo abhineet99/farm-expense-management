@@ -8,7 +8,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="farm_expense_management"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/hi">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

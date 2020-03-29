@@ -73,7 +73,7 @@ class MorePage extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(
                         CupertinoPageRoute(
-                          fullscreenDialog: true,
+                          // fullscreenDialog: true,
                           builder: (BuildContext context) {
                             return PolicyPage();
                           },
