@@ -131,7 +131,8 @@ class StatsPage extends StatelessWidget {
       FilteredList<Expense> expenses,
       String currency,
       bool allTime,
-      DateTime date) {
+      DateTime date,
+      ) {
     List<TimeSeriesExpense> data = allTime
         ? _seriesForAllTime("INR", expenses)
         : _seriesFor(date, "INR", expenses);
@@ -142,8 +143,8 @@ class StatsPage extends StatelessWidget {
         domainFn: (TimeSeriesExpense expense, _) => expense.date,
         measureFn: (TimeSeriesExpense expense, _) => expense.amount,
         strokeWidthPxFn: (TimeSeriesExpense expense, _) => 3,
-        colorFn: (TimeSeriesExpense expense, _) =>
-            charts.MaterialPalette.gray.shade200,
+        colorFn: (TimeSeriesExpense expense, _) => 
+            (allTime ? charts.MaterialPalette.red.shadeDefault : charts.MaterialPalette.blue.shadeDefault) ,
         data: data,
       )
     ];
@@ -205,7 +206,7 @@ class StatsPage extends StatelessWidget {
                                     DateTime.utc(t.year, t.month, 0).day);
 
                                 var previousData = _createPreviousData(data,
-                                    snapshot.data, allTime, previousMonthDate);
+                                    snapshot.data, allTime, previousMonthDate,);
                                 var currentData =
                                     _createData(data, snapshot.data, today);
 
@@ -352,12 +353,14 @@ class StatsTypeSwitch extends StatelessWidget {
                   Switch(
                     value: initialValue,
                     onChanged: ((bool value) => {
-                          setState(() {
-                            onChanged(value);
-                          })
-                        }),
+                      setState(() {
+                        onChanged(value);
+                        })
+                      }
+                    ),
                     activeColor: Colors.grey.shade200,
-                    inactiveTrackColor: Colors.grey.shade200,
+                    activeTrackColor: Colors.red,
+                    inactiveTrackColor: Colors.blue,
                   ),
                   Text(
                     AppLocalizations.of(context).allTimeAvg,

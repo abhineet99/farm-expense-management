@@ -223,7 +223,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                       leading: const Icon(Icons.label),
                       title: SimpleAutoCompleteTextField(
                         key: key,
-                        decoration: new InputDecoration(hintText: " "),//Text(AppLocalizations.of(context).tag_1).data),
+                        decoration: new InputDecoration(hintText: Text(AppLocalizations.of(context).tag_1).data),
                         controller: TextEditingController(text: ""),
                         suggestions: tagNames,
                         clearOnSubmit: true,
@@ -241,45 +241,45 @@ class AddExpensePageState extends State<AddExpensePage> {
                         ),
                     ),
                     ListTile(
-                      leading:Container(
-                        width: 30.0,
-                        child: FlatButton(
-                          child:null,
-                          textColor: Colors.black,
-                          shape: CircleBorder(),
-                          onPressed: () {
-                            FocusScope.of(context)
-                                .requestFocus(new FocusNode());
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  titlePadding: const EdgeInsets.all(0.0),
-                                  contentPadding: const EdgeInsets.all(0.0),
-                                  content: SingleChildScrollView(
-                                    child: ColorPicker(
-                                      pickerColor: currentColor,
-                                      onColorChanged: changeColor,
-                                      colorPickerWidth: MediaQuery.of(context).size.width - 32.0,
-                                      pickerAreaHeightPercent: 0.7,
-                                      enableAlpha: true,
-                                    ),
-                                  ),
-                                  actions: <Widget>[
-                                    FlatButton(
-                                      child: const Text('OK'),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                          },
-                          color: currentColor,
-                        ),
-                      ),
+                      // leading:Container(
+                      //   width: 30.0,
+                      //   child: FlatButton(
+                      //     child:null,
+                      //     textColor: Colors.black,
+                      //     shape: CircleBorder(),
+                      //     onPressed: () {
+                      //       FocusScope.of(context)
+                      //           .requestFocus(new FocusNode());
+                      //       showDialog(
+                      //         context: context,
+                      //         builder: (BuildContext context) {
+                      //           return AlertDialog(
+                      //             titlePadding: const EdgeInsets.all(0.0),
+                      //             contentPadding: const EdgeInsets.all(0.0),
+                      //             content: SingleChildScrollView(
+                      //               child: ColorPicker(
+                      //                 pickerColor: currentColor,
+                      //                 onColorChanged: changeColor,
+                      //                 colorPickerWidth: MediaQuery.of(context).size.width - 32.0,
+                      //                 pickerAreaHeightPercent: 0.7,
+                      //                 enableAlpha: true,
+                      //               ),
+                      //             ),
+                      //             actions: <Widget>[
+                      //               FlatButton(
+                      //                 child: const Text('OK'),
+                      //                 onPressed: () {
+                      //                   Navigator.of(context).pop();
+                      //                 },
+                      //               ),
+                      //             ],
+                      //           );
+                      //         },
+                      //       );
+                      //     },
+                      //     color: currentColor,
+                      //   ),
+                      // ),
                       title: tags.length > 0
                           ? _RemoveableExpenseTags(
                               tags: tags,
