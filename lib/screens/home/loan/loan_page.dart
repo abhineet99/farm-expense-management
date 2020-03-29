@@ -1,16 +1,8 @@
 import 'package:farm_expense_management/blocs/loans_bloc.dart';
-import 'package:farm_expense_management/common/assets.dart';
 import 'package:farm_expense_management/common/helpers.dart';
-import 'package:farm_expense_management/common/models/expenses.dart';
-import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/models/loan_item.dart';
-import 'package:farm_expense_management/common/ui/expense_tags.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
-import 'package:farm_expense_management/common/ui/swipeable_tabbar.dart';
-import 'package:farm_expense_management/screens/home/dashboard/add_expense_page.dart';
-import 'package:farm_expense_management/screens/home/dashboard/expense_details_page.dart';
-import 'package:farm_expense_management/screens/home/dashboard/filter/filter.dart';
 import 'package:farm_expense_management/screens/home/loan/add_loan.dart';
 import 'package:farm_expense_management/screens/home/loan/view_loan.dart';
 
@@ -153,6 +145,7 @@ class _LoanPageState extends State<LoanPage> {
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (BuildContext context){
+            ViewLoanPage v1 = new ViewLoanPage(loan: loan);
             return ViewLoanPage(loan: loan);
           },
         )

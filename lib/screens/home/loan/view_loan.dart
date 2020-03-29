@@ -6,9 +6,15 @@ class Installment{
   int e_amount;
   Installment(this.date, this.e_amount);
 }
-class ViewLoanPage extends StatelessWidget{
+class ViewLoanPage extends StatefulWidget{
   final LoanItem loan;
   ViewLoanPage({@required this.loan});
+  @override 
+  _ViewLoanPageState createState() => _ViewLoanPageState(loan: loan);
+}
+class _ViewLoanPageState extends State<ViewLoanPage>{
+  final LoanItem loan;
+  _ViewLoanPageState({@required this.loan});
   final primaryColor = const Color(0xFFFFFFFF);
   List<Installment> compute(LoanItem loan)
   {
@@ -46,6 +52,7 @@ class ViewLoanPage extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     print('check build');
+    
     List<Installment> _list = compute(loan);
     print('check build 1');
     return Scaffold(
@@ -145,16 +152,31 @@ class ViewLoanPage extends StatelessWidget{
               ),
             ),
             Expanded(
-              child: ListView.builder(
+              child:  ListTileTheme(
+                selectedColor: Colors.white,
+                child: ListView.builder(
                 itemCount: _list.length,
                 itemBuilder: (context, index){
-                return ListTile(
-                  leading: Icon(Icons.calendar_today),
-                  title: Text('On '+_list[index].date),
-                  subtitle: Text(_list[index].e_amount.toString()+" INR"),
+                return Center(
+                  child: Card(
+                    child:
+                      Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        ListTile(
+                          leading: Icon(Icons.calendar_today),
+                          title: Text('On '+_list[index].date),
+                          subtitle: Text(_list[index].e_amount.toString()+" INR"),
+                          selected: true,
+                        )
+                      ],
+                    ),
+                    color: Colors.green[600],
+                  ),
                 );
                 } 
               ),
+            )
             )
           ],
         ),
