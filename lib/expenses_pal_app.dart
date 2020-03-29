@@ -5,7 +5,6 @@ import 'package:farm_expense_management/MyApp.dart';
 import 'package:farm_expense_management/screens/onboarding/onboarding_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'common/assets.dart';
@@ -20,7 +19,6 @@ class ExpansesPalApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
 
     return MaterialApp(
       localizationsDelegates: [

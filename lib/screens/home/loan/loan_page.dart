@@ -48,7 +48,7 @@ class _LoanPageState extends State<LoanPage> {
             onPressed: () {
               Navigator.of(context).push(
                 CupertinoPageRoute(
-                  fullscreenDialog: true,
+                  // fullscreenDialog: true,
                   builder: (BuildContext context) {
                     return AddLoanPage();
                   },

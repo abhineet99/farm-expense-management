@@ -99,7 +99,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           onPressed: () {
                             Navigator.of(context).push(
                               CupertinoPageRoute(
-                                fullscreenDialog: true,
+                                // fullscreenDialog: true,
                                 builder: (BuildContext context) {
                                   return filterPage;
                                 },
@@ -115,7 +115,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           onPressed: () {
                             Navigator.of(context).push(
                               CupertinoPageRoute(
-                                fullscreenDialog: true,
+                                // fullscreenDialog: true,
                                 builder: (BuildContext context) {
                                   return AddExpensePage(field: widget.field);
                                 },
@@ -470,7 +470,7 @@ class _DashboardEmptyState extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).push(
               CupertinoPageRoute(
-                fullscreenDialog: true,
+                // fullscreenDialog: true,
                 builder: (BuildContext context) {
                   return AddExpensePage(field:field);
                 },

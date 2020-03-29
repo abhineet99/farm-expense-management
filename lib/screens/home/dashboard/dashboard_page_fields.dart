@@ -57,9 +57,9 @@ class _DashboardPageState extends State<DashboardPageFields> {
               Navigator.of(context).push(
                 CupertinoPageRoute(
 //<<<<<<< loan-branch
-                  fullscreenDialog: true,
+                  // fullscreenDialog: false,
 //=======
-                  // fullscreenDialog: true,
+                  fullscreenDialog: false,
 //>>>>>>> master
                   builder: (BuildContext context) {
                     return addPage;
