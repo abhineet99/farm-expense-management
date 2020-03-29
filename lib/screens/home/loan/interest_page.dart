@@ -2,7 +2,7 @@
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:flutter/material.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
-
+import 'dart:math';
 class InterestPage extends StatefulWidget{
   @override
   _InterestPageState createState() => _InterestPageState();
@@ -10,11 +10,20 @@ class InterestPage extends StatefulWidget{
 
 class _InterestPageState extends State<InterestPage>{
   double interest =0;
-  double calculate(int principal, int rate, int months)
+  double amount = 0;
+  int selectedOption=0;// 0 = simple interest, 1 = compound interest
+  double calculateSimpleInterest(int principal, int rate, int months)
   {
     print('check32');
     double rate1 = (rate*1.0)/12;
-    double to_ret = rate1*principal*months;
+    double to_ret = (rate1*principal*months*1.0)/100;
+    return to_ret;
+  }
+  double calculateCompoundInterest(int principal, int rate, int months)
+  {
+    //print('check32');
+    double amount = principal*pow(1+(rate*1.0)/1200,months);
+    double to_ret = amount-principal;
     return to_ret;
   }
   final primaryColor = const Color(0xFFFFFFFF);
@@ -34,8 +43,13 @@ class _InterestPageState extends State<InterestPage>{
   }
   void _onPressed()
   {
-    double _interest  = calculate(int.parse(princController.text), int.parse(roiController.text), int.parse(monthsController.text));
+    double _interest=0;
+    if (selectedOption == 0)
+      _interest = calculateSimpleInterest(int.parse(princController.text), int.parse(roiController.text), int.parse(monthsController.text));
+    else
+      _interest = calculateCompoundInterest(int.parse(princController.text), int.parse(roiController.text), int.parse(monthsController.text));
     setState(() {
+      amount = int.parse(princController.text) + _interest;
       interest = _interest;
     });
   }
@@ -100,6 +114,18 @@ class _InterestPageState extends State<InterestPage>{
                       ),
                     ),
                     ListTile(
+                      title: Text('Total Amount Payable',
+                      style: TextStyle(
+                        fontSize: 16.0
+                      ),
+                      ),
+                      subtitle: Text('INR: '+amount.toString(), 
+                      style: TextStyle(
+                        color: Colors.green[800],
+                        fontSize: 18.0
+                      ),),
+                    ),
+                    ListTile(
                       title: Text('Interest Amount',
                       style: TextStyle(
                         fontSize: 16.0
@@ -110,6 +136,26 @@ class _InterestPageState extends State<InterestPage>{
                         color: Colors.green[800],
                         fontSize: 18.0
                       ),),
+                    ),
+                    ListTile(
+                      title: const Text('Simple Interest'),
+                      leading: Radio(
+                        value: 0,
+                        groupValue: selectedOption,
+                        onChanged: (int value) {
+                          setState(() { selectedOption = value; });
+                        },
+                      ),
+                    ),
+                    ListTile(
+                      title: const Text('Compound Interest'),
+                      leading: Radio(
+                        value: 1,
+                        groupValue: selectedOption,
+                        onChanged: (int value) {
+                          setState(() { selectedOption = value; });
+                        },
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsets.all(16.0),
@@ -123,7 +169,7 @@ class _InterestPageState extends State<InterestPage>{
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
