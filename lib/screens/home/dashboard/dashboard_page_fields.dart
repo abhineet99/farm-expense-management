@@ -1,3 +1,4 @@
+import 'package:farm_expense_management/screens/home/loan/loan_page.dart';
 import 'package:farm_expense_management/blocs/field_bloc.dart';
 import 'package:farm_expense_management/common/assets.dart';
 import 'package:farm_expense_management/common/helpers.dart';
@@ -6,13 +7,18 @@ import 'package:farm_expense_management/common/ui/expense_tags.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:farm_expense_management/screens/home/dashboard/add_field_page.dart';
+import 'package:farm_expense_management/screens/home/loan/loan_info.dart';
 import 'package:farm_expense_management/screens/home/home_page.dart';
 import 'package:farm_expense_management/about.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
+//<<<<<<< loan-branch
+import 'package:farm_expense_management/screens/home/loan/interest_page.dart';
+=======
 //import 'package:flutter_localizations/flutter_localizations.dart';
+//>>>>>>> master
 
 import 'package:farm_expense_management/locale/locale.dart';
 class DashboardPageFields extends StatefulWidget {
@@ -50,7 +56,11 @@ class _DashboardPageState extends State<DashboardPageFields> {
             onPressed: () {
               Navigator.of(context).push(
                 CupertinoPageRoute(
+//<<<<<<< loan-branch
+                  fullscreenDialog: true,
+//=======
                   // fullscreenDialog: true,
+//>>>>>>> master
                   builder: (BuildContext context) {
                     return addPage;
                   },
@@ -69,16 +79,8 @@ class _DashboardPageState extends State<DashboardPageFields> {
               accountName: Text(AppLocalizations.of(context).greeting),
               //accountName: Text('Welcome!'),
               accountEmail: Text(''),
-              // currentAccountPicture: CircleAvatar(
-              //   child: Image.asset('assets/hi2.jpg'),
-              //   // backgroundColor: Colors.lightGreen[600],
-              //   // child: Text('AB',
-              //   // style: TextStyle(color: Colors.white),)
-              // ),
               decoration: BoxDecoration(
-                color: Colors.green[900],
-                //decoration: BoxDecoration(),
-                
+                color: Colors.green[900]                
               )
             ),
             ListTile(
@@ -89,16 +91,40 @@ class _DashboardPageState extends State<DashboardPageFields> {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardPageFields()));
               }
             ),
-            // Divider(),
-            // ListTile(
-            //   leading: Icon(Icons.toys),
-            //   title: Text('Stats'),
-            //   onTap: () {
-            //     Navigator.pop(context);
-            //     Navigator.push(context, MaterialPageRoute(builder: (context)=>StatsPage1()));
-            //   }
-            // ),
             Divider(),
+            
+            ListTile(
+              leading: Icon(Icons.account_balance),
+              title: Text('Manage Loans'),
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanPage()));
+              }
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.label_important),
+              title: Text('Calculate Interest Amount'),
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>InterestPage()));
+              }
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.info),
+//<<<<<<< loan-branch
+//              title: Text('Banks for Loans Info'),
+//=======
+//              title: Text(AppLocalizations.of(context).about),
+//>>>>>>> master
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanInfo()));
+              }
+            ),
+            Divider(),
+//<<<<<<< loan-branch
             ListTile(
               leading: Icon(Icons.info),
               title: Text(AppLocalizations.of(context).about),
@@ -108,6 +134,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
               }
             ),
             Divider(),
+//=======
             // ListTile(
             //   leading: Icon(Icons.lock),
             //   title: Text('Sign Out'),
@@ -117,6 +144,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
             //   }
             // ),
             // Divider()
+//>>>>>>> master
           ],),
     ),
     body: SafeArea(
@@ -150,6 +178,37 @@ class _DashboardPageState extends State<DashboardPageFields> {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
+//<<<<<<< loan-branch
+              Padding(
+                padding: EdgeInsets.all(4.0),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Center(
+                          //child: titleWidget,
+                        ),
+                        // IconButton(
+                        //   icon: Icon(Icons.add),
+                        //   onPressed: () {
+                        //     Navigator.of(context).push(
+                        //       CupertinoPageRoute(
+                        //         fullscreenDialog: true,
+                        //         builder: (BuildContext context) {
+                        //           return addPage;
+                        //         },
+                        //       ),
+                        //     );
+                        //   },
+                        // ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+//=======
+//>>>>>>> master
               Expanded(
                 child: mainWidget,
               ),
