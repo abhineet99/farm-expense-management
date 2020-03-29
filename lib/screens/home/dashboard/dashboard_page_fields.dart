@@ -45,6 +45,21 @@ final primaryColor = const Color(0xFFFFFFFF);
           ),
         backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: Colors.green),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              Navigator.of(context).push(
+                CupertinoPageRoute(
+                  fullscreenDialog: true,
+                  builder: (BuildContext context) {
+                    return addPage;
+                  },
+                ),
+              );
+            },
+          ),
+        ],
       ),
       
     drawer: Drawer(
@@ -147,19 +162,19 @@ final primaryColor = const Color(0xFFFFFFFF);
                         Center(
                           //child: titleWidget,
                         ),
-                        IconButton(
-                          icon: Icon(Icons.add),
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              CupertinoPageRoute(
-                                fullscreenDialog: true,
-                                builder: (BuildContext context) {
-                                  return addPage;
-                                },
-                              ),
-                            );
-                          },
-                        ),
+                        // IconButton(
+                        //   icon: Icon(Icons.add),
+                        //   onPressed: () {
+                        //     Navigator.of(context).push(
+                        //       CupertinoPageRoute(
+                        //         fullscreenDialog: true,
+                        //         builder: (BuildContext context) {
+                        //           return addPage;
+                        //         },
+                        //       ),
+                        //     );
+                        //   },
+                        // ),
                       ],
                     )
                   ],
