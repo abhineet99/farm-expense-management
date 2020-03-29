@@ -1,4 +1,5 @@
 import 'package:farm_expense_management/blocs/field_bloc.dart';
+import 'package:farm_expense_management/common/database_manager/initialise_fields.dart';
 import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/models/tag.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:farm_expense_management/locale/locale.dart';
+
 class AddFieldPage extends StatefulWidget {
   @override
   AddFieldPageState createState() {
@@ -20,11 +22,10 @@ class AddFieldPageState extends State<AddFieldPage> {
   final tagController = TextEditingController();
   final tagFocusNode = FocusNode();
   final List<Tag> tags = [];
-
   final _formKey = GlobalKey<FormState>();
+  String dropdownValue;
 
-  Color currentColor = Color(0xff443a49);
-  DateTime currentDate = DateTime.now();
+  Color currentColor = Colors.green;
 
   @override
   void dispose() {
@@ -81,10 +82,11 @@ class AddFieldPageState extends State<AddFieldPage> {
                 ],
               ),
             ),
-            Expanded(
+            Container(
               child: Form(
                 key: _formKey,
                 child: ListView(
+                  shrinkWrap: true,
                   children: <Widget>[
                     ListTile(
                       leading: const Icon(Icons.title),
@@ -196,6 +198,26 @@ class AddFieldPageState extends State<AddFieldPage> {
                 ),
               ),
             ),
+            Padding(
+              padding: EdgeInsets.only(top:30.0,bottom:30.0),
+              child: Divider(),
+              ),
+            _predefinedFields(context),
+            Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: PalButton(
+                        title: AppLocalizations.of(context).add,
+                        width: MediaQuery.of(context).size.width * (2.0 / 3.0),
+                        colors: [Colors.green[600], Colors.green[900]],
+                        onPressed: () {
+                          if (dropdownValue ==null) {
+                            return;
+                          }
+                          InitialiseFields().addFieldsData(dropdownValue);
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ),
           ],
         ),
       ),
@@ -207,6 +229,46 @@ class AddFieldPageState extends State<AddFieldPage> {
     return _createBody(context);
     
   }
+
+  Widget _predefinedFields(BuildContext context){
+    return DropdownButton<String>(
+      value: dropdownValue,
+      hint: Text('Choose from Predefined Categories'),
+      icon: Icon(Icons.arrow_downward),
+      iconSize: 24,
+      elevation: 16,
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
+      underline: Container(
+        height: 2,
+        color: Colors.grey,
+      ),
+      onChanged: (String newValue) {
+        setState(() {
+          dropdownValue = newValue;
+        });
+      },
+      items: InitialiseFields().getFieldNames().map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Column(
+              children: <Widget>[
+                Text(value),
+                Divider(),
+              ],
+
+            ),
+          );
+        })
+        .toList(),
+    );
+
+  }
+
+
+
 }
 
 class _RemoveableExpenseTags extends StatelessWidget {

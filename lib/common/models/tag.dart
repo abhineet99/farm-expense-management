@@ -5,7 +5,7 @@ class Tag {
   final String name;
   final Color color;
 
-  Tag({@required this.name, this.color = Colors.black});
+  Tag({@required this.name, this.color = Colors.green});
 
   Tag.fromJson(Map<String, dynamic> json)
       : name = json['name'],

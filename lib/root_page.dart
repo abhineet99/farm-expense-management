@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:farm_expense_management/blocs/initialise_fields.dart';
+import 'package:farm_expense_management/common/database_manager/initialise_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:farm_expense_management/screens/dashboard/dashboard_page_fields.dart';
 import 'package:shared_preferences/shared_preferences.dart';
