@@ -110,19 +110,19 @@ class _DashboardPageState extends State<DashboardPageFields> {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>InterestPage()));
               }
             ),
-            Divider(),
-            ListTile(
-              leading: Icon(Icons.info),
-//<<<<<<< loan-branch
-//              title: Text('Banks for Loans Info'),
-//=======
-//              title: Text(AppLocalizations.of(context).about),
-//>>>>>>> master
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanInfo()));
-              }
-            ),
+//             Divider(),
+//             ListTile(
+//               leading: Icon(Icons.info),
+// //<<<<<<< loan-branch
+// //              title: Text('Banks for Loans Info'),
+// //=======
+// //              title: Text(AppLocalizations.of(context).about),
+// //>>>>>>> master
+//               onTap: () {
+//                 Navigator.pop(context);
+//                 Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanInfo()));
+//               }
+//             ),
             Divider(),
 //<<<<<<< loan-branch
             ListTile(
