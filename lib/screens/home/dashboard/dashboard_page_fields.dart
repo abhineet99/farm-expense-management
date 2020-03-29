@@ -1,3 +1,4 @@
+import 'package:farm_expense_management/screens/home/loan/loan_page.dart';
 import 'package:farm_expense_management/blocs/field_bloc.dart';
 import 'package:farm_expense_management/common/assets.dart';
 import 'package:farm_expense_management/common/helpers.dart';
@@ -12,6 +13,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:farm_expense_management/screens/home/loan/interest_page.dart';
 
 class DashboardPageFields extends StatefulWidget {
   @override
@@ -51,16 +53,8 @@ final primaryColor = const Color(0xFFFFFFFF);
             UserAccountsDrawerHeader(
               accountName: Text('Welcome!'),
               accountEmail: Text(''),
-              // currentAccountPicture: CircleAvatar(
-              //   child: Image.asset('assets/hi2.jpg'),
-              //   // backgroundColor: Colors.lightGreen[600],
-              //   // child: Text('AB',
-              //   // style: TextStyle(color: Colors.white),)
-              // ),
               decoration: BoxDecoration(
-                color: Colors.green[900],
-                //decoration: BoxDecoration(),
-                
+                color: Colors.green[900]                
               )
             ),
             ListTile(
@@ -71,15 +65,6 @@ final primaryColor = const Color(0xFFFFFFFF);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardPageFields()));
               }
             ),
-            // Divider(),
-            // ListTile(
-            //   leading: Icon(Icons.toys),
-            //   title: Text('Stats'),
-            //   onTap: () {
-            //     Navigator.pop(context);
-            //     Navigator.push(context, MaterialPageRoute(builder: (context)=>StatsPage1()));
-            //   }
-            // ),
             Divider(),
             ListTile(
               leading: Icon(Icons.info),
@@ -91,11 +76,20 @@ final primaryColor = const Color(0xFFFFFFFF);
             ),
             Divider(),
             ListTile(
-              leading: Icon(Icons.lock),
-              title: Text('Sign Out'),
+              leading: Icon(Icons.account_balance),
+              title: Text('Manage Loans'),
               onTap: (){
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardPageFields()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanPage()));
+              }
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.label_important),
+              title: Text('Calculate Interest Amount'),
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>InterestPage()));
               }
             ),
             Divider()

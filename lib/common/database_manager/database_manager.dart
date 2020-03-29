@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:farm_expense_management/common/database_manager/database_model.dart';
 import 'package:farm_expense_management/common/models/expenses.dart';
 import 'package:farm_expense_management/common/models/fields.dart';
+import 'package:farm_expense_management/common/models/loan_item.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
  
@@ -13,7 +14,8 @@ class DatabaseManager {
 
   Map<Type, DatabaseTable> _tables = {
     Expense: ExpenseTable(),
-    Field: FieldTable()
+    Field: FieldTable(),
+    LoanItem: LoanTable()
   };
 
   Future<Database> get database async {
