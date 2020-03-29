@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
-import 'package:farm_expense_management/screens/home/more/policy_page.dart';
+import 'package:farm_expense_management/screens/more/policy_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:farm_expense_management/common/database_manager/database_manager.dart';
 import 'package:farm_expense_management/common/models/expenses.dart';
 import 'package:farm_expense_management/common/models/fields.dart';
-import 'package:farm_expense_management/screens/home/dashboard/filter/filter.dart';
+import 'package:farm_expense_management/screens/dashboard/filter/filter.dart';
 import 'package:rxdart/rxdart.dart';
 
 class ExpensesBloc {

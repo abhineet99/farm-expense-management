@@ -4,7 +4,7 @@ import 'package:farm_expense_management/common/models/expenses.dart';
 import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/ui/expense_tags.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
-import 'package:farm_expense_management/screens/home/dashboard/filter/filter.dart';
+import 'package:farm_expense_management/screens/dashboard/filter/filter.dart';
 import 'package:flutter/material.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 

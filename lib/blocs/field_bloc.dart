@@ -38,21 +38,23 @@ class FieldsBloc {
     });
   }
 
-  Future<bool> addTag(Field field,Tag newTag,){
-    field.tags.removeWhere((tag) => tag==newTag);    
+  Future<bool> addTag(Field field,Tag newTag,)async{
+    if (field.tags.indexOf(newTag)!=-1) {
+      return true;
+    } 
     field.tags.add(newTag);
     removeField(field);                 //easy update, else need to encode and decode tags as json objects
     return addField(field);
   }
 
-  Future<bool> addTags(Field field,List<Tag> newTags){
-    print('Inside add Tags');
-    newTags.forEach((newTag){
-    field.tags.removeWhere((tag) => tag==newTag);   //def any operation to == 
+  Future<bool> addTags(Field field,List<Tag> newTags) async{
+    bool output=true;
+    newTags.forEach((newTag)async{
+        await addTag(field, newTag).then((value){
+         output=value;
+       });
     });
-    field.tags.addAll(newTags);
-    removeField(field);                   //easy update, else need to encode and decode tags as json objects           
-    return addField(field);                   
+    return output;
   }
   
   Future<bool> removeTag(Field field,Tag newTag){

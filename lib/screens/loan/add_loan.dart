@@ -154,7 +154,7 @@ class _AddLoanPageState extends State<AddLoanPage> {
                         title: "ADD",
                         width: MediaQuery.of(context).size.width *(2.0/3.0),
                         colors: [Colors.green[900],Colors.green[900]],
-                        onPressed: (){
+                        onPressed: ()async {
                           if(!_formKey.currentState.validate())
                           return;
                           String _str = sdController.text;

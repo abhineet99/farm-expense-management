@@ -1,11 +1,9 @@
 import 'package:farm_expense_management/common/assets.dart';
 import 'package:farm_expense_management/common/helpers.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
-//import 'package:farm_expense_management/screens/home/home_page.dart';
 import 'package:farm_expense_management/screens/onboarding/circled_image.dart';
 import 'package:farm_expense_management/screens/onboarding/dots_indicator.dart';
-import 'package:farm_expense_management/blocs/initialise_fields.dart';
-import 'package:farm_expense_management/MyApp.dart';
+import 'package:farm_expense_management/my_app.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -48,7 +46,6 @@ class OnboardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    initialiseFields.addFieldsData();
     int page;
     OnboardingSinglePage currentPage;
     List<Color> nextColors;

@@ -1,8 +1,8 @@
 import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/ui/shadow_icon.dart';
-import 'package:farm_expense_management/screens/home/dashboard/dashboard_page.dart';
-import 'package:farm_expense_management/screens/home/more/more_page.dart';
-import 'package:farm_expense_management/screens/home/stats/stats_page.dart';
+import 'package:farm_expense_management/screens/dashboard/dashboard_page.dart';
+import 'package:farm_expense_management/screens/more/more_page.dart';
+import 'package:farm_expense_management/screens/stats/stats_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -1,4 +1,4 @@
-import 'package:farm_expense_management/screens/home/loan/loan_page.dart';
+import 'package:farm_expense_management/screens/loan/loan_page.dart';
 import 'package:farm_expense_management/blocs/field_bloc.dart';
 import 'package:farm_expense_management/common/assets.dart';
 import 'package:farm_expense_management/common/helpers.dart';
@@ -6,19 +6,16 @@ import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/ui/expense_tags.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
-import 'package:farm_expense_management/screens/home/dashboard/add_field_page.dart';
-import 'package:farm_expense_management/screens/home/loan/loan_info.dart';
+import 'package:farm_expense_management/screens/dashboard/add_field_page.dart';
+// import 'package:farm_expense_management/screens/loan/loan_info.dart';
 import 'package:farm_expense_management/screens/home/home_page.dart';
-import 'package:farm_expense_management/about.dart';
+import 'package:farm_expense_management/screens/more/about.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
-//<<<<<<< loan-branch
-import 'package:farm_expense_management/screens/home/loan/interest_page.dart';
-// =======
-//import 'package:flutter_localizations/flutter_localizations.dart';
-//>>>>>>> master
+import 'package:farm_expense_management/screens/loan/interest_page.dart';
+// import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:farm_expense_management/locale/locale.dart';
 class DashboardPageFields extends StatefulWidget {

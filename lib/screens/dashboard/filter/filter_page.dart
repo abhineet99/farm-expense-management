@@ -1,6 +1,6 @@
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
-import 'package:farm_expense_management/screens/home/dashboard/filter/filter.dart';
+import 'package:farm_expense_management/screens/dashboard/filter/filter.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:farm_expense_management/locale/locale.dart';

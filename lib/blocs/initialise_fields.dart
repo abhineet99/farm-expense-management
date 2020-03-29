@@ -24,13 +24,15 @@ class InitialiseFields {
     Tag(name: 'Transportation'),
     Tag(name: 'Weedicide'),
     Tag(name: 'Seed'),
-    ];
-    
-  final Field agriculture= Field(name: 'Agriculture', tags :agricultureTags);
+    ];   
+  static Field agriculture= Field(name: 'Agriculture', tags :agricultureTags);
 
-  void addFieldsData(){
-    fieldsBloc.addField(agriculture);
+  final Map<String,Field> fieldsMap ={
+    'agriculture':agriculture,
+  };
+
+  void addFieldsData(String fieldName){
+    fieldsBloc.addField(fieldsMap[fieldName]);
   }
 
 }
-final initialiseFields=InitialiseFields();

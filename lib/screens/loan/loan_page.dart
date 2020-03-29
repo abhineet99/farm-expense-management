@@ -3,8 +3,8 @@ import 'package:farm_expense_management/common/helpers.dart';
 import 'package:farm_expense_management/common/models/loan_item.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
-import 'package:farm_expense_management/screens/home/loan/add_loan.dart';
-import 'package:farm_expense_management/screens/home/loan/view_loan.dart';
+import 'package:farm_expense_management/screens/loan/add_loan.dart';
+import 'package:farm_expense_management/screens/loan/view_loan.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

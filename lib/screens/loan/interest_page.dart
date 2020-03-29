@@ -16,15 +16,15 @@ class _InterestPageState extends State<InterestPage>{
   {
     print('check32');
     double rate1 = (rate*1.0)/12;
-    double to_ret = (rate1*principal*months*1.0)/100;
-    return to_ret;
+    double toRet = (rate1*principal*months*1.0)/100;
+    return toRet;
   }
   double calculateCompoundInterest(int principal, int rate, int months)
   {
     //print('check32');
     double amount = principal*pow(1+(rate*1.0)/1200,months);
-    double to_ret = amount-principal;
-    return to_ret;
+    double toRet = amount-principal;
+    return toRet;
   }
   final primaryColor = const Color(0xFFFFFFFF);
   final _formKey = GlobalKey<FormState>();
