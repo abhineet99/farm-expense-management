@@ -16,7 +16,7 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
 //<<<<<<< loan-branch
 import 'package:farm_expense_management/screens/home/loan/interest_page.dart';
-=======
+// =======
 //import 'package:flutter_localizations/flutter_localizations.dart';
 //>>>>>>> master
 
