@@ -7,6 +7,7 @@ import 'package:farm_expense_management/common/ui/expense_tags.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:farm_expense_management/screens/home/dashboard/add_field_page.dart';
+import 'package:farm_expense_management/screens/home/loan/loan_info.dart';
 import 'package:farm_expense_management/screens/home/home_page.dart';
 import 'package:farm_expense_management/about.dart';
 import 'package:flutter/cupertino.dart';
@@ -66,15 +67,7 @@ final primaryColor = const Color(0xFFFFFFFF);
               }
             ),
             Divider(),
-            ListTile(
-              leading: Icon(Icons.info),
-              title: Text('About App'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>About()));
-              }
-            ),
-            Divider(),
+            
             ListTile(
               leading: Icon(Icons.account_balance),
               title: Text('Manage Loans'),
@@ -92,7 +85,25 @@ final primaryColor = const Color(0xFFFFFFFF);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>InterestPage()));
               }
             ),
-            Divider()
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text('Banks for Loans Info'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanInfo()));
+              }
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text('About App'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>About()));
+              }
+            ),
+            Divider(),
           ],),
     ),
     body: SafeArea(
