@@ -1,0 +1,194 @@
+{
+  "title": "खेत खर्च प्रबंधन",
+  "@title": {
+    "description": "Title for the Weather Application",
+    "type": "text",
+    "placeholders": {}
+  },
+  "greeting": "स्वागत है ",
+  "@greeting": {
+    "description": "Greeting in drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "मुख्य पृष्ठ",
+  "@home": {
+    "description": "Home in drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "about": "एप्लिकेशन के बारे में",
+  "@about": {
+    "description": "about in drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "category": "वर्ग",
+  "@category": {
+    "description": "title in categories page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "add": "जोड़ें ",
+  "@add": {
+    "description": "title and button in add expense/category page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "expenseTitle": "शीर्षक",
+  "@expenseTitle": {
+    "description": "expense_title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "amount": "रकम",
+  "@amount": {
+    "description": "expense amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "description": "विवरण",
+  "@description": {
+    "description": "expense description",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dashboard": "वर्ग पृष्ठ",
+  "@dashboard": {
+    "description": "dashboard button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "stats": "आंकड़े",
+  "@stats": {
+    "description": "stats button and stats page title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noStatsMsg": "आंकड़े देखने से पहले आपको कुछ खर्च जोड़ने होंगे",
+  "@noStatsMsg": {
+    "description": "noStatsMsg",
+    "type": "text",
+    "placeholders": {}
+  },
+  "compare": "तुलना करें",
+  "@compare": {
+    "description": "compare in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "prevMonth": "पिछला महीना",
+  "@prevMonth": {
+    "description": "prevMonth in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "allTimeAvg": "सभी समय का औसत",
+  "@allTimeAvg": {
+    "description": "allTimeAvg in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "thisMonth": "इस महीने",
+  "@thisMonth": {
+    "description": "this month in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avgPerDay": "प्रति दिन औसत",
+  "@avgPerDay": {
+    "description": "average per day in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "name_1": "नाम",
+  "@name_1": {
+    "description": "translucent Name in add category",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tag_1": "टैग",
+  "@tag_1": {
+    "description": "translucent tag in add category / expense",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noTagMsg": "अभी तक कोई टैग नहीं। ऊपर दिए गए फ़ील्ड में टाइप करके टैग जोड़ें। इसे पुष्ट करने के लिए सिर्फ रिटर्न दबाएं या अल्पविराम टाइप करें",
+  "@noTagMsg": {
+    "description": "no tag message in add category/expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noTagsYet": "अभी तक कोई टैग नहीं",
+  "@noTagsYet": {
+    "description": "no tag yet message in add category/expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "date_1": "तारीख",
+  "@date_1": {
+    "description": "Date in add category/expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "filter_1": "फ़िल्टर",
+  "@filter_1": {
+    "description": "Filter title in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "apply_1": "लागू करें",
+  "@apply_1": {
+    "description": "apply button text in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "keyWord_1": "संकेत शब्द",
+  "@keyWord_1": {
+    "description": "hint text in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "today": "आज",
+  "@today": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "yesterday": "बीता कल",
+  "@yesterday": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastWeek": "पिछले सप्ताह",
+  "@lastWeek": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastMonth": "पिछले महीने",
+  "@lastMonth": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastYear": "पिछले साल",
+  "@lastYear": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noExpensesFilter": "दिए गए मानदंडों के साथ कोई खर्च नहीं है",
+  "@noExpensesFilter": {
+    "description": "no expenses and filter applied",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noExpenses": "यहां देखने के लिए कुछ भी नहीं है। पैसे खर्च करने के बाद खर्च जोड़ें।",
+  "@noExpenses": {
+    "description": "no expenses",
+    "type": "text",
+    "placeholders": {}
+  }
+}

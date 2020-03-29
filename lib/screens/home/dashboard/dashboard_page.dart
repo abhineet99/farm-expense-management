@@ -17,7 +17,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
-
+import 'package:farm_expense_management/locale/locale.dart';
 class DashboardPage extends StatefulWidget {
   final Field field;
   DashboardPage({@required this.field});
@@ -446,8 +446,8 @@ class _DashboardEmptyState extends StatelessWidget {
             padding: EdgeInsets.all(16.0),
             child: Text(
               filtersActive
-                  ? "There is no expenses with given criteria"
-                  : "Nothing to see here yet. Add an expense after you spend some money.",
+                  ? Text(AppLocalizations.of(context).noExpensesFilter).data
+                  : Text(AppLocalizations.of(context).noExpenses).data,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.black,
@@ -464,7 +464,7 @@ class _DashboardEmptyState extends StatelessWidget {
           ),
         ),
         PalButton(
-          title: "ADD",
+          title: Text(AppLocalizations.of(context).add).data,
           width: MediaQuery.of(context).size.width * (2.0 / 3.0),
           colors: [Colors.green[900], Colors.green[900]],
           onPressed: () {

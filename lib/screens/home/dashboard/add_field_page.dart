@@ -7,7 +7,7 @@ import 'package:farm_expense_management/common/ui/single_tag.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-
+import 'package:farm_expense_management/locale/locale.dart';
 class AddFieldPage extends StatefulWidget {
   @override
   AddFieldPageState createState() {
@@ -50,9 +50,7 @@ class AddFieldPageState extends State<AddFieldPage> {
 
     FocusScope.of(context).requestFocus(tagFocusNode);
   }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _createBody(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -73,7 +71,7 @@ class AddFieldPageState extends State<AddFieldPage> {
                         },
                       ),
                       Flexible(
-                        child: PalTitleView(title: "ADD"),
+                        child: PalTitleView(title: Text(AppLocalizations.of(context).add).data),
                       ),
                       Container(
                         width: 40.0,
@@ -93,7 +91,7 @@ class AddFieldPageState extends State<AddFieldPage> {
                       title: TextFormField(
                         controller: nameController,
                         decoration: InputDecoration(
-                          hintText: "Name",
+                          hintText: Text(AppLocalizations.of(context).name_1).data,
                         ),
                         validator: (value) {
                           if (value.isEmpty) {
@@ -116,7 +114,7 @@ class AddFieldPageState extends State<AddFieldPage> {
                           addTag(newValue, context);
                         },
                         decoration: InputDecoration(
-                          hintText: "Tag",
+                          hintText: Text(AppLocalizations.of(context).tag_1).data,
                         ),
                       ),
                       trailing: Container(
@@ -169,7 +167,7 @@ class AddFieldPageState extends State<AddFieldPage> {
                             )
                           : Center(
                               child: Text(
-                                'No tags yet. Add tag by typing in the field above. To confirm it just press Return or type a comma.',
+                                AppLocalizations.of(context).noTagMsg,
                                 style: TextStyle(
                                     color: Colors.black54, fontSize: 14.0),
                               ),
@@ -178,7 +176,7 @@ class AddFieldPageState extends State<AddFieldPage> {
                     Padding(
                       padding: EdgeInsets.all(16.0),
                       child: PalButton(
-                        title: "ADD",
+                        title: AppLocalizations.of(context).add,
                         width: MediaQuery.of(context).size.width * (2.0 / 3.0),
                         colors: [Colors.green[600], Colors.green[900]],
                         onPressed: () {
@@ -202,6 +200,12 @@ class AddFieldPageState extends State<AddFieldPage> {
         ),
       ),
     );
+
+  }
+  @override
+  Widget build(BuildContext context) {
+    return _createBody(context);
+    
   }
 }
 

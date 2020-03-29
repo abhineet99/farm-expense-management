@@ -6,7 +6,8 @@ import 'package:farm_expense_management/screens/home/stats/stats_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:farm_expense_management/locale/locale.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 class HomePage extends StatefulWidget {
   final Field field;
   HomePage({@required this.field});
@@ -57,7 +58,7 @@ class _HomePageState extends State<HomePage> {
               shadowColor: Colors.black.withOpacity(0.25),
             ),
             title: Text(
-              'Dashboard',
+              AppLocalizations.of(context).dashboard,
               style: TextStyle(
                 shadows: <Shadow>[
                   Shadow(
@@ -99,7 +100,7 @@ class _HomePageState extends State<HomePage> {
               shadowColor: Colors.black.withOpacity(0.25),
             ),
             title: Text(
-              'Stats',
+              AppLocalizations.of(context).stats,
               style: TextStyle(
                 shadows: <Shadow>[
                   Shadow(
@@ -125,6 +126,18 @@ class _HomePageState extends State<HomePage> {
               resizeToAvoidBottomInset: false,
               backgroundColor: const Color(0xFFffffff),
               child: MaterialApp(
+                localizationsDelegates: [
+                  AppLocalizationsDelegate(),
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                ],
+                supportedLocales: [
+                  Locale('en',""),
+                  Locale('hi',""),
+                  Locale('pa',""),
+                ],
+                onGenerateTitle: (BuildContext context) =>
+                  AppLocalizations.of(context).title,
                 home: Material(
                   type: MaterialType.transparency,
                   child: _getBody(index),

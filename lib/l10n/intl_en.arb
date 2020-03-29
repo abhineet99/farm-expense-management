@@ -1,0 +1,194 @@
+{
+  "title": "Farm expense management",
+  "@title": {
+    "description": "Title for the Weather Application",
+    "type": "text",
+    "placeholders": {}
+  },
+  "greeting": "Welcome",
+  "@greeting": {
+    "description": "Greeting in drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "Home",
+  "@home": {
+    "description": "Home in drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "about": "About",
+  "@about": {
+    "description": "about in drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "category": "Category",
+  "@category": {
+    "description": "title in categories page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "add": "Add",
+  "@add": {
+    "description": "title and button in add expense/category page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "expenseTitle": "Title",
+  "@expenseTitle": {
+    "description": "expense_title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "amount": "Amount",
+  "@amount": {
+    "description": "expense amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "description": "Description",
+  "@description": {
+    "description": "expense description",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dashboard": "Dashboard",
+  "@dashboard": {
+    "description": "dashboard button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "stats": "Stats",
+  "@stats": {
+    "description": "stats button and stats page title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noStatsMsg": "You have to add some expenses before you can see statistics",
+  "@noStatsMsg": {
+    "description": "noStatsMsg",
+    "type": "text",
+    "placeholders": {}
+  },
+  "compare": "Compare To",
+  "@compare": {
+    "description": "compare in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "prevMonth": "Previous Month",
+  "@prevMonth": {
+    "description": "prevMonth in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "allTimeAvg": "All Time Average",
+  "@allTimeAvg": {
+    "description": "allTimeAvg in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "thisMonth": "This Month",
+  "@thisMonth": {
+    "description": "this month in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avgPerDay": "Avg. per day",
+  "@avgPerDay": {
+    "description": "average per day in stats",
+    "type": "text",
+    "placeholders": {}
+  },
+  "name_1": "Name",
+  "@name_1": {
+    "description": "translucent Name in add category",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tag_1": "Tag",
+  "@tag_1": {
+    "description": "translucent tag in add category / expense",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noTagMsg": "No tags yet. Add tags by typing in the field above. To confirm it just press Return or type a comma.",
+  "@noTagMsg": {
+    "description": "no tag message in add category/expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noTagsYet": "No tags yet",
+  "@noTagsYet": {
+    "description": "no tag yet message in add category/expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "date_1": "Date",
+  "@date_1": {
+    "description": "Date in add category/expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "filter_1": "Filter",
+  "@filter_1": {
+    "description": "Filter title in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "apply_1": "Apply",
+  "@apply_1": {
+    "description": "apply button text in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "keyWord_1": "Keyword",
+  "@keyWord_1": {
+    "description": "hint text in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "today": "Today",
+  "@today": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "yesterday": "Yesterday",
+  "@yesterday": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastWeek": "Last Week",
+  "@lastWeek": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastMonth": "Last Month",
+  "@lastMonth": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastYear": "Last Year",
+  "@lastYear": {
+    "description": "drop down menu in filter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noExpensesFilter": "There are no expenses with given criteria",
+  "@noExpensesFilter": {
+    "description": "no expenses and filter applied",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noExpenses": "Nothing to see here yet. Add an expense after you spend some money.",
+  "@noExpenses": {
+    "description": "no expenses",
+    "type": "text",
+    "placeholders": {}
+  }
+}

@@ -14,8 +14,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
+//<<<<<<< loan-branch
 import 'package:farm_expense_management/screens/home/loan/interest_page.dart';
+=======
+//import 'package:flutter_localizations/flutter_localizations.dart';
+//>>>>>>> master
 
+import 'package:farm_expense_management/locale/locale.dart';
 class DashboardPageFields extends StatefulWidget {
   @override
   _DashboardPageState createState() => _DashboardPageState();
@@ -36,12 +41,12 @@ class _DashboardPageState extends State<DashboardPageFields> {
         [fieldsBloc.allFields]);
     return stream;
   }
-final primaryColor = const Color(0xFFFFFFFF);
+  final primaryColor = const Color(0xFFFFFFFF);
   Widget _createBody(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: PalTitleView(
-           title: "Categories",
+           title: Text(AppLocalizations.of(context).category).data,
           ),
         backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: Colors.green),
@@ -51,7 +56,11 @@ final primaryColor = const Color(0xFFFFFFFF);
             onPressed: () {
               Navigator.of(context).push(
                 CupertinoPageRoute(
+//<<<<<<< loan-branch
                   fullscreenDialog: true,
+//=======
+                  // fullscreenDialog: true,
+//>>>>>>> master
                   builder: (BuildContext context) {
                     return addPage;
                   },
@@ -61,13 +70,14 @@ final primaryColor = const Color(0xFFFFFFFF);
           ),
         ],
       ),
-      
+    
     drawer: Drawer(
       child: ListView(
           padding: EdgeInsets.only(top: 0.0),
           children: <Widget>[
             UserAccountsDrawerHeader(
-              accountName: Text('Welcome!'),
+              accountName: Text(AppLocalizations.of(context).greeting),
+              //accountName: Text('Welcome!'),
               accountEmail: Text(''),
               decoration: BoxDecoration(
                 color: Colors.green[900]                
@@ -75,7 +85,7 @@ final primaryColor = const Color(0xFFFFFFFF);
             ),
             ListTile(
               leading: Icon(Icons.home),
-              title: Text('Home'),
+              title: Text(AppLocalizations.of(context).home),
               onTap: (){
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardPageFields()));
@@ -103,22 +113,38 @@ final primaryColor = const Color(0xFFFFFFFF);
             Divider(),
             ListTile(
               leading: Icon(Icons.info),
-              title: Text('Banks for Loans Info'),
+//<<<<<<< loan-branch
+//              title: Text('Banks for Loans Info'),
+//=======
+//              title: Text(AppLocalizations.of(context).about),
+//>>>>>>> master
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanInfo()));
               }
             ),
             Divider(),
+//<<<<<<< loan-branch
             ListTile(
               leading: Icon(Icons.info),
-              title: Text('About App'),
+              title: Text(AppLocalizations.of(context).about),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>About()));
               }
             ),
             Divider(),
+//=======
+            // ListTile(
+            //   leading: Icon(Icons.lock),
+            //   title: Text('Sign Out'),
+            //   onTap: (){
+            //     Navigator.pop(context);
+            //     Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardPageFields()));
+            //   }
+            // ),
+            // Divider()
+//>>>>>>> master
           ],),
     ),
     body: SafeArea(
@@ -152,6 +178,7 @@ final primaryColor = const Color(0xFFFFFFFF);
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
+//<<<<<<< loan-branch
               Padding(
                 padding: EdgeInsets.all(4.0),
                 child: Column(
@@ -180,6 +207,8 @@ final primaryColor = const Color(0xFFFFFFFF);
                   ],
                 ),
               ),
+//=======
+//>>>>>>> master
               Expanded(
                 child: mainWidget,
               ),
@@ -383,13 +412,13 @@ class _DashboardEmptyState extends StatelessWidget {
           ),
         ),
         PalButton(
-          title: "ADD",
+          title: Text(AppLocalizations.of(context).add).data,
           width: MediaQuery.of(context).size.width * (2.0 / 3.0),
           colors: [Colors.green[600], Colors.green[900]],
           onPressed: () {
             Navigator.of(context).push(
               CupertinoPageRoute(
-                fullscreenDialog: true,
+                // fullscreenDialog: true, 
                 builder: (BuildContext context) {
                   return AddFieldPage();
                 },

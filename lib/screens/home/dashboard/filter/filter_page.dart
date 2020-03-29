@@ -3,7 +3,7 @@ import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:farm_expense_management/screens/home/dashboard/filter/filter.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
-
+import 'package:farm_expense_management/locale/locale.dart';
 class FilterPage extends StatelessWidget {
   final _dateRangeFetcher = BehaviorSubject<DateFilterType>();
   final _keywordController = TextEditingController();
@@ -35,7 +35,7 @@ class FilterPage extends StatelessWidget {
                         },
                       ),
                       Flexible(
-                        child: PalTitleView(title: "FILTER"),
+                        child: PalTitleView(title: Text(AppLocalizations.of(context).filter_1).data),
                       ),
                       Container(
                         width: 40.0,
@@ -55,7 +55,7 @@ class FilterPage extends StatelessWidget {
                       title: TextFormField(
                         controller: _keywordController,
                         decoration: InputDecoration(
-                          hintText: "Keyword",
+                          hintText: Text(AppLocalizations.of(context).keyWord_1).data,
                         ),
                       ),
                     ),
@@ -77,7 +77,7 @@ class FilterPage extends StatelessWidget {
                             ].map((DateFilterType value) {
                               return DropdownMenuItem<DateFilterType>(
                                 value: value,
-                                child: Text(DateFilterTypeName[value]),
+                                child: Text(DateFilterTypeName(context,value)),
                               );
                             }).toList(),
                             onChanged: changedDropDownItem,
@@ -204,7 +204,7 @@ class FilterPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.all(16.0),
                       child: PalButton(
-                        title: "APPLY",
+                        title: Text(AppLocalizations.of(context).apply_1).data,
                         width: MediaQuery.of(context).size.width * (2.0 / 3.0),
                         colors: [Colors.green[900], Colors.green[900]],
                         onPressed: () {

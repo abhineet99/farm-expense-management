@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:farm_expense_management/blocs/expenses_bloc.dart';
 import 'package:farm_expense_management/blocs/field_bloc.dart';
 import 'package:farm_expense_management/common/helpers.dart';
@@ -13,6 +13,8 @@ import 'package:farm_expense_management/common/ui/multiselect.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:farm_expense_management/locale/locale.dart';
+
 
 class AddExpensePage extends StatefulWidget {
   final Field field;
@@ -34,10 +36,20 @@ class AddExpensePageState extends State<AddExpensePage> {
   final List<Tag> tags = [];
   
   List <MultiSelectDialogItem<String>> multiTags =List();
+  GlobalKey<AutoCompleteTextFieldState<String>> key = new GlobalKey();
+  List <String> tagNames=List();
+
+  @override
+  void initState() {
+    super.initState();
+    for (Tag tag in widget.field.tags){
+      tagNames.add(tag.name);
+    }
+  }
 
   final _formKey = GlobalKey<FormState>();
 
-  Color currentColor = Color(0xff443a49);
+  Color currentColor = Colors.green;
   DateTime currentDate = DateTime.now();
 
   @override
@@ -68,7 +80,7 @@ class AddExpensePageState extends State<AddExpensePage> {
       });
   }
 
-  void addTag(String newValue, BuildContext context) {
+  void addTag(String newValue ,BuildContext context) {
     if (newValue.trim().length < 1) return;
 
     tags.removeWhere((tag) => tag.name == newValue.trim());
@@ -83,6 +95,15 @@ class AddExpensePageState extends State<AddExpensePage> {
     FocusScope.of(context).requestFocus(tagFocusNode);
   }
 
+  void addMultipleTags(List<String> newTags, BuildContext context){
+    setState(() {
+      tags.clear();
+    });
+    for(String newValue in newTags){
+      addTag(newValue, context);
+    }
+  }
+
   void populateMultiSelect(){
     multiTags=List();
     for (Tag tag in widget.field.tags){
@@ -94,27 +115,27 @@ class AddExpensePageState extends State<AddExpensePage> {
   void _showMultiSelect(BuildContext context) async {
     populateMultiSelect();
     final items = multiTags;
+    List<String> selectedTagNames=List();
+    for(Tag tag in tags){
+      selectedTagNames.add(tag.name);
+    }
     final selectedValues = await showDialog<Set<String>>(
       context: context,
       builder: (BuildContext context) {
         return MultiSelectDialog(
           dialogueHeading: 'Tags',
           items: items,
-          // initialSelectedValues: [1, 3].toSet() ,
+          initialSelectedValues: selectedTagNames.toSet() ,
         );
       },
     );
     if (selectedValues!=null){
-      for(String newValue in selectedValues){
-        addTag(newValue, context);
-    }
+      addMultipleTags(selectedValues.toList(), context);
     } 
     
   }
 
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _createbody(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -135,7 +156,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                         },
                       ),
                       Flexible(
-                        child: PalTitleView(title: "ADD"),
+                        child: PalTitleView(title: Text(AppLocalizations.of(context).add).data),
                       ),
                       Container(
                         width: 40.0,
@@ -155,7 +176,8 @@ class AddExpensePageState extends State<AddExpensePage> {
                       title: TextFormField(
                         controller: titleController,
                         decoration: InputDecoration(
-                          hintText: "Title",
+
+                          hintText: Text(AppLocalizations.of(context).expenseTitle).data,
                         ),
                         validator: (value) {
                           if (value.isEmpty) {
@@ -170,7 +192,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                         controller: amountController,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
-                          hintText: "Amount",
+                          hintText: Text(AppLocalizations.of(context).amount).data,
                         ),
                         validator: (value) {
                           if (value.isEmpty) {
@@ -193,30 +215,38 @@ class AddExpensePageState extends State<AddExpensePage> {
                       title: TextField(
                         controller: descriptionController,
                         decoration: InputDecoration(
-                          hintText: "Description",
+                          hintText: Text(AppLocalizations.of(context).description).data,
                         ),
                       ),
                     ),
                     ListTile(
                       leading: const Icon(Icons.label),
-                      title: TextField(
-                        controller: tagController,
-                        focusNode: tagFocusNode,
-                        onChanged: (newValue) {
-                          if (newValue.endsWith(',')) {
-                            addTag(newValue.replaceAll(",", ""), context);
-                          }
-                        },
-                        onSubmitted: (newValue) {
-                          addTag(newValue, context);
-                        },
-                        decoration: InputDecoration(
-                          hintText: "Tag",
-                        ),
+                      title: SimpleAutoCompleteTextField(
+                        key: key,
+                        decoration: new InputDecoration(hintText: " "),//Text(AppLocalizations.of(context).tag_1).data),
+                        controller: TextEditingController(text: ""),
+                        suggestions: tagNames,
+                        clearOnSubmit: true,
+                        textSubmitted: (newValue) => setState(() {
+                              if (newValue != "") {
+                                addTag(newValue, context);
+                              }
+                            }
+                          ),
                       ),
-                      trailing: Container(
-                        width: 40.0,
+                      trailing: IconButton(
+                        icon: Icon(Icons.check_box),
+                        color: currentColor,
+                        onPressed:()=> _showMultiSelect(context) ,
+                        ),
+                    ),
+                    ListTile(
+                      leading:Container(
+                        width: 30.0,
                         child: FlatButton(
+                          child:null,
+                          textColor: Colors.black,
+                          shape: CircleBorder(),
                           onPressed: () {
                             FocusScope.of(context)
                                 .requestFocus(new FocusNode());
@@ -248,15 +278,8 @@ class AddExpensePageState extends State<AddExpensePage> {
                             );
                           },
                           color: currentColor,
-                          child: null,
                         ),
                       ),
-                    ),
-                    ListTile(
-                      leading: RaisedButton(
-                        child: Text('Choose Tags'),
-                        onPressed:()=> _showMultiSelect(context) ,
-                        ),
                       title: tags.length > 0
                           ? _RemoveableExpenseTags(
                               tags: tags,
@@ -268,15 +291,16 @@ class AddExpensePageState extends State<AddExpensePage> {
                             )
                           : Center(
                               child: Text(
-                                'No tags yet. Add tag by typing in the field above. To confirm it just press Return or type a comma.',
+                                Text(AppLocalizations.of(context).noTagsYet).data,
                                 style: TextStyle(
-                                    color: Colors.black54, fontSize: 14.0),
+                                color: Colors.black54, fontSize: 14.0),
+
                               ),
                             ),
                     ),
                     ListTile(
                       leading: const Icon(Icons.today),
-                      title: const Text('Date'),
+                      title:  Text(AppLocalizations.of(context).date_1),
                       subtitle: Text(
                         DateHelper.formatDate(
                           currentDate,
@@ -289,7 +313,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                     Padding(
                       padding: EdgeInsets.all(16.0),
                       child: PalButton(
-                        title: "ADD",
+                        title: Text(AppLocalizations.of(context).add).data,
                         width: MediaQuery.of(context).size.width * (2.0 / 3.0),
                         colors: [Colors.green[900], Colors.green[900]],
                         onPressed: () {
@@ -321,6 +345,12 @@ class AddExpensePageState extends State<AddExpensePage> {
         ),
       ),
     );
+  }
+
+
+  @override
+  Widget build(BuildContext context){
+    return _createbody(context);
   }
 }
 
