@@ -78,33 +78,29 @@ class DateFilter extends ExpenseFilter {
 }
 
 class KeywordFilter extends ExpenseFilter {
-  final String keyword;
+  String keyword;
 
   KeywordFilter({@required this.keyword});
 
   @override
   bool filter(Expense expense) {
+    keyword=keyword.toLowerCase();
     bool contains = false;
     if (expense.title != null) {
-      contains = contains || expense.title.contains(keyword);
+      contains = contains || expense.title.toLowerCase().contains(keyword);
     }
 
     if (expense.description != null) {
-      contains = contains || expense.description.contains(keyword);
+      contains = contains || expense.description.toLowerCase().contains(keyword);
     }
 
     if (expense.currency != null) {
-      contains = contains || expense.currency.contains(keyword);
+      contains = contains || expense.currency.toLowerCase().contains(keyword);
     }
 
     if (expense.amount != null) {
-      contains = contains || expense.amount.toString().contains(keyword);
+      contains = contains || expense.amount.toString().toLowerCase().contains(keyword);
     }
-
-    expense.tags.forEach((tag) {
-      contains = contains || tag.name.contains(keyword);
-    });
-
     return contains;
   }
 }
