@@ -97,7 +97,7 @@ class DatabaseManager {
   }
 
   Future<List<Map>> fetchAllEntriesOf(Type type) async {
-    print('inside Fetching Entries');
+    print('inside Fetching Entries'+type.toString());
     DatabaseTable table = _tables[type];
 
     if (table == null) {

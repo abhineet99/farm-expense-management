@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:async/async.dart';
 import 'dart:developer';
 import 'package:farm_expense_management/common/constants.dart';
 import 'package:farm_expense_management/root_page.dart';
@@ -13,7 +14,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:farm_expense_management/locale/locale.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   final homePage = new RootPage();
   final onboarding = OnboardingPage();
 
@@ -45,7 +51,7 @@ class MyApp extends StatelessWidget {
                 log('case1a');
                 return homePage;  //home page from MyApp.dart
               } else {
-                print('case1b');
+                log('case1b');
                 showOnboarding();
                 return onboarding;
               }

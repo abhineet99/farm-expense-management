@@ -58,8 +58,8 @@ class InitialiseFields {
     return fieldsMap.keys.toList();
   }
 
-  void addFieldsData(String fieldName){
-    fieldsBloc.addField(fieldsMap[fieldName]);
+  Future<dynamic> addFieldsData(String fieldName){
+    return fieldsBloc.addField(fieldsMap[fieldName]);
   }
 
 }

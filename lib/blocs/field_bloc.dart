@@ -27,9 +27,11 @@ class FieldsBloc {
   }
 
   Future<bool> addField(Field field) async {
-    return manager.insert([field]).then((value) {
-      fetchAllFields();
-    });
+    return manager.insert([field])
+      .then((value)=> fetchAllFields()
+      .catchError((error)=>throw error)
+      )
+      ;
   }
 
   Future<bool> removeField(Field field) async {

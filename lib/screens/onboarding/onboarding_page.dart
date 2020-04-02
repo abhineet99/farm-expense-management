@@ -1,13 +1,14 @@
 import 'package:farm_expense_management/common/assets.dart';
 import 'package:farm_expense_management/common/helpers.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
+import 'package:farm_expense_management/root_page.dart';
 import 'package:farm_expense_management/screens/onboarding/circled_image.dart';
 import 'package:farm_expense_management/screens/onboarding/dots_indicator.dart';
-import 'package:farm_expense_management/my_app.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage extends StatelessWidget {
-  //final home = HomePage();
+  final home = RootPage();
+  
   final _controller = PageController();
   final List<Widget> _pages = [
     OnboardingSinglePage(
@@ -86,7 +87,7 @@ class OnboardingPage extends StatelessWidget {
             title: page == _pages.length - 1 ? 'DONE' : 'SKIP',
             onPressed: () {
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => MyApp()));
+                  MaterialPageRoute(builder: (context) => home));
             },
           ),
         );
