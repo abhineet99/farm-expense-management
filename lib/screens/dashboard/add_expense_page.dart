@@ -10,9 +10,9 @@ import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:farm_expense_management/common/ui/single_tag.dart';
 import 'package:farm_expense_management/common/ui/multiselect.dart';
+import 'package:farm_expense_management/screens/dashboard/tags_ui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:farm_expense_management/locale/locale.dart';
 
 
@@ -45,6 +45,11 @@ class AddExpensePageState extends State<AddExpensePage> {
     for (Tag tag in widget.field.tags){
       tagNames.add(tag.name);
     }
+    //choose color form first tag or set to green
+    if(widget.field.tags.length>0)
+    currentColor=widget.field.tags[0].color;
+    else currentColor=Colors.green;
+
   }
 
   final _formKey = GlobalKey<FormState>();
@@ -241,47 +246,8 @@ class AddExpensePageState extends State<AddExpensePage> {
                         ),
                     ),
                     ListTile(
-                      // leading:Container(
-                      //   width: 30.0,
-                      //   child: FlatButton(
-                      //     child:null,
-                      //     textColor: Colors.black,
-                      //     shape: CircleBorder(),
-                      //     onPressed: () {
-                      //       FocusScope.of(context)
-                      //           .requestFocus(new FocusNode());
-                      //       showDialog(
-                      //         context: context,
-                      //         builder: (BuildContext context) {
-                      //           return AlertDialog(
-                      //             titlePadding: const EdgeInsets.all(0.0),
-                      //             contentPadding: const EdgeInsets.all(0.0),
-                      //             content: SingleChildScrollView(
-                      //               child: ColorPicker(
-                      //                 pickerColor: currentColor,
-                      //                 onColorChanged: changeColor,
-                      //                 colorPickerWidth: MediaQuery.of(context).size.width - 32.0,
-                      //                 pickerAreaHeightPercent: 0.7,
-                      //                 enableAlpha: true,
-                      //               ),
-                      //             ),
-                      //             actions: <Widget>[
-                      //               FlatButton(
-                      //                 child: const Text('OK'),
-                      //                 onPressed: () {
-                      //                   Navigator.of(context).pop();
-                      //                 },
-                      //               ),
-                      //             ],
-                      //           );
-                      //         },
-                      //       );
-                      //     },
-                      //     color: currentColor,
-                      //   ),
-                      // ),
                       title: tags.length > 0
-                          ? _RemoveableExpenseTags(
+                          ? RemoveableExpenseTags(
                               tags: tags,
                               removeAction: (tag) {
                                 setState(() {
@@ -351,38 +317,5 @@ class AddExpensePageState extends State<AddExpensePage> {
   @override
   Widget build(BuildContext context){
     return _createbody(context);
-  }
-}
-
-class _RemoveableExpenseTags extends StatelessWidget {
-  final List<Tag> tags;
-  final SingleTagCallback removeAction;
-
-  _RemoveableExpenseTags({@required this.tags, this.removeAction});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 24.0,
-      child: Center(
-        child: ListView.builder(
-          itemCount: tags.length,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (BuildContext context, int index) {
-            Tag tag = tags[index];
-            return Center(
-              child: Padding(
-                padding: EdgeInsets.only(
-                    right: index == tags.length - 1 ? 0.0 : 4.0),
-                child: SingleTag(
-                  tag: tag,
-                  removeAction: removeAction,
-                ),
-              ),
-            );
-          },
-        ),
-      ),
-    );
   }
 }

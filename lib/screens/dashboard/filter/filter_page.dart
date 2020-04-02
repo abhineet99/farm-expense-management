@@ -1,14 +1,104 @@
+import 'package:autocomplete_textfield/autocomplete_textfield.dart';
+import 'package:farm_expense_management/common/models/fields.dart';
+import 'package:farm_expense_management/common/models/tag.dart';
+import 'package:farm_expense_management/common/ui/multiselect.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:farm_expense_management/screens/dashboard/filter/filter.dart';
+import 'package:farm_expense_management/screens/dashboard/tags_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:farm_expense_management/locale/locale.dart';
-class FilterPage extends StatelessWidget {
+
+class FilterPage extends StatefulWidget {
+  final Field field;
+  FilterPage(this.field);
+  @override
+  _FilterPageState createState() => _FilterPageState();
+}
+
+class _FilterPageState extends State<FilterPage> {
   final _dateRangeFetcher = BehaviorSubject<DateFilterType>();
   final _keywordController = TextEditingController();
+  final tagController = TextEditingController();
+  final tagFocusNode = FocusNode();
 
+  final List<Tag> tags = [];
+  Color currentColor;
+  
+  List <MultiSelectDialogItem<String>> multiTags =List();
+  GlobalKey<AutoCompleteTextFieldState<String>> key = new GlobalKey();
+  List <String> tagNames=List();
+
+  @override
+  void initState(){
+    super.initState();
+  //choose color form first tag or set to green
+    if(widget.field.tags.length>0)
+    currentColor=widget.field.tags[0].color;
+    else currentColor=Colors.green;
+  }
+
+  
+  void addTag(String newValue ,BuildContext context) {
+    if (newValue.trim().length < 1) return;
+
+    tags.removeWhere((tag) => tag.name == newValue.trim());
+
+    Tag tag = Tag(name: newValue.trim(), color: currentColor);
+    tagController.text = "";
+
+    setState(() {
+      tags.add(tag);
+    });
+
+    FocusScope.of(context).requestFocus(tagFocusNode);
+  }
+
+  void addMultipleTags(List<String> newTags, BuildContext context){
+    setState(() {
+      tags.clear();
+    });
+    for(String newValue in newTags){
+      addTag(newValue, context);
+    }
+  }
+
+  void populateMultiSelect(){
+    multiTags=List();
+    for (Tag tag in widget.field.tags){
+      multiTags.add(MultiSelectDialogItem(tag.name,tag.name));
+    }
+  }
+  
+
+  void _showMultiSelect(BuildContext context) async {
+    populateMultiSelect();
+    final items = multiTags;
+    List<String> selectedTagNames=List();
+    for(Tag tag in tags){
+      selectedTagNames.add(tag.name);
+    }
+    final selectedValues = await showDialog<Set<String>>(
+      context: context,
+      builder: (BuildContext context) {
+        return MultiSelectDialog(
+          dialogueHeading: 'Tags',
+          items: items,
+          initialSelectedValues: selectedTagNames.toSet() ,
+        );
+      },
+    );
+    if (selectedValues!=null){
+      addMultipleTags(selectedValues.toList(), context);
+    } 
+    
+  }
+
+
+  @override
   dispose() {
+    super.dispose();
     _keywordController.dispose();
     _dateRangeFetcher.close();
   }
@@ -93,114 +183,46 @@ class FilterPage extends StatelessWidget {
                         );
                       },
                     ),
-                    // ListTile(
-                    //   leading: const Icon(Icons.attach_money),
-                    //   title: TextFormField(
-                    //     controller: amountController,
-                    //     keyboardType: TextInputType.number,
-                    //     decoration: InputDecoration(
-                    //       hintText: "Amount",
-                    //     ),
-                    //     validator: (value) {
-                    //       if (value.isEmpty) {
-                    //         return "Please enter amount";
-                    //       }
-                    //     },
-                    //   ),
-                    //   trailing: Container(
-                    //     width: 50.0,
-                    //     child: TextField(
-                    //       controller: currencyController,
-                    //       decoration: InputDecoration(
-                    //         hintText: "EUR",
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                    // ListTile(
-                    //   leading: const Icon(Icons.description),
-                    //   title: TextField(
-                    //     controller: descriptionController,
-                    //     decoration: InputDecoration(
-                    //       hintText: "Description",
-                    //     ),
-                    //   ),
-                    // ),
-                    // ListTile(
-                    //   leading: const Icon(Icons.label),
-                    //   title: TextField(
-                    //     controller: tagController,
-                    //     focusNode: tagFocusNode,
-                    //     onChanged: (newValue) {
-                    //       if (newValue.endsWith(',')) {
-                    //         addTag(newValue.replaceAll(",", ""), context);
-                    //       }
-                    //     },
-                    //     onSubmitted: (newValue) {
-                    //       addTag(newValue, context);
-                    //     },
-                    //     decoration: InputDecoration(
-                    //       hintText: "Tag",
-                    //     ),
-                    //   ),
-                    //   trailing: Container(
-                    //     width: 40.0,
-                    //     child: FlatButton(
-                    //       onPressed: () {
-                    //         showDialog(
-                    //           context: context,
-                    //           builder: (BuildContext context) {
-                    //             return AlertDialog(
-                    //               titlePadding: const EdgeInsets.all(0.0),
-                    //               contentPadding: const EdgeInsets.all(0.0),
-                    //               content: SingleChildScrollView(
-                    //                 child: ColorPicker(
-                    //                   pickerColor: currentColor,
-                    //                   onColorChanged: changeColor,
-                    //                   colorPickerWidth: 1000.0,
-                    //                   pickerAreaHeightPercent: 0.7,
-                    //                   enableAlpha: true,
-                    //                 ),
-                    //               ),
-                    //             );
-                    //           },
-                    //         );
-                    //       },
-                    //       color: currentColor,
-                    //       child: null,
-                    //     ),
-                    //   ),
-                    // ),
-                    // ListTile(
-                    //   title: tags.length > 0
-                    //       ? _RemoveableExpenseTags(
-                    //           tags: tags,
-                    //           removeAction: (tag) {
-                    //             setState(() {
-                    //               tags.remove(tag);
-                    //             });
-                    //           },
-                    //         )
-                    //       : Center(
-                    //           child: Text(
-                    //             'No tags yet. Add tag by typing in the field above. To confirm it just press Return or type a comma.',
-                    //             style: TextStyle(
-                    //                 color: Colors.black54, fontSize: 14.0),
-                    //           ),
-                    //         ),
-                    // ),
-                    // ListTile(
-                    //   leading: const Icon(Icons.today),
-                    //   title: const Text('Date'),
-                    //   subtitle: Text(
-                    //     DateHelper.formatDate(
-                    //       currentDate,
-                    //       fullDate: true,
-                    //       withTime: true,
-                    //     ),
-                    //   ),
-                    //   onTap: _selectDate,
-                    // ),
+                    ListTile(
+                      leading: const Icon(Icons.label),
+                      title: SimpleAutoCompleteTextField(
+                        key: key,
+                        decoration: new InputDecoration(hintText: Text(AppLocalizations.of(context).tag_1).data),
+                        controller: TextEditingController(text: ""),
+                        suggestions: tagNames,
+                        clearOnSubmit: true,
+                        textSubmitted: (newValue) => setState(() {
+                              if (newValue != "") {
+                                addTag(newValue, context);
+                              }
+                            }
+                          ),
+                      ),
+                      trailing: IconButton(
+                        icon: Icon(Icons.check_box),
+                        color: currentColor,
+                        onPressed:()=> _showMultiSelect(context) ,
+                        ),
+                    ),
+                    ListTile(
+                      title: tags.length > 0
+                          ? RemoveableExpenseTags(
+                              tags: tags,
+                              removeAction: (tag) {
+                                setState(() {
+                                  tags.remove(tag);
+                                });
+                              },
+                            )
+                          : Center(
+                              child: Text(
+                                Text(AppLocalizations.of(context).noTagsYet).data,
+                                style: TextStyle(
+                                color: Colors.black54, fontSize: 14.0),
+
+                              ),
+                            ),
+                    ),
                     Padding(
                       padding: EdgeInsets.all(16.0),
                       child: PalButton(
@@ -221,24 +243,12 @@ class FilterPage extends StatelessWidget {
                             filters.add(DateFilter(type: dateRangeType));
                           }
 
-                          // DateFilter(
-                          //       dateTime: DateTime.utc(2019, 3, 11),
-                          //       type: DateFilterType.equal)
+                          if(tags.isNotEmpty){
+                            filters.add(TagFilter(tags: tags));
+                          }
+
                           filtersBloc.setFilters(filters);
-                          // if (!_formKey.currentState.validate()) {
-                          //   return;
-                          // }
-                          // Expense expense = Expense(
-                          //     title: titleController.text,
-                          //     description: descriptionController.text,
-                          //     date: currentDate,
-                          //     amount:
-                          //         double.tryParse(amountController.text) ?? 0.0,
-                          //     currency: currencyController.text.isNotEmpty
-                          //         ? currencyController.text
-                          //         : "EUR",
-                          //     tags: tags);
-                          // expensesBloc.addExpense(expense);
+
                           Navigator.of(context).pop();
                         },
                       ),

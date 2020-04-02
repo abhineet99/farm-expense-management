@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'package:farm_expense_management/common/helpers.dart';
 import 'package:farm_expense_management/common/models/expenses.dart';
+import 'package:farm_expense_management/common/models/tag.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
@@ -107,6 +108,25 @@ class KeywordFilter extends ExpenseFilter {
     return contains;
   }
 }
+
+
+class TagFilter extends ExpenseFilter {
+  final List<Tag> tags;
+
+  TagFilter({@required this.tags});
+
+  @override
+  bool filter(Expense expense) {
+    bool contains = false;
+    if (expense.tags.isNotEmpty) {
+      for(Tag filterTag in tags){
+        contains = contains || expense.tags.contains(filterTag);
+      }
+    }
+    return contains;
+  }
+}
+
 
 class FilteredList<E> extends ListBase<E> {
   List innerList = List();

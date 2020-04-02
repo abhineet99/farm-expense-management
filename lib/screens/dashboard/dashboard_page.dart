@@ -27,11 +27,12 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   // final addPage = AddExpensePage();
-  final filterPage = FilterPage();
+  FilterPage filterPage;
 
   @override
   void initState() {
     super.initState();
+    filterPage=FilterPage(widget.field);
     expensesBloc.fetchAllExpenses(widget.field);
     filtersBloc.fetchInitialFilters();
   }
