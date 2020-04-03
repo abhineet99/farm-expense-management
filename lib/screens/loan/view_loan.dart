@@ -1,6 +1,8 @@
 import 'package:farm_expense_management/common/models/loan_item.dart';
 import 'package:flutter/material.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
+import 'package:farm_expense_management/locale/locale.dart';
+
 class Installment{
   String date;
   int e_amount;
@@ -82,7 +84,7 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
                       child: Padding(
                         padding: EdgeInsets.all(6.0),
                         child: Text(
-                          "Loan Amount: INR "+loan.loanAmount.toString(),
+                          Text(AppLocalizations.of(context).loanAmount).data+": INR "+loan.loanAmount.toString(),
                           style: TextStyle(
                             fontSize: 18.0,
                             //fontWeight: FontWeight.w500,
@@ -95,7 +97,7 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(6.0, 0.0, 6.0, 6.0),
                         child: Text(
-                          "Annual Rate of Interest: "+loan.annualRoI.toString()+"%",
+                          Text(AppLocalizations.of(context).roi).data+loan.annualRoI.toString()+"%",
                           style: TextStyle(
                             fontSize: 18.0,
                             //fontWeight: FontWeight.w500,
@@ -108,7 +110,7 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(6.0, 0.0, 6.0, 6.0),
                         child: Text(
-                          "Installment Amount: INR "+loan.emiAmount.toString(),
+                          Text(AppLocalizations.of(context).installAmount).data+": INR "+loan.emiAmount.toString(),
                           style: TextStyle(
                             fontSize: 18.0,
                             //fontWeight: FontWeight.w500,
@@ -121,7 +123,7 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(6.0, 0.0, 6.0, 0.0),
                         child: Text(
-                          "Installment Interval: "+loan.numberOfDays.toString()+" days",
+                          Text(AppLocalizations.of(context).installIntervalDays).data+": "+loan.numberOfDays.toString(),
                           style: TextStyle(
                             fontSize: 18.0,
                             //fontWeight: FontWeight.w500,
@@ -137,7 +139,7 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(6.0, 0.0, 6.0, 0.0),
                         child: Text(
-                          "Date of Installments with Amount to be paid",
+                          AppLocalizations.of(context).dateOfIns,
                           style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500,

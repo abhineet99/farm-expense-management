@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:farm_expense_management/common/models/loan_item.dart';
 import 'package:flutter/cupertino.dart';
 
+import 'package:farm_expense_management/locale/locale.dart';
 class AddLoanPage extends StatefulWidget {
   @override
   _AddLoanPageState createState() => _AddLoanPageState();
@@ -43,7 +44,7 @@ class _AddLoanPageState extends State<AddLoanPage> {
     return Scaffold(
       appBar: AppBar(
         title: PalTitleView(
-          title: "Add Loan",
+          title: Text(AppLocalizations.of(context).addLoan).data,
         ),
         backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: Colors.green[600]),
@@ -62,12 +63,12 @@ class _AddLoanPageState extends State<AddLoanPage> {
                       title: TextFormField(
                         controller: titleController,
                         decoration: InputDecoration(
-                          hintText: "Loan Title",
+                          hintText: Text(AppLocalizations.of(context).loanTitle).data,
                         ),
                         validator: (value){
                           if(value.isEmpty)
                           {
-                            return "Please Enter Loan Title";
+                            return Text(AppLocalizations.of(context).valLoanTitle).data;
                           }
                         },
                         keyboardType: TextInputType.text,
@@ -77,12 +78,12 @@ class _AddLoanPageState extends State<AddLoanPage> {
                       title: TextFormField(
                         controller: laController,
                         decoration: InputDecoration(
-                          hintText: "Loan Amount",
+                          hintText: Text(AppLocalizations.of(context).loanAmount).data,
                         ),
                         validator: (value){
                           if(value.isEmpty)
                           {
-                            return "Please Enter Loan Amount";
+                            return Text(AppLocalizations.of(context).valLoanAmount).data;
                           }
                         },
                         keyboardType: TextInputType.number,
@@ -92,12 +93,12 @@ class _AddLoanPageState extends State<AddLoanPage> {
                       title: TextFormField(
                         controller: eaController,
                         decoration: InputDecoration(
-                          hintText: "Installment Amount",
+                          hintText: Text(AppLocalizations.of(context).installAmount).data,
                         ),
                         validator: (value){
                           if(value.isEmpty)
                           {
-                            return "Please Enter Installment Amount";
+                            return Text(AppLocalizations.of(context).valInsAmount).data;
                           }
                         },
                         keyboardType: TextInputType.number,
@@ -107,12 +108,12 @@ class _AddLoanPageState extends State<AddLoanPage> {
                       title: TextFormField(
                         controller: ndController,
                         decoration: InputDecoration(
-                          hintText: "Installment Interval (days)",
+                          hintText: Text(AppLocalizations.of(context).installIntervalDays).data,
                         ),
                         validator: (value){
                           if(value.isEmpty)
                           {
-                            return "Please Enter Installment Interval in days";
+                            return Text(AppLocalizations.of(context).valInsInterval).data;
                           }
                         },
                         keyboardType: TextInputType.number,
@@ -122,12 +123,12 @@ class _AddLoanPageState extends State<AddLoanPage> {
                       title: TextFormField(
                         controller: roiController,
                         decoration: InputDecoration(
-                          hintText: "Annual Rate of Interest",
+                          hintText: Text(AppLocalizations.of(context).roi).data,
                         ),
                         validator: (value){
                           if(value.isEmpty)
                           {
-                            return "Please Enter Annual Rate of Interest";
+                            return Text(AppLocalizations.of(context).valRoi).data;
                           }
                         },
                         keyboardType: TextInputType.number,
@@ -137,12 +138,12 @@ class _AddLoanPageState extends State<AddLoanPage> {
                       title: TextFormField(
                         controller: sdController,
                         decoration: InputDecoration(
-                          hintText: "Installment Start Date (DD/MM/YYYY)",
+                          hintText: Text(AppLocalizations.of(context).installmentStartDate).data,
                         ),
                         validator: (value){
                           if(value.isEmpty)
                           {
-                            return "Please Enter Installment Start Date (DD/MM/YYYY)";
+                            return Text(AppLocalizations.of(context).valInsStartDate).data;
                           }
                         },
                         keyboardType: TextInputType.datetime,
@@ -151,7 +152,7 @@ class _AddLoanPageState extends State<AddLoanPage> {
                     Padding(
                       padding: EdgeInsets.all(16.0),
                       child: PalButton(
-                        title: "ADD",
+                        title: Text(AppLocalizations.of(context).add).data,
                         width: MediaQuery.of(context).size.width *(2.0/3.0),
                         colors: [Colors.green[900],Colors.green[900]],
                         onPressed: ()async {

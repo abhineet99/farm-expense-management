@@ -5,7 +5,7 @@ import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:farm_expense_management/screens/loan/add_loan.dart';
 import 'package:farm_expense_management/screens/loan/view_loan.dart';
-
+import 'package:farm_expense_management/locale/locale.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
@@ -35,7 +35,7 @@ class _LoanPageState extends State<LoanPage> {
     return Scaffold(
       appBar: AppBar(
         title: PalTitleView(
-          title: "Loans",
+          title: Text(AppLocalizations.of(context).loans).data,
         ),
         backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: Colors.green),
@@ -134,7 +134,7 @@ class _LoanPageState extends State<LoanPage> {
       if (loans.length <= 0) {
         return _LoanPageEmptyState();
       }
-    print('hello456');
+    //print('hello456');
     List<dynamic> items = [];
     loans.forEach((loan){
       items.add(loan);
@@ -216,7 +216,7 @@ class _LoanCard extends StatelessWidget {
   final LoanItem loan;
   _LoanCard({@required this.loan});
   List<Widget> buildDetails() {
-    print('789');
+    //print('789');
     Widget title = Padding(
       padding: EdgeInsets.only(bottom: 4.0),
       child: Text(
@@ -245,7 +245,7 @@ class _LoanCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('101112');
+    //print('101112');
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
       decoration: BoxDecoration(
@@ -307,7 +307,7 @@ class _LoanPageEmptyState extends StatelessWidget{
           child: Padding(
             padding: EdgeInsets.all(16.0),
             child: Text(
-              'No loans added yet.',
+              AppLocalizations.of(context).noLoans,
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.black,
@@ -324,7 +324,7 @@ class _LoanPageEmptyState extends StatelessWidget{
           ),
         ),
         PalButton(
-          title: "Add Loan",
+          title: Text(AppLocalizations.of(context).addLoan).data,
           width: MediaQuery.of(context).size.width * (2.0/3.0),
           colors: [Colors.green[900], Colors.green[900]],
           onPressed: (){

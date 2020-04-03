@@ -186,7 +186,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                         ),
                         validator: (value) {
                           if (value.isEmpty) {
-                            return "Please enter title";
+                            return Text(AppLocalizations.of(context).valEnterTitle).data;
                           }
                         },
                       ),
@@ -201,7 +201,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                         ),
                         validator: (value) {
                           if (value.isEmpty) {
-                            return "Please enter amount";
+                            return Text(AppLocalizations.of(context).valEnterAmount).data;
                           }
                         },
                       ),

@@ -92,7 +92,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
             
             ListTile(
               leading: Icon(Icons.account_balance),
-              title: Text('Manage Loans'),
+              title: Text(AppLocalizations.of(context).manageLoans),
               onTap: (){
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanPage()));
@@ -101,7 +101,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
             Divider(),
             ListTile(
               leading: Icon(Icons.label_important),
-              title: Text('Calculate Interest Amount'),
+              title: Text(AppLocalizations.of(context).calInterestAmount),
               onTap: (){
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>InterestPage()));
