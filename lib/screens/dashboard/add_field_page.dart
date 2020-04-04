@@ -97,7 +97,7 @@ class AddFieldPageState extends State<AddFieldPage> {
                         ),
                         validator: (value) {
                           if (value.isEmpty) {
-                            return "Please enter title";
+                            return Text(AppLocalizations.of(context).valEnterTitle).data;
                           }
                         },
                       ),
@@ -229,11 +229,10 @@ class AddFieldPageState extends State<AddFieldPage> {
     return _createBody(context);
     
   }
-
   Widget _predefinedFields(BuildContext context){
     return DropdownButton<String>(
       value: dropdownValue,
-      hint: Text('Choose from Predefined Categories'),
+      hint: Text(AppLocalizations.of(context).choosePredefined),
       icon: Icon(Icons.arrow_downward),
       iconSize: 24,
       elevation: 16,
@@ -255,7 +254,7 @@ class AddFieldPageState extends State<AddFieldPage> {
             value: value,
             child: Column(
               children: <Widget>[
-                Text(value),
+                InitialiseFields().getLocalizedFieldWidget(value,context),
                 Divider(),
               ],
 

@@ -190,5 +190,419 @@
     "description": "no expenses",
     "type": "text",
     "placeholders": {}
+  },
+  "manageLoans": "ऋण प्रबंधन",
+  "@manageLoans": {
+    "description": "manageLoans drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loans": "ऋण",
+  "@loans": {
+    "description": "title loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addLoan": "ऋण जोड़ें",
+  "@addLoan": {
+    "description": "Add loan btn",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loanTitle": "ऋण का शीर्षक",
+  "@loanTitle": {
+    "description": "Loan Title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loanAmount": "उधार की राशि",
+  "@loanAmount": {
+    "description": "Loan Amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "installAmount": "किश्त राशि",
+  "@installAmount": {
+    "description": "installment amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "choosePredefined": "पूर्वनिर्धारित श्रेणियों में से चुनें",
+  "@choosePredefined": {
+    "description": "add_field_page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "installIntervalDays": "किश्त अंतराल (दिन)",
+  "@installIntervalDays": {
+    "description": "installment interval",
+    "type": "text",
+    "placeholders": {}
+  },
+  "roi": "वार्षिक ब्याज दर",
+  "@roi": {
+    "description": "annual roi",
+    "type": "text",
+    "placeholders": {}
+  },
+  "principalAmount": "मुख्य राशि",
+  "@principalAmount": {
+    "description": "cia page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valPrincipalAmount": "कृपया मुख्य राशि दर्ज करें",
+  "@valPrincipalAmount": {
+    "description": "cia page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "installmentStartDate": "किश्त प्रारंभ तिथि (DD / MM / YYYY)",
+  "@installmentStartDate": {
+    "description": "start date",
+    "type": "text",
+    "placeholders": {}
+  },
+  "calInterestAmount": "ब्याज राशि की गणना",
+  "@calInterestAmount": {
+    "description": "cal interest amount drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loanDuration": "ऋण अवधि (महीने में)",
+  "@loanDuration": {
+    "description": "loan duration in cia",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valLoanDuration": "कृपया ऋण अवधि दर्ज करें (महीने में)",
+  "@valLoanDuration": {
+    "description": "loan duration in cia",
+    "type": "text",
+    "placeholders": {}
+  },
+  "totalAmountPayable": "कुल भुगतान राशि",
+  "@totalAmountPayable": {
+    "description": "Total Amount Payable",
+    "type": "text",
+    "placeholders": {}
+  },
+  "interestAmount": "ब्याज राशि",
+  "@interestAmount": {
+    "description": "interest amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "simpleInterest": "साधारण ब्याज",
+  "@simpleInterest": {
+    "description": "simple interest",
+    "type": "text",
+    "placeholders": {}
+  },
+  "compoundInterest": "चक्रवृद्धि ब्याज",
+  "@compoundInterest": {
+    "description": "Compound interest",
+    "type": "text",
+    "placeholders": {}
+  },
+  "calculate": "गणना करें",
+  "@calculate": {
+    "description": "calculate",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dateOfIns": "भुगतान की जाने वाली राशि के साथ किस्तों की तारीख",
+  "@dateOfIns": {
+    "description": "Loan description page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "days_1": "दिन",
+  "@days_1": {
+    "description": "days",
+    "type": "text",
+    "placeholders": {}
+  },
+  "expenses": "व्यय",
+  "@expenses": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "expensesText": "अपने खर्चों को जोड़ें और जांचें कि आपने अपना पैसा कहां खर्च किया है",
+  "@expensesText": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "next_1": "आगे",
+  "@next_1": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "skip_1": "छोड़ें",
+  "@skip_1": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tags_1": "टैग",
+  "@tags_1": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagsText": "आसानी से उनके माध्यम से खोज करने के लिए अपने खर्चों को टैग करें और जांचें कि आप अपना पैसा कहां खर्च करते हैं",
+  "@tagsText": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "done_1": "प्रवेश",
+  "@done_1": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "statsText": "अपने खर्च के आंकड़ों की जाँच करें और अपने वर्तमान महीने के खर्च की तुलना पिछले महीने या सर्वकालिक औसत से करें",
+  "@statsText": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valLoanTitle": "कृपया ऋण शीर्षक दर्ज करें",
+  "@valLoanTitle": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valLoanAmount": "कृपया ऋण राशि दर्ज करें",
+  "@valLoanAmount": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valInsAmount": "कृपया किश्त राशि दर्ज करें",
+  "@valInsAmount": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valInsInterval": "कृपया किश्त अंतराल दर्ज करें (दिनों में)",
+  "@valInsInterval": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valRoi": "कृपया वार्षिक ब्याज दर दर्ज करें",
+  "@valRoi": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valInsStartDate": "कृपया किश्त प्रारंभ तिथि दर्ज करें (DD/MM/YYYY)",
+  "@valInsStartDate": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valEnterName": "कृपया नाम दर्ज करें",
+  "@valEnterName": {
+    "description": "add category page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valEnterTitle": "कृपया शीर्षक दर्ज करें",
+  "@valEnterTitle": {
+    "description": "add expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valEnterAmount": "ਕਿਰਪਾ ਕਰਕੇ ਰਕਮ ਦਾਖਲ ਕਰੋ",
+  "@valEnterAmount": {
+    "description": "add expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "remove_1": "हटाएं",
+  "@remove_1": {
+    "description": "remove expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noTags": "कोई टैग नहीं",
+  "@noTags": {
+    "description": "remove expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noLoans": "अभी तक कोई ऋण नहीं जोड़ा गया है",
+  "@noLoans": {
+    "description": "loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "agriculture": "कृषि",
+  "@agriculture": {
+    "description": "agri field",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dairy": "दुग्धालय",
+  "@dairy": {
+    "description": "dairy field",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagCollectionAndPacking": "संग्रह और पैकिंग",
+  "@tagCollectionAndPacking": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFertilizers": "उर्वरक",
+  "@tagFertilizers": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFodder": "चारा",
+  "@tagFodder": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagInsurance": "बीमा",
+  "@tagInsurance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagIrrigationEquipment": "सिंचाई के उपकरण",
+  "@tagIrrigationEquipment": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagIrrigationRent": "सिंचाई का किराया",
+  "@tagIrrigationRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLabor": "श्रम",
+  "@tagLabor": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLandPurchase": "भूमि खरीद",
+  "@tagLandPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLandRent": "भूमि-किराया",
+  "@tagLandRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryMaintenance": "मशीनरी रखरखाव",
+  "@tagMachineryMaintenance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryPurchase": "मशीनरी खरीद",
+  "@tagMachineryPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryRent": "मशीनरी किराया",
+  "@tagMachineryRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagPesticides": "कीटनाशक",
+  "@tagPesticides": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagSeeds": "बीज",
+  "@tagSeeds": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsPurchase": "उपकरण खरीद",
+  "@tagToolsPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsRent": "उपकरण किराया",
+  "@tagToolsRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsMaintenance": "उपकरण रखरखाव",
+  "@tagToolsMaintenance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagTransportation": "परिवहन",
+  "@tagTransportation": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagWeedicide": "खरपतवारनाशक",
+  "@tagWeedicide": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagAnimalPurchase": "पशु खरीद",
+  "@tagAnimalPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagAnimalMedication": "पशु चिकित्सा",
+  "@tagAnimalMedication": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagBedding": "बिस्तर",
+  "@tagBedding": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagElectricity": "बिजली",
+  "@tagElectricity": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFeedSupplements": "पूरक आहार",
+  "@tagFeedSupplements": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagShelter": "आश्रय",
+  "@tagShelter": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
   }
 }

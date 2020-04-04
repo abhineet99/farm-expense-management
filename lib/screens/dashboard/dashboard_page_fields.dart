@@ -16,7 +16,7 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:farm_expense_management/screens/loan/interest_page.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';
-
+import 'package:farm_expense_management/common/database_manager/initialise_fields.dart';
 import 'package:farm_expense_management/locale/locale.dart';
 class DashboardPageFields extends StatefulWidget {
   @override
@@ -92,7 +92,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
             
             ListTile(
               leading: Icon(Icons.account_balance),
-              title: Text('Manage Loans'),
+              title: Text(AppLocalizations.of(context).manageLoans),
               onTap: (){
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanPage()));
@@ -101,7 +101,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
             Divider(),
             ListTile(
               leading: Icon(Icons.label_important),
-              title: Text('Calculate Interest Amount'),
+              title: Text(AppLocalizations.of(context).calInterestAmount),
               onTap: (){
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>InterestPage()));
@@ -315,11 +315,11 @@ class _FieldCard extends StatelessWidget {
 
   _FieldCard({@required this.field});
 
-  List<Widget> buildDetails() {
+  List<Widget> buildDetails(BuildContext context) {
     Widget title = Padding(
       padding: EdgeInsets.only(bottom: 4.0),
       child: Text(
-        field.name,
+        InitialiseFields().getLocalizedFieldText(field.name,context),
         style: TextStyle(
           color: Colors.black,
           fontSize: 18.0,
@@ -369,7 +369,7 @@ class _FieldCard extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: buildDetails(),
+                    children: buildDetails(context),
                   ),
                 ),
               ),

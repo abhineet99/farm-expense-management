@@ -3,6 +3,7 @@ import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:flutter/material.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'dart:math';
+import 'package:farm_expense_management/locale/locale.dart';
 class InterestPage extends StatefulWidget{
   @override
   _InterestPageState createState() => _InterestPageState();
@@ -59,7 +60,7 @@ class _InterestPageState extends State<InterestPage>{
     return Scaffold(
       appBar: AppBar(
         title: PalTitleView(
-          title: "Calculate Interest Amount",
+          title: Text(AppLocalizations.of(context).calInterestAmount).data,
         ),
         backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: Colors.green[600]),
@@ -78,11 +79,11 @@ class _InterestPageState extends State<InterestPage>{
                       title: TextFormField(
                         controller: princController,
                         decoration: InputDecoration(
-                          hintText: "Principal Amount",
+                          hintText: Text(AppLocalizations.of(context).principalAmount).data,
                         ),
                         validator: (value){
                           if(value.isEmpty)
-                            return "Please Enter Principal Amount";
+                            return Text(AppLocalizations.of(context).valPrincipalAmount).data;
                         },
                         keyboardType: TextInputType.number,
                       ),
@@ -91,11 +92,11 @@ class _InterestPageState extends State<InterestPage>{
                       title: TextFormField(
                         controller: roiController,
                         decoration: InputDecoration(
-                          hintText: "Annual Rate of Interest",
+                          hintText: Text(AppLocalizations.of(context).roi).data,
                         ),
                         validator: (value){
                           if(value.isEmpty)
-                            return "Please Enter Rate of Interest";
+                            return Text(AppLocalizations.of(context).valRoi).data;
                         },
                         keyboardType: TextInputType.number,
                       ),
@@ -104,17 +105,17 @@ class _InterestPageState extends State<InterestPage>{
                       title: TextFormField(
                         controller: monthsController,
                         decoration: InputDecoration(
-                          hintText: "Loan Duration in Months",
+                          hintText: Text(AppLocalizations.of(context).loanDuration).data,
                         ),
                         validator: (value){
                           if(value.isEmpty)
-                            return "Please Enter Loan Duration";
+                            return Text(AppLocalizations.of(context).valLoanDuration).data;
                         },
                         keyboardType: TextInputType.number,
                       ),
                     ),
                     ListTile(
-                      title: Text('Total Amount Payable',
+                      title: Text(AppLocalizations.of(context).totalAmountPayable,
                       style: TextStyle(
                         fontSize: 16.0
                       ),
@@ -126,7 +127,7 @@ class _InterestPageState extends State<InterestPage>{
                       ),),
                     ),
                     ListTile(
-                      title: Text('Interest Amount',
+                      title: Text(AppLocalizations.of(context).interestAmount,
                       style: TextStyle(
                         fontSize: 16.0
                       ),
@@ -138,7 +139,7 @@ class _InterestPageState extends State<InterestPage>{
                       ),),
                     ),
                     ListTile(
-                      title: const Text('Simple Interest'),
+                      title: Text(AppLocalizations.of(context).simpleInterest), //this variable was const before localization
                       leading: Radio(
                         value: 0,
                         groupValue: selectedOption,
@@ -148,7 +149,7 @@ class _InterestPageState extends State<InterestPage>{
                       ),
                     ),
                     ListTile(
-                      title: const Text('Compound Interest'),
+                      title: Text(AppLocalizations.of(context).compoundInterest), //this variable was const before localization
                       leading: Radio(
                         value: 1,
                         groupValue: selectedOption,
@@ -160,7 +161,7 @@ class _InterestPageState extends State<InterestPage>{
                     Padding(
                       padding: EdgeInsets.all(16.0),
                       child: PalButton(
-                        title: "Calculate",
+                        title: Text(AppLocalizations.of(context).calculate).data,
                         width: MediaQuery.of(context).size.width * (2.0/3.0),
                         colors: [Colors.green[900], Colors.green[900]],
                         onPressed: _onPressed

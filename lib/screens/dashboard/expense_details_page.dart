@@ -7,6 +7,7 @@ import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/screens/dashboard/filter/filter.dart';
 import 'package:flutter/material.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
+import 'package:farm_expense_management/locale/locale.dart';
 
 class ExpenseDetailsPage extends StatelessWidget {
   final Field field;
@@ -106,14 +107,14 @@ class ExpenseDetailsPage extends StatelessWidget {
                           ? ExpenseTags(
                               tags: expense.tags,
                             )
-                          : Text("No tags"),
+                          :Text(AppLocalizations.of(context).noTags).data,
                     ),
                     Divider(),
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Center(
                         child: PalButton(
-                          title: "REMOVE",
+                          title: Text(AppLocalizations.of(context).remove_1).data,
                           width:
                               MediaQuery.of(context).size.width * (2.0 / 3.0),
                           colors: [Colors.red[600], Colors.red[900]],

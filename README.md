@@ -1,16 +1,32 @@
-# farm_expense_management
+# Farm Expense Management
 
-A new Flutter project.
+A mobile application to help farmers manage their expenses.
 
-## Getting Started
+### Features
 
-This project is a starting point for a Flutter application.
+=> Expense addition
 
-A few resources to get you started if this is your first Flutter project:
+=> Expense summary, comparison
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+=> Expense filters, using tags and date
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+=> Default tags related to common farm expenses
+
+=> Loan Management
+
+=> Interest Calculation
+
+### Built using:
+=> [Flutter](https://flutter.dev/)
+
+### Built by
+=> [Abhineet Pandey](github.com/abhineet99)
+
+=> [Bhawna](github.com/bhawnapaliwal)
+
+=> [Mehakjot Singh](github.com/hnysidhu)
+
+Under the guidance of [Dr. Puneet Goyal](https://sites.google.com/view/goyalpuneet), [IIT Ropar](www.iitrpr.ac.in)
+
+### Acknoledgments
+=> Google Translate, Bing Translate for translations into Hindi and Punjabi

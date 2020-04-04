@@ -5,48 +5,53 @@ import 'package:farm_expense_management/root_page.dart';
 import 'package:farm_expense_management/screens/onboarding/circled_image.dart';
 import 'package:farm_expense_management/screens/onboarding/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:farm_expense_management/locale/locale.dart';
 
 class OnboardingPage extends StatelessWidget {
   final home = RootPage();
   
   final _controller = PageController();
-  final List<Widget> _pages = [
-    OnboardingSinglePage(
-      image: Assets.onboarding1,
-      title: "Expenses",
-      subtitle:
-          "Add your expenses and check where you have spent your money",
-      colors: [
+  List<Widget> retOnBoarding(BuildContext context){
+    List<Widget> _pages = [
+      OnboardingSinglePage(
+        image: Assets.onboarding1,
+        title: Text(AppLocalizations.of(context).expenses).data,
+        subtitle:
+            Text(AppLocalizations.of(context).expensesText).data,
+        colors: [
 
-        Colors.deepOrange[50],
-        Colors.deepOrange[600],
-        Colors.deepOrange[900],
-      ],
-    ),
-    OnboardingSinglePage(
-      image: Assets.onboarding2,
-      title: "Tags",
-      subtitle: "Tag your expenses to easily search through them and check where you spend your money the most",
-      colors: [
-        Colors.lime[50],
-        Colors.lime[600],
-        Colors.lime[900],
-      ],
-    ),
-    OnboardingSinglePage(
-      image: Assets.onboarding3,
-      title: "Stats",
-      subtitle: "Check stats of your expenses and compare your current month expenses to last month or all-time average",
-      colors: [
-        Colors.lightBlue[50],
-        Colors.lightBlue[600],
-        Colors.lightBlue[900],
-      ],
-    ),
-  ];
+          Colors.deepOrange[50],
+          Colors.deepOrange[600],
+          Colors.deepOrange[900],
+        ],
+      ),
+      OnboardingSinglePage(
+        image: Assets.onboarding2,
+        title: Text(AppLocalizations.of(context).tags_1).data,
+        subtitle: Text(AppLocalizations.of(context).tagsText).data,
+        colors: [
+          Colors.lime[50],
+          Colors.lime[600],
+          Colors.lime[900],
+        ],
+      ),
+      OnboardingSinglePage(
+        image: Assets.onboarding3,
+        title: Text(AppLocalizations.of(context).stats).data,
+        subtitle: Text(AppLocalizations.of(context).statsText).data,
+        colors: [
+          Colors.lightBlue[50],
+          Colors.lightBlue[600],
+          Colors.lightBlue[900],
+        ],
+      ),
+    ];
+    return _pages;
+  }
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> _pages=retOnBoarding(context);
     int page;
     OnboardingSinglePage currentPage;
     List<Color> nextColors;
@@ -65,7 +70,7 @@ class OnboardingPage extends StatelessWidget {
         if (page < _pages.length - 1) {
           bottomButtons.add(
             PalButton(
-              title: "NEXT",
+              title: Text(AppLocalizations.of(context).next_1).data,
               onPressed: () {
                 int nextPage = page + 1;
                 setState(() {
@@ -84,7 +89,7 @@ class OnboardingPage extends StatelessWidget {
 
         bottomButtons.add(
           PalButton(
-            title: page == _pages.length - 1 ? 'DONE' : 'SKIP',
+            title: page == _pages.length - 1 ? Text(AppLocalizations.of(context).done_1).data : Text(AppLocalizations.of(context).skip_1).data,
             onPressed: () {
               Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (context) => home));

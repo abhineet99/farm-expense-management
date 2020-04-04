@@ -190,5 +190,419 @@
     "description": "no expenses",
     "type": "text",
     "placeholders": {}
+  },
+  "manageLoans": "ਕਰਜ਼ਾ ਪ੍ਰਬੰਧਨ",
+  "@manageLoans": {
+    "description": "manageLoans drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loans": "ਕਰਜ਼ੇ",
+  "@loans": {
+    "description": "title loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addLoan": "ਕਰਜ਼ਾ ਸ਼ਾਮਲ ਕਰੋ",
+  "@addLoan": {
+    "description": "Add loan btn",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loanTitle": "ਕਰਜ਼ੇ ਦਾ ਸਿਰਲੇਖ",
+  "@loanTitle": {
+    "description": "Loan Title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loanAmount": "ਕਰਜ਼ੇ ਦੀ ਰਕਮ",
+  "@loanAmount": {
+    "description": "Loan Amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "installAmount": "ਕਿਸ਼ਤ ਦੀ ਰਕਮ",
+  "@installAmount": {
+    "description": "installment amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "choosePredefined": "ਪਰਿਭਾਸ਼ਿਤ ਸ਼੍ਰੇਣੀਆਂ ਵਿੱਚੋਂ ਚੁਣੋ",
+  "@choosePredefined": {
+    "description": "add_field_page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "installIntervalDays": "ਕਿਸ਼ਤ ਅੰਤਰਾਲ (ਦਿਨ)",
+  "@installIntervalDays": {
+    "description": "installment interval",
+    "type": "text",
+    "placeholders": {}
+  },
+  "roi": "ਵਿਆਜ ਦੀ ਸਲਾਨਾ ਦਰ",
+  "@roi": {
+    "description": "annual roi",
+    "type": "text",
+    "placeholders": {}
+  },
+  "principalAmount": "ਮੁੱਖ ਰਕਮ",
+  "@principalAmount": {
+    "description": "cia page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valPrincipalAmount": "ਮੁੱਖ ਰਕਮ ਦਾਖਲ ਕਰੋ ਜੀ",
+  "@valPrincipalAmount": {
+    "description": "cia page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "installmentStartDate": "ਕਿਸ਼ਤ ਦੀ ਸ਼ੁਰੂਆਤੀ ਤਾਰੀਖ (DD / MM / YYYY)",
+  "@installmentStartDate": {
+    "description": "start date",
+    "type": "text",
+    "placeholders": {}
+  },
+  "calInterestAmount": "ਵਿਆਜ ਦੀ ਰਕਮ ਦੀ ਗਣਨਾ",
+  "@calInterestAmount": {
+    "description": "cal interest amount drawer",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loanDuration": "ਲੋਨ ਅੰਤਰਾਲ (ਮਹੀਨਿਆਂ ਵਿੱਚ)",
+  "@loanDuration": {
+    "description": "loan duration in cia",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valLoanDuration": "ਕਿਰਪਾ ਕਰਕੇ ਲੋਨ ਅੰਤਰਾਲ (ਮਹੀਨਿਆਂ ਵਿੱਚ) ਦਾਖਲ ਕਰੋ",
+  "@valLoanDuration": {
+    "description": "loan duration in cia",
+    "type": "text",
+    "placeholders": {}
+  },
+  "totalAmountPayable": "ਭੁਗਤਾਨ ਯੋਗ ਕੁੱਲ ਰਕਮ",
+  "@totalAmountPayable": {
+    "description": "Total Amount Payable",
+    "type": "text",
+    "placeholders": {}
+  },
+  "interestAmount": "ਵਿਆਜ ਦੀ ਰਕਮ",
+  "@interestAmount": {
+    "description": "interest amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "simpleInterest": "ਸਧਾਰਨ ਵਿਆਜ",
+  "@simpleInterest": {
+    "description": "simple interest",
+    "type": "text",
+    "placeholders": {}
+  },
+  "compoundInterest": "ਮਿਸ਼ਰਤ ਵਿਆਜ",
+  "@compoundInterest": {
+    "description": "Compound interest",
+    "type": "text",
+    "placeholders": {}
+  },
+  "calculate": "ਗਣਨਾ ਕਰੋ",
+  "@calculate": {
+    "description": "calculate",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dateOfIns": "ਭੁਗਤਾਨ ਕੀਤੀ ਜਾਣ ਵਾਲੀ ਰਕਮ ਨਾਲ ਕਿਸ਼ਤਾਂ ਦੀ ਮਿਤੀ",
+  "@dateOfIns": {
+    "description": "Loan description page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "days_1": "ਦਿਨ",
+  "@days_1": {
+    "description": "days",
+    "type": "text",
+    "placeholders": {}
+  },
+  "expenses": "ਖਰਚੇ",
+  "@expenses": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "expensesText": "ਆਪਣੇ ਖਰਚੇ ਸ਼ਾਮਲ ਕਰੋ ਅਤੇ ਜਾਂਚ ਕਰੋ ਕਿ ਤੁਸੀਂ ਆਪਣਾ ਪੈਸਾ ਕਿੱਥੇ ਖਰਚ ਕੀਤਾ ਹੈ",
+  "@expensesText": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "next_1": "ਅਗਲਾ",
+  "@next_1": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "skip_1": "ਛੱਡੋ",
+  "@skip_1": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tags_1": "ਟੈਗ",
+  "@tags_1": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagsText": "ਆਸਾਨੀ ਨਾਲ ਖੋਜ ਕਰਨ ਲਈ ਆਪਣੇ ਖਰਚਿਆਂ ਨੂੰ ਟੈਗ ਕਰੋ ਅਤੇ ਇਹ ਵੇਖੋ ਕਿ ਤੁਸੀਂ ਆਪਣਾ ਪੈਸਾ ਕਿੱਥੇ ਖਰਚਦੇ ਹੋ",
+  "@tagsText": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "done_1": "ਪਰਵੇਸ਼",
+  "@done_1": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "statsText": "ਆਪਣੇ ਖਰਚਿਆਂ ਦੇ ਅੰਕੜਿਆਂ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਆਪਣੇ ਮੌਜੂਦਾ ਮਹੀਨੇ ਦੇ ਖਰਚਿਆਂ ਦੀ ਪਿਛਲੇ ਮਹੀਨੇ ਜਾਂ ਹਰ ਸਮੇਂ ਦੀ ਔਸਤ ਨਾਲ ਤੁਲਨਾ ਕਰੋ",
+  "@statsText": {
+    "description": "onBoarding",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valLoanTitle": "ਕਿਰਪਾ ਕਰਕੇ ਲੋਨ ਦਾ ਸਿਰਲੇਖ ਭਰੋ",
+  "@valLoanTitle": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valLoanAmount": "ਕਿਰਪਾ ਕਰਕੇ ਲੋਨ ਦੀ ਰਕਮ ਦਾਖਲ ਕਰੋ",
+  "@valLoanAmount": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valInsAmount": "ਕਿਰਪਾ ਕਰਕੇ ਕਿਸ਼ਤ ਦੀ ਰਕਮ ਦਾਖਲ ਕਰੋ",
+  "@valInsAmount": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valInsInterval": "ਕਿਰਪਾ ਕਰਕੇ ਕਿਸ਼ਤ ਦਾ ਅੰਤਰਾਲ ਦਿਓ (ਦਿਨਾਂ ਵਿੱਚ)",
+  "@valInsInterval": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valRoi": "ਕਿਰਪਾ ਕਰਕੇ ਵਿਆਜ ਦੀ ਸਲਾਨਾ ਦਰ ਦਾਖਲ ਕਰੋ",
+  "@valRoi": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valInsStartDate": "ਕਿਰਪਾ ਕਰਕੇ ਕਿਸ਼ਤ ਦੀ ਸ਼ੁਰੂਆਤ ਦੀ ਮਿਤੀ (DD / MM / YYYY) ਦਰਜ ਕਰੋ",
+  "@valInsStartDate": {
+    "description": "add loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valEnterName": "ਕਿਰਪਾ ਕਰਕੇ ਨਾਮ ਦਾਖਲ ਕਰੋ",
+  "@valEnterName": {
+    "description": "add category page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valEnterTitle": "ਕਿਰਪਾ ਕਰਕੇ ਸਿਰਲੇਖ ਦਾਖਲ ਕਰੋ",
+  "@valEnterTitle": {
+    "description": "add expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "valEnterAmount": "ਕਿਰਪਾ ਕਰਕੇ ਰਕਮ ਦਾਖਲ ਕਰੋ",
+  "@valEnterAmount": {
+    "description": "add expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "remove_1": "ਮਿਟਾਓ",
+  "@remove_1": {
+    "description": "remove expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noTags": "ਕੋਈ ਟੈਗ ਨਹੀਂ",
+  "@noTags": {
+    "description": "remove expense page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noLoans": "ਅਜੇ ਕੋਈ ਕਰਜ਼ਾ ਨਹੀਂ ਜੋੜਿਆ ਗਿਆ",
+  "@noLoans": {
+    "description": "loan page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "agriculture": "ਖੇਤੀਬਾੜੀ",
+  "@agriculture": {
+    "description": "agri field",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dairy": "ਡੇਅਰੀ",
+  "@dairy": {
+    "description": "dairy field",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagCollectionAndPacking": "ਸੰਗ੍ਰਹਿ ਅਤੇ ਪੈਕਿੰਗ",
+  "@tagCollectionAndPacking": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFertilizers": "ਖਾਦ",
+  "@tagFertilizers": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFodder": "ਚਾਰਾ",
+  "@tagFodder": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagInsurance": "ਬੀਮਾ",
+  "@tagInsurance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagIrrigationEquipment": "ਸਿੰਜਾਈ ਉਪਕਰਣ",
+  "@tagIrrigationEquipment": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagIrrigationRent": "ਸਿੰਜਾਈ ਕਿਰਾਇਆ",
+  "@tagIrrigationRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLabor": "ਕਿਰਤ",
+  "@tagLabor": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLandPurchase": "ਜ਼ਮੀਨ ਖਰੀਦ",
+  "@tagLandPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLandRent": "ਜ਼ਮੀਨ ਕਿਰਾਇਆ",
+  "@tagLandRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryMaintenance": "ਮਸ਼ੀਨਰੀ ਸੰਭਾਲ",
+  "@tagMachineryMaintenance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryPurchase": "ਮਸ਼ੀਨਰੀ ਖਰੀਦ",
+  "@tagMachineryPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryRent": "ਮਸ਼ੀਨਰੀ ਦਾ ਕਿਰਾਇਆ",
+  "@tagMachineryRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagPesticides": "ਕੀੜੇਮਾਰ",
+  "@tagPesticides": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagSeeds": "ਬੀਜ",
+  "@tagSeeds": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsPurchase": "ਸੰਦ ਖਰੀਦ",
+  "@tagToolsPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsRent": "ਸੰਦ ਕਿਰਾਇਆ",
+  "@tagToolsRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsMaintenance": "ਸੰਦ ਸੰਭਾਲ",
+  "@tagToolsMaintenance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagTransportation": "ਆਵਾਜਾਈ",
+  "@tagTransportation": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagWeedicide": "ਨਦੀਨਨਾਸ਼ਕ",
+  "@tagWeedicide": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagAnimalPurchase": "ਪਸ਼ੂ ਖਰੀਦ",
+  "@tagAnimalPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagAnimalMedication": "ਪਸ਼ੂ ਦਵਾਈ",
+  "@tagAnimalMedication": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagBedding": "ਬਿਸਤਰੇ",
+  "@tagBedding": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagElectricity": "ਬਿਜਲੀ",
+  "@tagElectricity": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFeedSupplements": "ਫੀਡ ਪੂਰਕ",
+  "@tagFeedSupplements": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagShelter": "ਪਨਾਹ",
+  "@tagShelter": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
   }
 }

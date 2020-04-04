@@ -18,6 +18,8 @@ import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:farm_expense_management/locale/locale.dart';
+import 'package:farm_expense_management/common/database_manager/initialise_fields.dart';
+
 class DashboardPage extends StatefulWidget {
   final Field field;
   DashboardPage({@required this.field});
@@ -80,7 +82,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
           Widget titleWidget;
           var palTitleView = PalTitleView(
-                      title: widget.field.name.toUpperCase(),
+                      title: InitialiseFields().getLocalizedFieldText(widget.field.name, context).toUpperCase(),
                     );
                     titleWidget = palTitleView;
 

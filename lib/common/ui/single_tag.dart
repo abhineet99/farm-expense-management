@@ -1,6 +1,7 @@
 import 'package:farm_expense_management/common/models/tag.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/utils.dart';
+import 'package:farm_expense_management/common/database_manager/initialise_fields.dart';
 
 typedef void SingleTagCallback(Tag tag);
 
@@ -16,7 +17,8 @@ class SingleTag extends StatelessWidget {
     double rightPadding = removeAction == null ? 8.0 : 4.0;
     List<Widget> childs = [
       Text(
-        tag.name,
+        InitialiseFields().getLocalizedTagText(tag.name, context),
+        //tag.name,
         style: TextStyle(
           color: color,
         ),
