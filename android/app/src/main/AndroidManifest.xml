@@ -7,8 +7,8 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="farm_expense_management"
-        android:icon="@drawable/hi">
+        android:label="Farmex"
+        android:icon="@mipmap/logo_art_t">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
