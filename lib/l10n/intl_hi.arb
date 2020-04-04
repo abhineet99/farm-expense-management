@@ -442,5 +442,167 @@
     "description": "loan page",
     "type": "text",
     "placeholders": {}
+  },
+  "agriculture": "कृषि",
+  "@agriculture": {
+    "description": "agri field",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dairy": "दुग्धालय",
+  "@dairy": {
+    "description": "dairy field",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagCollectionAndPacking": "संग्रह और पैकिंग",
+  "@tagCollectionAndPacking": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFertilizers": "उर्वरक",
+  "@tagFertilizers": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFodder": "चारा",
+  "@tagFodder": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagInsurance": "बीमा",
+  "@tagInsurance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagIrrigationEquipment": "सिंचाई के उपकरण",
+  "@tagIrrigationEquipment": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagIrrigationRent": "सिंचाई का किराया",
+  "@tagIrrigationRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLabor": "श्रम",
+  "@tagLabor": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLandPurchase": "भूमि खरीद",
+  "@tagLandPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLandRent": "भूमि-किराया",
+  "@tagLandRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryMaintenance": "मशीनरी रखरखाव",
+  "@tagMachineryMaintenance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryPurchase": "मशीनरी खरीद",
+  "@tagMachineryPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryRent": "मशीनरी किराया",
+  "@tagMachineryRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagPesticides": "कीटनाशक",
+  "@tagPesticides": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagSeeds": "बीज",
+  "@tagSeeds": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsPurchase": "उपकरण खरीद",
+  "@tagToolsPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsRent": "उपकरण किराया",
+  "@tagToolsRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsMaintenance": "उपकरण रखरखाव",
+  "@tagToolsMaintenance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagTransportation": "परिवहन",
+  "@tagTransportation": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagWeedicide": "खरपतवारनाशक",
+  "@tagWeedicide": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagAnimalPurchase": "पशु खरीद",
+  "@tagAnimalPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagAnimalMedication": "पशु चिकित्सा",
+  "@tagAnimalMedication": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagBedding": "बिस्तर",
+  "@tagBedding": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagElectricity": "बिजली",
+  "@tagElectricity": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFeedSupplements": "पूरक आहार",
+  "@tagFeedSupplements": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagShelter": "आश्रय",
+  "@tagShelter": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
   }
 }

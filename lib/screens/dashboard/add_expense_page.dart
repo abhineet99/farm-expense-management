@@ -8,13 +8,12 @@ import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/models/tag.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
-import 'package:farm_expense_management/common/ui/single_tag.dart';
 import 'package:farm_expense_management/common/ui/multiselect.dart';
 import 'package:farm_expense_management/screens/dashboard/tags_ui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:farm_expense_management/locale/locale.dart';
-
+import 'package:farm_expense_management/common/database_manager/initialise_fields.dart';
 
 class AddExpensePage extends StatefulWidget {
   final Field field;
@@ -112,7 +111,7 @@ class AddExpensePageState extends State<AddExpensePage> {
   void populateMultiSelect(){
     multiTags=List();
     for (Tag tag in widget.field.tags){
-      multiTags.add(MultiSelectDialogItem(tag.name,tag.name));
+      multiTags.add(MultiSelectDialogItem(tag.name,InitialiseFields().getLocalizedTagText(tag.name, context) ));
     }
   }
   

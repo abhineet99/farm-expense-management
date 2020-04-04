@@ -229,7 +229,6 @@ class AddFieldPageState extends State<AddFieldPage> {
     return _createBody(context);
     
   }
-
   Widget _predefinedFields(BuildContext context){
     return DropdownButton<String>(
       value: dropdownValue,
@@ -255,7 +254,7 @@ class AddFieldPageState extends State<AddFieldPage> {
             value: value,
             child: Column(
               children: <Widget>[
-                Text(value),
+                InitialiseFields().getLocalizedFieldWidget(value,context),
                 Divider(),
               ],
 

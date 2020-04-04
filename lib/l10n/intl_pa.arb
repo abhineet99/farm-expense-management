@@ -442,5 +442,167 @@
     "description": "loan page",
     "type": "text",
     "placeholders": {}
+  },
+  "agriculture": "ਖੇਤੀਬਾੜੀ",
+  "@agriculture": {
+    "description": "agri field",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dairy": "ਡੇਅਰੀ",
+  "@dairy": {
+    "description": "dairy field",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagCollectionAndPacking": "ਸੰਗ੍ਰਹਿ ਅਤੇ ਪੈਕਿੰਗ",
+  "@tagCollectionAndPacking": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFertilizers": "ਖਾਦ",
+  "@tagFertilizers": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFodder": "ਚਾਰਾ",
+  "@tagFodder": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagInsurance": "ਬੀਮਾ",
+  "@tagInsurance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagIrrigationEquipment": "ਸਿੰਜਾਈ ਉਪਕਰਣ",
+  "@tagIrrigationEquipment": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagIrrigationRent": "ਸਿੰਜਾਈ ਕਿਰਾਇਆ",
+  "@tagIrrigationRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLabor": "ਕਿਰਤ",
+  "@tagLabor": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLandPurchase": "ਜ਼ਮੀਨ ਖਰੀਦ",
+  "@tagLandPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLandRent": "ਜ਼ਮੀਨ ਕਿਰਾਇਆ",
+  "@tagLandRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryMaintenance": "ਮਸ਼ੀਨਰੀ ਸੰਭਾਲ",
+  "@tagMachineryMaintenance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryPurchase": "ਮਸ਼ੀਨਰੀ ਖਰੀਦ",
+  "@tagMachineryPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryRent": "ਮਸ਼ੀਨਰੀ ਦਾ ਕਿਰਾਇਆ",
+  "@tagMachineryRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagPesticides": "ਕੀੜੇਮਾਰ",
+  "@tagPesticides": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagSeeds": "ਬੀਜ",
+  "@tagSeeds": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsPurchase": "ਸੰਦ ਖਰੀਦ",
+  "@tagToolsPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsRent": "ਸੰਦ ਕਿਰਾਇਆ",
+  "@tagToolsRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsMaintenance": "ਸੰਦ ਸੰਭਾਲ",
+  "@tagToolsMaintenance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagTransportation": "ਆਵਾਜਾਈ",
+  "@tagTransportation": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagWeedicide": "ਨਦੀਨਨਾਸ਼ਕ",
+  "@tagWeedicide": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagAnimalPurchase": "ਪਸ਼ੂ ਖਰੀਦ",
+  "@tagAnimalPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagAnimalMedication": "ਪਸ਼ੂ ਦਵਾਈ",
+  "@tagAnimalMedication": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagBedding": "ਬਿਸਤਰੇ",
+  "@tagBedding": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagElectricity": "ਬਿਜਲੀ",
+  "@tagElectricity": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFeedSupplements": "ਫੀਡ ਪੂਰਕ",
+  "@tagFeedSupplements": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagShelter": "ਪਨਾਹ",
+  "@tagShelter": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
   }
 }

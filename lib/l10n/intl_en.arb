@@ -442,5 +442,167 @@
     "description": "loan page",
     "type": "text",
     "placeholders": {}
+  },
+  "agriculture": "agriculture",
+  "@agriculture": {
+    "description": "agri field",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dairy": "dairy",
+  "@dairy": {
+    "description": "dairy field",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagCollectionAndPacking": "Collection and Packing",
+  "@tagCollectionAndPacking": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFertilizers": "Fertilizers",
+  "@tagFertilizers": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFodder": "Fodder",
+  "@tagFodder": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagInsurance": "Insurance",
+  "@tagInsurance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagIrrigationEquipment": "Irrigation Equipment",
+  "@tagIrrigationEquipment": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagIrrigationRent": "Irrigation Rent",
+  "@tagIrrigationRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLabor": "Labor",
+  "@tagLabor": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLandPurchase": "Land Purchase",
+  "@tagLandPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagLandRent": "Land Rent",
+  "@tagLandRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryMaintenance": "Machinery Maintenance",
+  "@tagMachineryMaintenance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryPurchase": "Machinery Purchase",
+  "@tagMachineryPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagMachineryRent": "Machinery Rent",
+  "@tagMachineryRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagPesticides": "Pesticides",
+  "@tagPesticides": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagSeeds": "Seeds",
+  "@tagSeeds": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsPurchase": "ToolsPurchase",
+  "@tagToolsPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsRent": "Tools Rent",
+  "@tagToolsRent": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagToolsMaintenance": "Tools Maintenance",
+  "@tagToolsMaintenance": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagTransportation": "Transportation",
+  "@tagTransportation": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagWeedicide": "Weedicide",
+  "@tagWeedicide": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagAnimalPurchase": "Animal Purchase",
+  "@tagAnimalPurchase": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagAnimalMedication": "Animal Medication",
+  "@tagAnimalMedication": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagBedding": "Bedding",
+  "@tagBedding": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagElectricity": "Electricity",
+  "@tagElectricity": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagFeedSupplements": "Feed Supplements",
+  "@tagFeedSupplements": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tagShelter": "Shelter",
+  "@tagShelter": {
+    "description": "tag",
+    "type": "text",
+    "placeholders": {}
   }
 }

@@ -540,6 +540,196 @@ class AppLocalizations {
       desc: 'loan page',
     );
   }
+  String get agriculture{
+    return Intl.message(
+      'agriculture',
+      name: 'agriculture',
+      desc: 'agri field',
+    );
+  }
+  String get dairy{
+    return Intl.message(
+      'dairy',
+      name: 'dairy',
+      desc: 'dairy field',
+    );
+  }
+  String get tagCollectionAndPacking{
+    return Intl.message(
+      'Collection and Packing',
+      name: 'tagCollectionAndPacking',
+      desc: 'tag',
+    );
+  }
+  String get tagFertilizers{
+    return Intl.message(
+      'Fertilizers',
+      name: 'tagFertilizers',
+      desc: 'tag',
+    );
+  }
+  String get tagFodder{
+    return Intl.message(
+      'Fodder',
+      name: 'tagFodder',
+      desc: 'tag',
+    );
+  }
+  String get tagInsurance{
+    return Intl.message(
+      'Insurance',
+      name: 'tagInsurance',
+      desc: 'tag',
+    );
+  }
+  String get tagIrrigationEquipment{
+    return Intl.message(
+      'Irrigation Equipment',
+      name: 'tagIrrigationEquipment',
+      desc: 'tag',
+    );
+  }
+  String get tagIrrigationRent{
+    return Intl.message(
+      'Irrigation Rent',
+      name: 'tagIrrigationRent',
+      desc: 'tag',
+    );
+  }
+  String get tagLabor{
+    return Intl.message(
+      'Labor',
+      name: 'tagLabor',
+      desc: 'tag',
+    );
+  }
+  String get tagLandPurchase{
+    return Intl.message(
+      'Land Purchase',
+      name: 'tagLandPurchase',
+      desc: 'tag',
+    );
+  }
+  String get tagLandRent{
+    return Intl.message(
+      'Land Rent',
+      name: 'tagLandRent',
+      desc: 'tag',
+    );
+  }
+  String get tagMachineryMaintenance{
+    return Intl.message(
+      'Machinery Maintenance',
+      name: 'tagMachineryMaintenance',
+      desc: 'tag',
+    );
+  }
+  String get tagMachineryPurchase{
+    return Intl.message(
+      'Machinery Purchase',
+      name: 'tagMachineryPurchase',
+      desc: 'tag',
+    );
+  }
+  String get tagMachineryRent{
+    return Intl.message(
+      'Machinery Rent',
+      name: 'tagMachineryRent',
+      desc: 'tag',
+    );
+  }
+  String get tagPesticides{
+    return Intl.message(
+      'Pesticides',
+      name: 'tagPesticides',
+      desc: 'tag',
+    );
+  }
+  String get tagSeeds{
+    return Intl.message(
+      'Seeds',
+      name: 'tagSeeds',
+      desc: 'tag',
+    );
+  }
+  String get tagToolsPurchase{
+    return Intl.message(
+      'ToolsPurchase',
+      name: 'tagToolsPurchase',
+      desc: 'tag',
+    );
+  }
+  String get tagToolsRent{
+    return Intl.message(
+      'Tools Rent',
+      name: 'tagToolsRent',
+      desc: 'tag',
+    );
+  }
+  String get tagToolsMaintenance{
+    return Intl.message(
+      'Tools Maintenance',
+      name: 'tagToolsMaintenance',
+      desc: 'tag',
+    );
+  }
+  String get tagTransportation{
+    return Intl.message(
+      'Transportation',
+      name: 'tagTransportation',
+      desc: 'tag',
+    );
+  }
+  String get tagWeedicide{
+    return Intl.message(
+      'Weedicide',
+      name: 'tagWeedicide',
+      desc: 'tag',
+    );
+  }
+  String get tagAnimalPurchase{
+    return Intl.message(
+      'Animal Purchase',
+      name: 'tagAnimalPurchase',
+      desc: 'tag',
+    );
+  }
+  String get tagAnimalMedication{
+    return Intl.message(
+      'Animal Medication',
+      name: 'tagAnimalMedication',
+      desc: 'tag',
+    );
+  }
+  String get tagBedding{
+    return Intl.message(
+      'Bedding',
+      name: 'tagBedding',
+      desc: 'tag',
+    );
+  }
+  String get tagElectricity{
+    return Intl.message(
+      'Electricity',
+      name: 'tagElectricity',
+      desc: 'tag',
+    );
+  }
+  String get tagFeedSupplements{
+    return Intl.message(
+      'Feed Supplements',
+      name: 'tagFeedSupplements',
+      desc: 'tag',
+    );
+  }
+  String get tagShelter{
+    return Intl.message(
+      'Shelter',
+      name: 'tagShelter',
+      desc: 'tag',
+    );
+  }
+
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
