@@ -5,7 +5,7 @@ import 'package:farm_expense_management/locale/locale.dart';
 
 class Installment{
   String date;
-  int e_amount;
+  double e_amount;
   Installment(this.date, this.e_amount);
 }
 class ViewLoanPage extends StatefulWidget{
@@ -22,10 +22,11 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
   {
     print('check compute');
     double p = 1.0*loan.loanAmount;
-    int r = loan.annualRoI;
-    int e_amount = loan.emiAmount;
+    double r = loan.annualRoI;
+    double e_amount = loan.emiAmount;
     int nd = loan.numberOfDays;
     double r1 = (r*nd)/365;
+    print('r1: '+r1.toString());
     DateTime d = loan.startDate;
     List<Installment> to_ret=[];
     //double amount_paid = 0;
@@ -33,20 +34,23 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
     {
       double interest = (1.0*r1*p)/100.0;
       p = p + (interest-e_amount);
-      if(p>=e_amount)
-      {
-        Installment inst = Installment(d.day.toString()+"/"+d.month.toString()+"/"+d.year.toString(), e_amount);
+      print('principal: '+p.toString());
+      // if(p>=e_amount)
+      // {
+        Installment inst = Installment(d.day.toString()+"/"+d.month.toString()+"/"+d.year.toString(), 1.0*e_amount);
         print('inst:-');
         print(inst);
         //amount_paid += e_amount;
         to_ret.add(inst);
         d = d.add(Duration(days: nd));
-      }
+      //}
     }
+    print('p here: '+p.toString());
     if(p>0)
     {
       //amount_paid += p;
-      Installment inst = Installment(d.day.toString()+"/"+d.month.toString()+"/"+d.year.toString(), e_amount);
+      Installment inst = Installment(d.day.toString()+"/"+d.month.toString()+"/"+d.year.toString(), p);
+      print('check hello');
       to_ret.add(inst);
     }
     return to_ret;
@@ -56,7 +60,7 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
     print('check build');
     
     List<Installment> _list = compute(loan);
-    print('check build 1');
+    print('check build 1' + _list.length.toString());
     return Scaffold(
       appBar: AppBar(
         title: PalTitleView(
@@ -168,7 +172,7 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
                         ListTile(
                           leading: Icon(Icons.calendar_today),
                           title: Text('On '+_list[index].date),
-                          subtitle: Text(_list[index].e_amount.toString()+" INR"),
+                          subtitle: Text(_list[index].e_amount.toStringAsFixed(2)+" INR"),
                           selected: true,
                         )
                       ],

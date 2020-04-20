@@ -16,9 +16,9 @@ class LoanItem extends DatabaseModel {
   final int id;
   final String loanTitle;
   final int loanAmount;
-  final int emiAmount;
+  final double emiAmount;
   final int numberOfDays;
-  final int annualRoI;
+  final double annualRoI;
   final DateTime startDate;
   LoanItem({this.id, this.loanTitle, this.loanAmount, this.emiAmount, this.numberOfDays, this.annualRoI, this.startDate});
 
@@ -71,9 +71,9 @@ class LoanTable extends DatabaseTable{
       id: map['_id'],
       loanTitle: map['title'],
       loanAmount: int.parse(map['loanamount']),
-      emiAmount: int.parse(map['emiamount']),
+      emiAmount: double.parse(map['emiamount']),
       numberOfDays: int.parse(map['numberofdays']),
-      annualRoI: int.parse(map['roi']),
+      annualRoI: double.parse(map['roi']),
       startDate: DateTime.parse(map['date'])
     );
     return entry;

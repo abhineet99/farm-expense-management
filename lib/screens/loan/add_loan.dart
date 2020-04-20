@@ -165,9 +165,9 @@ class _AddLoanPageState extends State<AddLoanPage> {
                           LoanItem loan = LoanItem(
                             loanTitle: titleController.text,
                             loanAmount: int.parse(laController.text),
-                            emiAmount: int.parse(eaController.text),
+                            emiAmount: double.parse(eaController.text),
                             numberOfDays: int.parse(ndController.text),
-                            annualRoI: int.parse(roiController.text),
+                            annualRoI: double.parse(roiController.text),
                             startDate: DateTime.parse(_str)
                           );
                           loansBloc.addLoan(loan);
