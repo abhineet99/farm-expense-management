@@ -1,8 +1,12 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:ffi';
+import 'package:farm_expense_management/blocs/expenses_bloc.dart';
 import 'package:farm_expense_management/common/database_manager/database_manager.dart';
+import 'package:farm_expense_management/common/models/expenses.dart';
 import 'package:farm_expense_management/common/models/fields.dart';
 import 'package:farm_expense_management/common/models/tag.dart';
+import 'package:farm_expense_management/screens/dashboard/filter/filter.dart';
 import 'package:rxdart/rxdart.dart';
 
 class FieldsBloc {
@@ -26,7 +30,7 @@ class FieldsBloc {
     _fieldsFetcher.sink.add(fields);
   }
 
-  Future<bool> addField(Field field) async {
+  Future<dynamic> addField(Field field) async {
     return manager.insert([field])
       .then((value)=> fetchAllFields()
       .catchError((error)=>throw error)
@@ -34,8 +38,12 @@ class FieldsBloc {
       ;
   }
 
-  Future<bool> removeField(Field field) async {
-    return manager.remove([field]).then((value) {
+  Future<dynamic> removeField(Field field) async {
+    print('Deleting Field: '+field.name);
+
+    await expensesBloc.removeAllExpenses(field);
+    
+    return await manager.remove([field]).then((value) {
       fetchAllFields();
     });
   }

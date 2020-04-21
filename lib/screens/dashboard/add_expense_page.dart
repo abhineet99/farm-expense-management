@@ -127,7 +127,7 @@ class AddExpensePageState extends State<AddExpensePage> {
       context: context,
       builder: (BuildContext context) {
         return MultiSelectDialog(
-          dialogueHeading: 'Tags',
+          dialogueHeading: Text(AppLocalizations.of(context).tags_1).data,
           items: items,
           initialSelectedValues: selectedTagNames.toSet() ,
         );

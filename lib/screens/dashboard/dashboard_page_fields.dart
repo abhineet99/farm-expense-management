@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:farm_expense_management/screens/loan/loan_page.dart';
 import 'package:farm_expense_management/blocs/field_bloc.dart';
 import 'package:farm_expense_management/common/assets.dart';
@@ -25,11 +27,12 @@ class DashboardPageFields extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPageFields> {
   final addPage = AddFieldPage();
+  final primaryColor = const Color(0xFFFFFFFF);
+  Dialog deleteField;
 
   @override
   void initState() {
     super.initState();
-
     fieldsBloc.fetchAllFields();
   }
 
@@ -38,7 +41,6 @@ class _DashboardPageState extends State<DashboardPageFields> {
         [fieldsBloc.allFields]);
     return stream;
   }
-  final primaryColor = const Color(0xFFFFFFFF);
   Widget _createBody(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -53,11 +55,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
             onPressed: () {
               Navigator.of(context).push(
                 CupertinoPageRoute(
-//<<<<<<< loan-branch
-                  // fullscreenDialog: false,
-//=======
                   fullscreenDialog: false,
-//>>>>>>> master
                   builder: (BuildContext context) {
                     return addPage;
                   },
@@ -217,22 +215,66 @@ class _DashboardPageState extends State<DashboardPageFields> {
     );
   }
 
+  void deleteFieldDialog(BuildContext context, Field field, List<dynamic> items ){
+    showDialog(
+      context: context,
+      builder: (BuildContext dialogContext){
+        return Dialog(
+          child: Column(
+
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Text('Delete Category '+field.name +'?'),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  FlatButton(
+                    child: Text(
+                      'No'
+                    ),
+                    onPressed: ()=>Navigator.pop(context),
+                  ),
+                  FlatButton(
+                    child: Text(
+                      'Yes'
+                      ),
+                      onPressed: (){
+                        items.remove(field);
+                        fieldsBloc.removeField(field);
+                        Navigator.pop(context);
+                      },
+                  )
+              ],)
+            ],
+          ),
+          
+        );
+      }
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return _createBody(context);
   }
 
-  Widget _buildList(
-      List<Field> fields, FieldsBloc bloc) {
+  Widget _buildList( List<Field> fields, FieldsBloc bloc) {
+    List<dynamic> items = List();
+    var _tapPosition;
+    final RenderBox overlay = Overlay.of(context).context.findRenderObject();
+    
+   
     if (fields.length <= 0) {
       return _DashboardEmptyState();
     }
 
-    List<dynamic> items = [];
-
     fields.forEach((field) {
       items.add(field);
     });
+
 
     void _onTapItem(BuildContext context, Field field ) {
       Navigator.of(context).push(
@@ -249,12 +291,93 @@ class _DashboardPageState extends State<DashboardPageFields> {
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           return (items[index] is Field)
-              ? GestureDetector(
-                  child: _FieldCard(
-                    field: items[index],
-                  ),
-                  onTap: () => _onTapItem(context, items[index]),
-                )
+              ? InkWell(
+                child: _FieldCard(
+                  field: items[index],
+                ),
+                onTapDown: (details)=>_tapPosition=details.globalPosition,
+                onTap: () => _onTapItem(context, items[index]),
+                onLongPress: () {
+                  showMenu(
+                      context: context,
+                      items: [
+                        PopupMenuItem(value:index,child: 
+                        Row(
+                          children: <Widget>[
+                            Icon(Icons.delete, color:  Colors.red,),
+                            Text('Delete'),
+                          ],
+                        ),)
+                      ],
+                      position: RelativeRect.fromRect(
+                          _tapPosition &Size(40, 40), // smaller rect, the touch area
+                          Offset.zero & overlay.size   // Bigger rect, the entire screen
+                      )
+                    )
+                    // This is how you handle user selection
+                    .then<void>((int del) async{
+                      // del would be null if user taps on outside the popup menu
+                      // (causing it to close without making selection)
+                      if (del == null) return;
+                      showDialog(context: this.context, builder: (BuildContext context){
+                        return AlertDialog(
+                          title: Text(
+                            'Delete Category '+items[index].name+'?',
+                            style: TextStyle(color: Colors.green),
+                          ),
+                          content: Text(
+                            'This will delete the selected category and all of its expenses.',
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          actions: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(left:8.0,right:8),
+                              child: InkWell(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left:16.0,right:16),
+                                  child: Text('Cancel',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                onTap: ()=> Navigator.pop(context),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left:8.0,right:8),
+                              child: InkWell(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left:16.0,right:16),
+                                  child: Text('Delete',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.red,
+                                    ),
+                                  ),
+                                ),
+                                onTap: () async{
+                                  await fieldsBloc.removeField(items[index]);
+                                    setState(() {
+                                    items.remove(items[index]);
+                                    fieldsBloc.fetchAllFields();
+                                  }
+                                  );
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ) 
+                          ],
+                          );
+                      });                      
+                      
+                    });
+                  },
+              )
               : _DateHeaderCard(
                   date: items[index],
                 );

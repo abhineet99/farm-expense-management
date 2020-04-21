@@ -26,6 +26,7 @@ class ExpensesBloc {
 
     _expensesFetcher.sink.add(expenses);
   }
+
   fetchAllExpenses1() async {
     ExpenseTable table = ExpenseTable();
     List<Map> maps = await manager.fetchAllEntriesOf(Expense);
@@ -52,6 +53,21 @@ class ExpensesBloc {
     return manager.remove([expense]).then((value) {
       fetchAllExpenses(field);
     });
+  }
+
+  Future<dynamic> removeAllExpenses(Field field)async{
+    List<Map> maps = await manager.fetchAllEntriesOf(Expense);
+    FilteredList<Expense> expenses = FilteredList();
+    ExpenseTable table = ExpenseTable();
+
+    maps.forEach((map) {
+      Expense expense = table.entryFromMap(map);
+      if (field.name==expense.fieldName)
+        expenses.add(expense);
+    });
+
+    return manager.remove(expenses);
+
   }
 
   dispose() {
