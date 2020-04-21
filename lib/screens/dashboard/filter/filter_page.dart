@@ -9,6 +9,7 @@ import 'package:farm_expense_management/screens/dashboard/tags_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:farm_expense_management/locale/locale.dart';
+import 'package:farm_expense_management/common/database_manager/initialise_fields.dart';
 
 class FilterPage extends StatefulWidget {
   final Field field;
@@ -64,16 +65,16 @@ class _FilterPageState extends State<FilterPage> {
     }
   }
 
-  void populateMultiSelect(){
+  void populateMultiSelect(BuildContext context){
     multiTags=List();
     for (Tag tag in widget.field.tags){
-      multiTags.add(MultiSelectDialogItem(tag.name,tag.name));
+      multiTags.add(MultiSelectDialogItem(tag.name,InitialiseFields().getLocalizedTagText(tag.name, context)));
     }
   }
   
 
   void _showMultiSelect(BuildContext context) async {
-    populateMultiSelect();
+    populateMultiSelect(context);
     final items = multiTags;
     List<String> selectedTagNames=List();
     for(Tag tag in tags){

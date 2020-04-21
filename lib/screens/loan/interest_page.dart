@@ -12,20 +12,35 @@ class InterestPage extends StatefulWidget{
 class _InterestPageState extends State<InterestPage>{
   double interest =0;
   double amount = 0;
+  double emiShow =0;
   int selectedOption=0;// 0 = simple interest, 1 = compound interest
-  double calculateSimpleInterest(int principal, int rate, int months)
+  double calculateSimpleInterest(int principal, double rate, int months)
   {
     print('check32');
     double rate1 = (rate*1.0)/12;
     double toRet = (rate1*principal*months*1.0)/100;
     return toRet;
   }
-  double calculateCompoundInterest(int principal, int rate, int months)
+  double calculateCompoundInterest(int principal, double rate, int months)
   {
     //print('check32');
     double amount = principal*pow(1+(rate*1.0)/1200,months);
     double toRet = amount-principal;
     return toRet;
+  }
+  double calculateLoanInterest(int principal, double rate, int months)
+  {
+    double monthlyRate = rate*1.0/1200;
+    double emi = principal*monthlyRate*pow(1+monthlyRate,months)/(pow(1+monthlyRate,months)-1);
+    double amount = emi*months;
+    double toRet = amount-principal;
+    return toRet;
+  }
+  double calculateEMI(int principal, double rate, int months)
+  {
+    double monthlyRate = rate*1.0/1200;
+    double emi = principal*monthlyRate*pow(1+monthlyRate,months)/(pow(1+monthlyRate,months)-1);
+    return emi;
   }
   final primaryColor = const Color(0xFFFFFFFF);
   final _formKey = GlobalKey<FormState>();
@@ -45,13 +60,20 @@ class _InterestPageState extends State<InterestPage>{
   void _onPressed()
   {
     double _interest=0;
+    double _emiShow=0;
     if (selectedOption == 0)
-      _interest = calculateSimpleInterest(int.parse(princController.text), int.parse(roiController.text), int.parse(monthsController.text));
+      _interest = calculateSimpleInterest(int.parse(princController.text), double.parse(roiController.text), int.parse(monthsController.text));
+    else if(selectedOption==1)
+      _interest = calculateCompoundInterest(int.parse(princController.text), double.parse(roiController.text), int.parse(monthsController.text));
     else
-      _interest = calculateCompoundInterest(int.parse(princController.text), int.parse(roiController.text), int.parse(monthsController.text));
+    {
+      _interest = calculateLoanInterest(int.parse(princController.text), double.parse(roiController.text), int.parse(monthsController.text));
+      _emiShow = calculateEMI(int.parse(princController.text), double.parse(roiController.text), int.parse(monthsController.text));
+    }
     setState(() {
       amount = int.parse(princController.text) + _interest;
       interest = _interest;
+      emiShow = _emiShow;
     });
   }
   @override
@@ -120,7 +142,7 @@ class _InterestPageState extends State<InterestPage>{
                         fontSize: 16.0
                       ),
                       ),
-                      subtitle: Text('INR: '+amount.toString(), 
+                      subtitle: Text('INR: '+amount.toStringAsFixed(2), 
                       style: TextStyle(
                         color: Colors.green[800],
                         fontSize: 18.0
@@ -132,7 +154,19 @@ class _InterestPageState extends State<InterestPage>{
                         fontSize: 16.0
                       ),
                       ),
-                      subtitle: Text('INR: '+interest.toString(), 
+                      subtitle: Text('INR: '+interest.toStringAsFixed(2), 
+                      style: TextStyle(
+                        color: Colors.green[800],
+                        fontSize: 18.0
+                      ),),
+                    ),
+                    ListTile(
+                      title: Text('EMI',
+                      style: TextStyle(
+                        fontSize: 16.0
+                      ),
+                      ),
+                      subtitle: Text('INR: '+emiShow.toStringAsFixed(2), 
                       style: TextStyle(
                         color: Colors.green[800],
                         fontSize: 18.0
@@ -148,10 +182,21 @@ class _InterestPageState extends State<InterestPage>{
                         },
                       ),
                     ),
+                    
                     ListTile(
                       title: Text(AppLocalizations.of(context).compoundInterest), //this variable was const before localization
                       leading: Radio(
                         value: 1,
+                        groupValue: selectedOption,
+                        onChanged: (int value) {
+                          setState(() { selectedOption = value; });
+                        },
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Loan on Monthly Installments'), //this variable was const before localization
+                      leading: Radio(
+                        value: 2,
                         groupValue: selectedOption,
                         onChanged: (int value) {
                           setState(() { selectedOption = value; });

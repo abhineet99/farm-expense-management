@@ -20,13 +20,13 @@ A mobile application to help farmers manage their expenses.
 => [Flutter](https://flutter.dev/)
 
 ### Built by
-=> [Abhineet Pandey](github.com/abhineet99)
+=> [Abhineet Pandey](https://github.com/abhineet99)
 
-=> [Bhawna](github.com/bhawnapaliwal)
+=> [Bhawna](https://github.com/bhawnapaliwal)
 
-=> [Mehakjot Singh](github.com/hnysidhu)
+=> [Mehakjot Singh](https://github.com/hnysidhu)
 
 Under the guidance of [Dr. Puneet Goyal](https://sites.google.com/view/goyalpuneet), [IIT Ropar](www.iitrpr.ac.in)
 
-### Acknoledgments
+### Acknowledgments
 => Google Translate, Bing Translate for translations into Hindi and Punjabi
