@@ -107,7 +107,7 @@ class ExpenseDetailsPage extends StatelessWidget {
                           ? ExpenseTags(
                               tags: expense.tags,
                             )
-                          :Text(AppLocalizations.of(context).noTags).data,
+                          :Text(AppLocalizations.of(context).noTags),
                     ),
                     Divider(),
                     Padding(

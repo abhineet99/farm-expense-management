@@ -47,7 +47,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
         title: PalTitleView(
            title: Text(AppLocalizations.of(context).category).data,
           ),
-        backgroundColor: primaryColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         iconTheme: IconThemeData(color: Colors.green),
         actions: <Widget>[
           IconButton(
@@ -129,17 +129,6 @@ class _DashboardPageState extends State<DashboardPageFields> {
               }
             ),
             Divider(),
-//=======
-            // ListTile(
-            //   leading: Icon(Icons.lock),
-            //   title: Text('Sign Out'),
-            //   onTap: (){
-            //     Navigator.pop(context);
-            //     Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardPageFields()));
-            //   }
-            // ),
-            // Divider()
-//>>>>>>> master
           ],),
     ),
     body: SafeArea(
@@ -164,45 +153,12 @@ class _DashboardPageState extends State<DashboardPageFields> {
               ),
             );
 
-          // Widget titleWidget;
-          // titleWidget = PalTitleView(
-          //   title: "Your Fields",
-          // );
+
 
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-//<<<<<<< loan-branch
-              Padding(
-                padding: EdgeInsets.all(4.0),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Center(
-                          //child: titleWidget,
-                        ),
-                        // IconButton(
-                        //   icon: Icon(Icons.add),
-                        //   onPressed: () {
-                        //     Navigator.of(context).push(
-                        //       CupertinoPageRoute(
-                        //         fullscreenDialog: true,
-                        //         builder: (BuildContext context) {
-                        //           return addPage;
-                        //         },
-                        //       ),
-                        //     );
-                        //   },
-                        // ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-//=======
 //>>>>>>> master
               Expanded(
                 child: mainWidget,
@@ -215,47 +171,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
     );
   }
 
-  void deleteFieldDialog(BuildContext context, Field field, List<dynamic> items ){
-    showDialog(
-      context: context,
-      builder: (BuildContext dialogContext){
-        return Dialog(
-          child: Column(
-
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Text('Delete Category '+field.name +'?'),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  FlatButton(
-                    child: Text(
-                      'No'
-                    ),
-                    onPressed: ()=>Navigator.pop(context),
-                  ),
-                  FlatButton(
-                    child: Text(
-                      'Yes'
-                      ),
-                      onPressed: (){
-                        items.remove(field);
-                        fieldsBloc.removeField(field);
-                        Navigator.pop(context);
-                      },
-                  )
-              ],)
-            ],
-          ),
-          
-        );
-      }
-    );
-  }
-
-
+  
   @override
   Widget build(BuildContext context) {
     return _createBody(context);
@@ -291,92 +207,115 @@ class _DashboardPageState extends State<DashboardPageFields> {
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           return (items[index] is Field)
-              ? InkWell(
-                child: _FieldCard(
-                  field: items[index],
-                ),
-                onTapDown: (details)=>_tapPosition=details.globalPosition,
-                onTap: () => _onTapItem(context, items[index]),
-                onLongPress: () {
-                  showMenu(
-                      context: context,
-                      items: [
-                        PopupMenuItem(value:index,child: 
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.delete, color:  Colors.red,),
-                            Text('Delete'),
-                          ],
-                        ),)
-                      ],
-                      position: RelativeRect.fromRect(
-                          _tapPosition &Size(40, 40), // smaller rect, the touch area
-                          Offset.zero & overlay.size   // Bigger rect, the entire screen
-                      )
-                    )
-                    // This is how you handle user selection
-                    .then<void>((int del) async{
-                      // del would be null if user taps on outside the popup menu
-                      // (causing it to close without making selection)
-                      if (del == null) return;
-                      showDialog(context: this.context, builder: (BuildContext context){
-                        return AlertDialog(
-                          title: Text(
-                            'Delete Category '+items[index].name+'?',
-                            style: TextStyle(color: Colors.green),
-                          ),
-                          content: Text(
-                            'This will delete the selected category and all of its expenses.',
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          actions: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(left:8.0,right:8),
-                              child: InkWell(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left:16.0,right:16),
-                                  child: Text('Cancel',
+              ? Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Material(
+                  elevation: 5,
+                  child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(
+                          8.0,
+                        ),
+                        // boxShadow: <BoxShadow>[
+                        //   BoxShadow(
+                        //     color: Colors.black12,
+                        //     blurRadius: 4.0,
+                        //     offset: Offset(0.0, 4.0),
+                        //   ),
+                        // ],
+                      ),
+                    child: InkWell(
+                      // highlightColor: Colors.green,
+                      child: _FieldCard(
+                        field: items[index],
+                      ),
+                      onTapDown: (details)=>_tapPosition=details.globalPosition,
+                      onTap: () => _onTapItem(context, items[index]),
+                      onLongPress: () {
+                        showMenu(
+                            context: context,
+                            items: [
+                              PopupMenuItem(value:index,child: 
+                              Row(
+                                children: <Widget>[
+                                  Icon(Icons.delete, color:  Colors.red,),
+                                  Text('Delete'),
+                                ],
+                              ),)
+                            ],
+                            position: RelativeRect.fromRect(
+                                _tapPosition &Size(40, 40), // smaller rect, the touch area
+                                Offset.zero & overlay.size   // Bigger rect, the entire screen
+                            )
+                          )
+                          // This is how you handle user selection
+                          .then<void>((int del) async{
+                            // del would be null if user taps on outside the popup menu
+                            // (causing it to close without making selection)
+                            if (del == null) return;
+                            showDialog(context: this.context, builder: (BuildContext context){
+                              return AlertDialog(
+                                title: Text(
+                                  'Delete Category '+items[index].name+'?',
+                                  style: TextStyle(color: Colors.green),
+                                ),
+                                content: Text(
+                                  'This will delete the selected category and all of its expenses.',
                                   style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                    color: Colors.grey,
                                   ),
                                 ),
-                                onTap: ()=> Navigator.pop(context),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left:8.0,right:8),
-                              child: InkWell(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left:16.0,right:16),
-                                  child: Text('Delete',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.red,
+                                actions: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.only(left:8.0,right:8),
+                                    child: InkWell(
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left:16.0,right:16),
+                                        child: Text('Cancel',
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                      onTap: ()=> Navigator.pop(context),
                                     ),
                                   ),
-                                ),
-                                onTap: () async{
-                                  await fieldsBloc.removeField(items[index]);
-                                    setState(() {
-                                    items.remove(items[index]);
-                                    fieldsBloc.fetchAllFields();
-                                  }
-                                  );
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ) 
-                          ],
-                          );
-                      });                      
-                      
-                    });
-                  },
+                                  Padding(
+                                    padding: const EdgeInsets.only(left:8.0,right:8),
+                                    child: InkWell(
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left:16.0,right:16),
+                                        child: Text('Delete',
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.red,
+                                          ),
+                                        ),
+                                      ),
+                                      onTap: () async{
+                                        await fieldsBloc.removeField(items[index]);
+                                          setState(() {
+                                          items.remove(items[index]);
+                                          fieldsBloc.fetchAllFields();
+                                        }
+                                        );
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                  ) 
+                                ],
+                                );
+                            });                      
+                            
+                          });
+                        },
+                    ),
+                  ),
+                ),
               )
               : _DateHeaderCard(
                   date: items[index],
@@ -468,20 +407,7 @@ class _FieldCard extends StatelessWidget {
 
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        shape: BoxShape.rectangle,
-        borderRadius: BorderRadius.circular(
-          8.0,
-        ),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 4.0,
-            offset: Offset(0.0, 4.0),
-          ),
-        ],
-      ),
+      color: Colors.transparent,
       child: Column(
         children: <Widget>[
           Row(

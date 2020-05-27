@@ -54,171 +54,173 @@ class AddFieldPageState extends State<AddFieldPage> {
   Widget _createBody(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(4.0),
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.close),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                      Flexible(
-                        child: PalTitleView(title: Text(AppLocalizations.of(context).add).data),
-                      ),
-                      Container(
-                        width: 40.0,
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            Container(
-              child: Form(
-                key: _formKey,
-                child: ListView(
-                  shrinkWrap: true,
+        child: SingleChildScrollView(
+                  child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(4.0),
+                child: Column(
                   children: <Widget>[
-                    ListTile(
-                      leading: const Icon(Icons.title),
-                      title: TextFormField(
-                        controller: nameController,
-                        decoration: InputDecoration(
-                          hintText: Text(AppLocalizations.of(context).name_1).data,
-                        ),
-                        validator: (value) {
-                          if (value.isEmpty) {
-                            return Text(AppLocalizations.of(context).valEnterTitle).data;
-                          }
-                        },
-                      ),
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.label),
-                      title: TextField(
-                        controller: tagController,
-                        focusNode: tagFocusNode,
-                        onChanged: (newValue) {
-                          if (newValue.endsWith(',')) {
-                            addTag(newValue.replaceAll(",", ""), context);
-                          }
-                        },
-                        onSubmitted: (newValue) {
-                          addTag(newValue, context);
-                        },
-                        decoration: InputDecoration(
-                          hintText: Text(AppLocalizations.of(context).tag_1).data,
-                        ),
-                      ),
-                      trailing: Container(
-                        width: 40.0,
-                        child: FlatButton(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        IconButton(
+                          icon: Icon(Icons.close),
                           onPressed: () {
-                            FocusScope.of(context)
-                                .requestFocus(new FocusNode());
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  titlePadding: const EdgeInsets.all(0.0),
-                                  contentPadding: const EdgeInsets.all(0.0),
-                                  content: SingleChildScrollView(
-                                    child: ColorPicker(
-                                      pickerColor: currentColor,
-                                      onColorChanged: changeColor,
-                                      colorPickerWidth: MediaQuery.of(context).size.width - 32.0,
-                                      pickerAreaHeightPercent: 0.7,
-                                      enableAlpha: true,
-                                    ),
-                                  ),
-                                  actions: <Widget>[
-                                    FlatButton(
-                                      child: const Text('OK'),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
+                            Navigator.of(context).pop();
                           },
-                          color: currentColor,
-                          child: null,
                         ),
-                      ),
-                    ),
-                    ListTile(
-                      title: tags.length > 0
-                          ? _RemoveableExpenseTags(
-                              tags: tags,
-                              removeAction: (tag) {
-                                setState(() {
-                                  tags.remove(tag);
-                                });
-                              },
-                            )
-                          : Center(
-                              child: Text(
-                                AppLocalizations.of(context).noTagMsg,
-                                style: TextStyle(
-                                    color: Colors.black54, fontSize: 14.0),
-                              ),
-                            ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: PalButton(
-                        title: AppLocalizations.of(context).add,
-                        width: MediaQuery.of(context).size.width * (2.0 / 3.0),
-                        colors: [Colors.green[600], Colors.green[900]],
-                        onPressed: () {
-                          if (!_formKey.currentState.validate()) {
-                            return;
-                          }
-                          Field field=Field(
-                            name: nameController.text,
-                            tags: tags
-                          );
-                          fieldsBloc.addField(field);
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                    ),
+                        Flexible(
+                          child: PalTitleView(title: Text(AppLocalizations.of(context).add).data),
+                        ),
+                        Container(
+                          width: 40.0,
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top:30.0,bottom:30.0),
-              child: Divider(),
-              ),
-            _predefinedFields(context),
-            Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: PalButton(
-                        title: AppLocalizations.of(context).add,
-                        width: MediaQuery.of(context).size.width * (2.0 / 3.0),
-                        colors: [Colors.green[600], Colors.green[900]],
-                        onPressed: () {
-                          if (dropdownValue ==null) {
-                            return;
-                          }
-                          InitialiseFields().addFieldsData(dropdownValue);
-                          Navigator.of(context).pop();
-                        },
+              Container(
+                child: Form(
+                  key: _formKey,
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: <Widget>[
+                      ListTile(
+                        leading: const Icon(Icons.title),
+                        title: TextFormField(
+                          controller: nameController,
+                          decoration: InputDecoration(
+                            hintText: Text(AppLocalizations.of(context).name_1).data,
+                          ),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return Text(AppLocalizations.of(context).valEnterTitle).data;
+                            }
+                          },
+                        ),
                       ),
-                    ),
-          ],
+                      ListTile(
+                        leading: const Icon(Icons.label),
+                        title: TextField(
+                          controller: tagController,
+                          focusNode: tagFocusNode,
+                          onChanged: (newValue) {
+                            if (newValue.endsWith(',')) {
+                              addTag(newValue.replaceAll(",", ""), context);
+                            }
+                          },
+                          onSubmitted: (newValue) {
+                            addTag(newValue, context);
+                          },
+                          decoration: InputDecoration(
+                            hintText: Text(AppLocalizations.of(context).tag_1).data,
+                          ),
+                        ),
+                        trailing: Container(
+                          width: 40.0,
+                          child: FlatButton(
+                            onPressed: () {
+                              FocusScope.of(context)
+                                  .requestFocus(new FocusNode());
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    titlePadding: const EdgeInsets.all(0.0),
+                                    contentPadding: const EdgeInsets.all(0.0),
+                                    content: SingleChildScrollView(
+                                      child: ColorPicker(
+                                        pickerColor: currentColor,
+                                        onColorChanged: changeColor,
+                                        colorPickerWidth: MediaQuery.of(context).size.width - 32.0,
+                                        pickerAreaHeightPercent: 0.7,
+                                        enableAlpha: true,
+                                      ),
+                                    ),
+                                    actions: <Widget>[
+                                      FlatButton(
+                                        child: const Text('OK'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            color: currentColor,
+                            child: null,
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        title: tags.length > 0
+                            ? _RemoveableExpenseTags(
+                                tags: tags,
+                                removeAction: (tag) {
+                                  setState(() {
+                                    tags.remove(tag);
+                                  });
+                                },
+                              )
+                            : Center(
+                                child: Text(
+                                  AppLocalizations.of(context).noTagMsg,
+                                  style: TextStyle(
+                                      color: Colors.black54, fontSize: 14.0),
+                                ),
+                              ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: PalButton(
+                          title: AppLocalizations.of(context).add,
+                          width: MediaQuery.of(context).size.width * (2.0 / 3.0),
+                          colors: [Colors.green[600], Colors.green[900]],
+                          onPressed: () {
+                            if (!_formKey.currentState.validate()) {
+                              return;
+                            }
+                            Field field=Field(
+                              name: nameController.text,
+                              tags: tags
+                            );
+                            fieldsBloc.addField(field);
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top:30.0,bottom:30.0),
+                child: Divider(),
+                ),
+              _predefinedFields(context),
+              Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: PalButton(
+                          title: AppLocalizations.of(context).add,
+                          width: MediaQuery.of(context).size.width * (2.0 / 3.0),
+                          colors: [Colors.green[600], Colors.green[900]],
+                          onPressed: () {
+                            if (dropdownValue ==null) {
+                              return;
+                            }
+                            InitialiseFields().addFieldsData(dropdownValue);
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ),
+            ],
+          ),
         ),
       ),
     );
