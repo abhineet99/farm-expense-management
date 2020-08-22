@@ -23,7 +23,6 @@ class _InterestPageState extends State<InterestPage>{
   }
   double calculateCompoundInterest(int principal, double rate, int months)
   {
-    //print('check32');
     double amount = principal*pow(1+(rate*1.0)/1200,months);
     double toRet = amount-principal;
     return toRet;
@@ -142,7 +141,7 @@ class _InterestPageState extends State<InterestPage>{
                         fontSize: 16.0
                       ),
                       ),
-                      subtitle: Text('INR: '+amount.toStringAsFixed(2), 
+                      subtitle: Text('INR: '+amount.toStringAsFixed(2),
                       style: TextStyle(
                         color: Colors.green[800],
                         fontSize: 18.0
@@ -154,7 +153,7 @@ class _InterestPageState extends State<InterestPage>{
                         fontSize: 16.0
                       ),
                       ),
-                      subtitle: Text('INR: '+interest.toStringAsFixed(2), 
+                      subtitle: Text('INR: '+interest.toStringAsFixed(2),
                       style: TextStyle(
                         color: Colors.green[800],
                         fontSize: 18.0
@@ -166,7 +165,7 @@ class _InterestPageState extends State<InterestPage>{
                         fontSize: 16.0
                       ),
                       ),
-                      subtitle: Text('INR: '+emiShow.toStringAsFixed(2), 
+                      subtitle: Text('INR: '+emiShow.toStringAsFixed(2),
                       style: TextStyle(
                         color: Colors.green[800],
                         fontSize: 18.0
@@ -182,7 +181,7 @@ class _InterestPageState extends State<InterestPage>{
                         },
                       ),
                     ),
-                    
+
                     ListTile(
                       title: Text(AppLocalizations.of(context).compoundInterest), //this variable was const before localization
                       leading: Radio(

@@ -11,7 +11,7 @@ class Installment{
 class ViewLoanPage extends StatefulWidget{
   final LoanItem loan;
   ViewLoanPage({@required this.loan});
-  @override 
+  @override
   _ViewLoanPageState createState() => _ViewLoanPageState(loan: loan);
 }
 class _ViewLoanPageState extends State<ViewLoanPage>{
@@ -20,7 +20,6 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
   final primaryColor = const Color(0xFFFFFFFF);
   List<Installment> compute(LoanItem loan)
   {
-    print('check compute');
     double p = 1.0*loan.loanAmount;
     double r = loan.annualRoI;
     double e_amount = loan.emiAmount;
@@ -45,22 +44,17 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
         d = d.add(Duration(days: nd));
       //}
     }
-    print('p here: '+p.toString());
     if(p>0)
     {
       //amount_paid += p;
       Installment inst = Installment(d.day.toString()+"/"+d.month.toString()+"/"+d.year.toString(), p);
-      print('check hello');
       to_ret.add(inst);
     }
     return to_ret;
   }
   @override
   Widget build(BuildContext context){
-    print('check build');
-    
     List<Installment> _list = compute(loan);
-    print('check build 1' + _list.length.toString());
     return Scaffold(
       appBar: AppBar(
         title: PalTitleView(
@@ -152,7 +146,7 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
                       ),
                     ),
                     //Divider(),
-                  
+
                   ],
                 ),
               ),
@@ -180,7 +174,7 @@ class _ViewLoanPageState extends State<ViewLoanPage>{
                     color: Colors.green[600],
                   ),
                 );
-                } 
+                }
               ),
             )
             )

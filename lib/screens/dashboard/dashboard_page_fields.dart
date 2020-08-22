@@ -9,7 +9,6 @@ import 'package:farm_expense_management/common/ui/expense_tags.dart';
 import 'package:farm_expense_management/common/ui/pal_button.dart';
 import 'package:farm_expense_management/common/ui/pal_title_view.dart';
 import 'package:farm_expense_management/screens/dashboard/add_field_page.dart';
-// import 'package:farm_expense_management/screens/loan/loan_info.dart';
 import 'package:farm_expense_management/screens/home/home_page.dart';
 import 'package:farm_expense_management/screens/more/about.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,7 +16,6 @@ import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:farm_expense_management/screens/loan/interest_page.dart';
-// import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:farm_expense_management/common/database_manager/initialise_fields.dart';
 import 'package:farm_expense_management/locale/locale.dart';
 class DashboardPageFields extends StatefulWidget {
@@ -65,7 +63,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
           ),
         ],
       ),
-    
+
     drawer: Drawer(
       child: ListView(
           padding: EdgeInsets.only(top: 0.0),
@@ -75,7 +73,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
               //accountName: Text('Welcome!'),
               accountEmail: Text(''),
               decoration: BoxDecoration(
-                color: Colors.green[900]                
+                color: Colors.green[900]
               )
             ),
             ListTile(
@@ -87,7 +85,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
               }
             ),
             Divider(),
-            
+
             ListTile(
               leading: Icon(Icons.account_balance),
               title: Text(AppLocalizations.of(context).manageLoans),
@@ -105,21 +103,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>InterestPage()));
               }
             ),
-//             Divider(),
-//             ListTile(
-//               leading: Icon(Icons.info),
-// //<<<<<<< loan-branch
-// //              title: Text('Banks for Loans Info'),
-// //=======
-// //              title: Text(AppLocalizations.of(context).about),
-// //>>>>>>> master
-//               onTap: () {
-//                 Navigator.pop(context);
-//                 Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanInfo()));
-//               }
-//             ),
             Divider(),
-//<<<<<<< loan-branch
             ListTile(
               leading: Icon(Icons.info),
               title: Text(AppLocalizations.of(context).about),
@@ -159,19 +143,18 @@ class _DashboardPageState extends State<DashboardPageFields> {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-//>>>>>>> master
               Expanded(
                 child: mainWidget,
               ),
             ],
           );
         },
-      ), 
+      ),
     ),
     );
   }
 
-  
+
   @override
   Widget build(BuildContext context) {
     return _createBody(context);
@@ -181,8 +164,8 @@ class _DashboardPageState extends State<DashboardPageFields> {
     List<dynamic> items = List();
     var _tapPosition;
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();
-    
-   
+
+
     if (fields.length <= 0) {
       return _DashboardEmptyState();
     }
@@ -196,7 +179,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (BuildContext context) {
-            return HomePage(field: field); 
+            return HomePage(field: field);
           },
         ),
       );
@@ -218,16 +201,8 @@ class _DashboardPageState extends State<DashboardPageFields> {
                         borderRadius: BorderRadius.circular(
                           8.0,
                         ),
-                        // boxShadow: <BoxShadow>[
-                        //   BoxShadow(
-                        //     color: Colors.black12,
-                        //     blurRadius: 4.0,
-                        //     offset: Offset(0.0, 4.0),
-                        //   ),
-                        // ],
                       ),
                     child: InkWell(
-                      // highlightColor: Colors.green,
                       child: _FieldCard(
                         field: items[index],
                       ),
@@ -237,7 +212,7 @@ class _DashboardPageState extends State<DashboardPageFields> {
                         showMenu(
                             context: context,
                             items: [
-                              PopupMenuItem(value:index,child: 
+                              PopupMenuItem(value:index,child:
                               Row(
                                 children: <Widget>[
                                   Icon(Icons.delete, color:  Colors.red,),
@@ -306,11 +281,11 @@ class _DashboardPageState extends State<DashboardPageFields> {
                                         Navigator.pop(context);
                                       },
                                     ),
-                                  ) 
+                                  )
                                 ],
                                 );
-                            });                      
-                            
+                            });
+
                           });
                         },
                     ),
@@ -464,7 +439,7 @@ class _DashboardEmptyState extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).push(
               CupertinoPageRoute(
-                // fullscreenDialog: true, 
+                // fullscreenDialog: true,
                 builder: (BuildContext context) {
                   return AddFieldPage();
                 },

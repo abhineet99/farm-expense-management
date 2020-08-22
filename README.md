@@ -19,6 +19,10 @@ A mobile application to help farmers manage their expenses.
 ### Built using:
 => [Flutter](https://flutter.dev/)
 
+### How to build ?
+
+We used dart plugin in vscode to build and test the application.
+
 ### Built by
 => [Abhineet Pandey](https://github.com/abhineet99)
 
@@ -30,3 +34,5 @@ Under the guidance of [Dr. Puneet Goyal](https://sites.google.com/view/goyalpune
 
 ### Acknowledgments
 => Google Translate, Bing Translate for translations into Hindi and Punjabi
+
+=> Jack Doyle, Gor Kirakosyan, Artur Rymarz, Naveen Vignesh for the background on existing such applications.

@@ -57,7 +57,7 @@ class _LoanPageState extends State<LoanPage> {
             },
           )
         ],
-        
+
       ),
       body: SafeArea(
       child: StreamBuilder<List<Object>>(
@@ -82,10 +82,6 @@ class _LoanPageState extends State<LoanPage> {
               )
             );
           }
-          // Widget titleWidget;
-          // titleWidget = PalTitleView(
-          //   title: "Your Fields",
-          // );
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
@@ -98,21 +94,7 @@ class _LoanPageState extends State<LoanPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Center(
-                          //child: titleWidget,
                         ),
-                        // IconButton(
-                        //   icon: Icon(Icons.add),
-                        //   onPressed: (){
-                        //     Navigator.of(context).push(
-                        //       CupertinoPageRoute(
-                        //         fullscreenDialog: true,
-                        //         builder: (BuildContext context) {
-                        //           return AddLoanPage();
-                        //         },
-                        //       ),
-                        //     );
-                        //   },
-                        // ),
                       ],
                     )
                   ],
@@ -134,7 +116,6 @@ class _LoanPageState extends State<LoanPage> {
       if (loans.length <= 0) {
         return _LoanPageEmptyState();
       }
-    //print('hello456');
     List<dynamic> items = [];
     loans.forEach((loan){
       items.add(loan);
@@ -216,7 +197,6 @@ class _LoanCard extends StatelessWidget {
   final LoanItem loan;
   _LoanCard({@required this.loan});
   List<Widget> buildDetails() {
-    //print('789');
     Widget title = Padding(
       padding: EdgeInsets.only(bottom: 4.0),
       child: Text(
@@ -237,7 +217,7 @@ class _LoanCard extends StatelessWidget {
         fontWeight: FontWeight.w500,
       ),
     );
-    
+
     List<Widget> widgets = [title];
     widgets.add(loanamount_w);
     return widgets;
@@ -301,7 +281,7 @@ class _LoanPageEmptyState extends StatelessWidget{
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Expanded(
-          child: Image.asset('assets/images/loan.jpeg'),          
+          child: Image.asset('assets/images/loan.jpeg'),
         ),
         Expanded(
           child: Padding(

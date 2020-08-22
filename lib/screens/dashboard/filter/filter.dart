@@ -27,13 +27,6 @@ String DateFilterTypeName(BuildContext context,DateFilterType typeObj){
     return  Text(AppLocalizations.of(context).lastYear).data;
   else
     return "Custom";
-    // DateFilterType.today: "Today",
-    // DateFilterType.yesterday: "Yesterday",
-    // DateFilterType.week: "Last week",
-    // DateFilterType.month: "Last month",
-    // DateFilterType.year: "Last year",
-    // DateFilterType.custom: "Custom",
-
 }
 
 class DateFilter extends ExpenseFilter {
